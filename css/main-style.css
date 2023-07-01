@@ -1,0 +1,422 @@
+@font-face {
+font-family: Nintendo_RodinNTLG-M;
+font-weight: 300;
+font-style: normal;
+src: url(../fonts/vino.woff);    
+}
+
+#Favorites {
+ position:fixed;
+ top: 150px;
+ margin-left: 18px;
+}
+
+#TV {
+ position:fixed;
+ top: 150px;
+ margin-left: 175px;
+}
+
+#Movies {
+ position:fixed;
+ top: 150px;
+ margin-left: 343px;
+}
+
+#Sports {
+ position:fixed;
+ top: 150px;
+ margin-left: 506px;
+}
+
+#tvtag {
+ position:fixed;
+ top: 150px;
+ margin-left: 673px;
+}
+
+
+#Favorites-Label {
+ position:fixed;
+ top: 295px;
+ left: 47px;
+ color: white;
+ font-size: 18px;
+}
+
+#TV-Label {
+ position:fixed;
+ top: 295px;
+ left: 233px;
+ color: white;
+ font-size: 18px;
+}
+
+#Movies-Label {
+ position:fixed;
+ top: 295px;
+ left: 382px;
+ color: white;
+ font-size: 18px;
+}
+
+#Sports-Label {
+ position:fixed;
+ top: 295px;
+ left: 542px;
+ color: white;
+ font-size: 18px;
+}
+
+#tvtag-Label {
+ position:fixed;
+ top: 295px;
+ left: 712px;
+ color: white;
+ font-size: 18px;
+}
+
+
+body {
+    position: relative;
+    white-space: nowrap;
+    overflow-x: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+    overflow-scrolling: touch !important;
+    font-family: Nintendo_RodinNTLG-M;
+}
+
+#bg {
+        z-index: -9999;
+	top: 0;
+	left: 0;
+	position: fixed;
+}
+
+#featured-programs {
+  padding-top: 100px;
+  margin-left: 10px;
+}
+
+#featured-program {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+#featured-program-name {
+    display: block;
+    width: 95%;
+    font-family: "Nintendo_RodinNTLG-M";
+    color:white;
+    text-decoration: none;
+    padding-top: 7px;
+    text-align: center;
+    position: inherit;
+    font-size: 16px;
+}
+
+#featured-program-info {
+  display:block;
+  width: 95%;
+  color:white;
+  text-decoration: none;
+  font-family: "Nintendo_RodinNTLG-M";
+  text-align: center;
+  position: relative;
+  padding-top: 2px;
+  color: #00CDD8;
+  font-size: 14px;
+}
+
+#featured-program-live {
+  display:block;
+  width: 95%;
+  color:white;
+  text-decoration: none;
+  font-family: "Nintendo_RodinNTLG-M";
+  text-align: center;
+  position: relative;
+  padding-top: 2px;
+  color: #00FF40;
+  font-size: 14px;
+}
+
+#featured-program-tomorrow {
+  display:block;
+  width: 95%;
+  color:white;
+  text-decoration: none;
+  font-family: "Nintendo_RodinNTLG-M";
+  text-align: center;
+  position: relative;
+  padding-top: 2px;
+  color: #ffa500;
+  font-size: 14px;
+}
+
+#tv-programs {
+  padding-top: 92px;
+  margin-left: 12px;
+}
+
+#tv-programs #tv-program {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: -20px;
+}
+
+#tv-program-img {
+-webkit-box-shadow: -1px 0px 40px -8px rgba(0,0,0,0.65);
+}
+
+#tv-program #tv-program-name {
+  display: block;
+  margin-left: 5%;
+  color:white;
+  text-decoration: none;
+  font-family: "Nintendo_RodinNTLG-M";
+  text-align: left;
+  position: relative;
+  top: -48px;
+  color: #FFFFFF;
+  font-size: 16px;
+  text-shadow: 1px 1px 4px #000;
+}
+
+#tv-program #tv-program-episode {
+  display: block;
+  margin-left: 5%;
+  color:white;
+  text-decoration: none;
+  font-family: "Nintendo_RodinNTLG-M";
+  text-align: left;
+  position: relative;
+  top: -48px;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-shadow: 1px 1px 4px #000;
+}
+
+#search {
+  bottom: -23px;
+  right: 25%;
+  position: fixed;
+  z-index: 10;
+  width: 432px;
+  height: 82px;
+  border: 1px solid #4d4d4d;
+  outline: 1px solid #000000;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOESURBVGhD7ZhLSBVRGMev0cvekVZa1qboDbWLnvSAamFI0QtaBy1qFxVEBEEvCSQhKoJa9BAKXBWCRC2CCKJaJbQwDbRMxR5aaYb9/vd+V6fjNY/3juZifvDjmztz7jnnm5kzc87EIiIiIiIyIctiWnR1dY0kTMGxuB034USch6IFm/ENlmENtmZlZbUS/y90PgdXYSV+Rx+q8BTmo5IfetQwzsZy9O24ixJZjROs2qGBBtV5NawO9EWHYyemQskfwoySGNAYoLE1hHs4M76jhw78jp+wVjsCTMYCnIoaK0F+4DG8wbj4Ft8zWND5AvyALl+wAk9Y0V5wbBuWYR26V+QHHsZRVjx8qHwyPkOXZjxnxfqFslvxOerWCtKCK61Y+FC5zpBLEx63It7wHz2BnuBvDPIYx1ux8FClWKsWAuiy695NC/6bhzWqyGGHFQkPKi1K1P0XD+xw2lDHQfwZr62HSjscHlR6P1F3N+24wg5nBPW8iNfYw0ccbYe9GGHxXyyxmOQdj7xXtp0p7pWcgYsTm374JJBnMUlYnRflFoOss+iFTwJ6EQXRxCwUuJKvbTNtfBJw0Rt32OCTwC+LSfItZgwD1r26A8YnAc3ng4TyBDI2WwzSZNELnwTqLCZZypnTIiYM3BdXOz5KbPrhk4D7csnFXYnN9OEkzCGsT/zq5i0Du8G2w4GGdMbbMEg1LrIiA4b/ZmOpKnI4aUXChYq1bHTRimyuFfGG/6jze9CdRjTgdCsWLlRciI1qJYA6cBWXW7F+oaxmovvQrUvTkzNWbHCggdOYag2safBGXGhFe8GxWbgWL6DbeaH1gPeJCDLQJeUdQhFmx3f0UI9P8S66n0w0OduAhbh   AO1Kgp08JljKI3adeeJBALt7Cb9gX9Y5f0QfdkrpCs625wYEGlMQlTLW+9eUz6tZzb0klUYz6CDC40MgRfIiaw/smonv9JepML8Sb6D6ilcRF1HuiXzL9tKiBuxPn4zLUfH6MKX5jG+oTYzVW4RPu8wqi/p9DKMbdOE77DI2Jy1hC2ffxPX2QUQJB6MwWghY/kzD5sUoTwUZUJ9TxXvMcS+I87sVgEvrWpCTO8j99bxq+KAm8ju7tpPfDfiuWknTWA6FjV+Yo3sbgeqMTh/b7aSZwtqfhFdS0Qmp7mh1OSWhjICyswwcSv2LXuDrueiQiIiIiIsKIxf4AnDTW2x3hcJUAAAAASUVORK5CYII=')
+  no-repeat 10px 6px, rgba(0,0,0,0.3);
+  border-radius: 24px;
+  -webkit-border-radius: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+#search input[type="text"] {
+    position: fixed;
+    margin-left: 66px;
+    bottom: 12px;
+    color: white;
+    width: 345px;
+    height: 35px;
+    font-family: "Nintendo_RodinNTLG-M";
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid #4b4b4b;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 1) inset;
+    outline: none;
+}
+
+			
+#exit {
+  position: fixed;
+  bottom: -30px;
+  left: 0;
+  margin-left: -52px;
+  z-index: 10;
+  width: 115px;
+  height: 91px;
+  border: 1px solid #6d6d6d;
+  outline:1px solid black;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAYAAAA+stv/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAWGSURBVFhHvVdZTJxVFL4zP9vAwADKUlaDiQIZaIAOFrG2TazVxAeNQX0zsYo1pJNojEGTRnCJWiWN7FAE+9AHiwbxhbCEfZNl2AkSDPsWGQIUKHUG8Ds/l8lMmV3jl5zM/c+9//3OPef895yRMCMcHh4Ki4uLp/R6/WmJROIFWXZxcekPCQnZ5UscwtjYmJunp2eUVCpVQrD94R/Y88/w8PD7fAmT8l9xMchVBwcH5Vj8Kxb+hIWtMObjpaWlR/kyu0H7yeXyZwVB+A173Q0LC/sZ6hoY8R728zxaxZjoAVqsUChSQZ6NxxSIC+kJMIItLCxkYaMCeGKNq61ifn5ehr1SQfwpHp+GiAelvTC3AiO+dnV1vUWeJb8I3t7ep/HCR3yxgZyAFxisz9rf38+wxxN0GCNyOozBy7QXjAjG3Ac6ne4d8oRkdnbWD4pyzL8EMSE3hpEnvrWUE3SYubm5i0bkgjjxELgn5jBUS7E4GYMXIBbJCUaeuM5VJwDys7bICdwTERi+T+45A/GgCVvgRmTi9xpXGQDyx7knKYwWyY/BjTgvbW9v1yHTudo2uBG5ILxOMSS3IzRnMXUX8gTEEHNbqK+v3xGwWTI+u8tBQUEM8eVT1rG1tUXWX9zY2JBubm76QkVhUUFM7hVrWFtbY42NjVpBqVQ+WF1dfdHd3V3h5+fH8HnwJdZBRgDxcPtz+H0SYp/1ADzH2tra2PLy8k1hYGBgJTY29gEekjw8POSBgYF2ewKg3PGG2O12Iu/s7GRTU1N1+fn5V0SmwcHBvri4OD3cEgsPKAICAhwxwm4gZKyjo4NNTk7WFRYWXiadgQWe+D0mJkbAvXAGV6iMPIHc4LP/DkhUhjC   zhoYGNjMzQycXyQkmx4QRXfHx8fdh4VM+Pj4yXDh8xnkQuVarZdXV1ds4nKaoqOgCnxJxws8woichIUELS5NlMpmYE856AleyePKqqio9Yl9fXl5OCWsCs4GGEQPIiV1YnIIiJfP393cqJ+jOqKur0yPBfwH5q1xtAotHq6ioKMLPN/DE2t7e3pHSQayvrx9AqsrKyt7gqhOwenEMDQ2dA/kdXFLhzoRhe3v7YHd39wZy6XNLBcyiAdPT04/B7bcxTIU47n+AV70VDL+LiIjIOdKawuyxOPmPGDpNTuAFJxjDDzG+cqQ1xYmeEAtjMPwBQlXyP7kIuCfWcW1nYZzH1SIMBlAnQ50RhtSWPQ9x+uTmYCkcogGcnEpqJuQSxGpz4iyMjPgM3fZtQ0/o5eWlhHuoyXCInEoqegFmbz8B8uOcyMQ7b5JOgu/8FBLuexjyMp7tq8UAFZaenh5xU5VKxaKjo5mbmxuftQ7uCeoJM6knfAbkr+DBIfLW1lY2PDzcnp2dLamtrV0fHR3ls7bBPREB3mtStMfx0DkU8+bmZjY+Pq7Jzc09R895eXmP1NTUbKPGi/P2gIxAMqYIiYmJF2DNeXtuOtxqDKdlGo1muLS0NIGrRfT393+FhuYT1A2Baoet/ahQ9fX13RNArsLiS8HBwVYLDrmd2qiRkZEJkCu52gQw4gtc22rqJ6i9s7TfcZXEfn8JSKROfA5v40+kj6+vr9mekMi7u7sZ4qwpKCigkJlFenq6J5qNL3EYNb4ss1WUyOnLaWpq0iEMt8RZGHEzNDT0KhpT+cPt2DE5Tq5BrJPS0tLcEP99Pm0CeEBHv11dXTciIyOvUo9pbMQxeUtLiw5tfVVJScm7Bia8lBMVFfUWFinQiDC8TDWB9GxiYsJAXllZ+Td/xSrwfyOHjMCFg4jIGf5RUTvGent7ddiXyF+ndSeqYUZGhhZNiD8ZQEkHD2iKi4uT+LTDUKvV9xBaOSUlyrN+Z2enCm3ZaziMgMOY9eT/CMb+Abinu   dyye2Z1AAAAAElFTkSuQmCC') no-repeat 67px
+  14px, -webkit-radial-gradient(55% 15%, #4c4c4c, #262626, #1d1d1d);
+  border-top-right-radius: 25px;
+  -webkit-border-top-right-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+#back {
+  position: fixed;
+  bottom: -30px;
+  left: 0;
+  margin-left: -52px;
+  z-index: 10;
+  width: 115px;
+  height: 91px;
+  border: 1px solid #FFFFFF;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVFhHtVdbSGNHGJ4kGhONGi/RaHBJIN6Kt6hIbGmb1IdFUugGHypSCgELplCLS6EtbEl8KK0+rT4IgrW6+CAFiy+WZaFsoFIQNIQWBB9SQ/GGt6ZqvVVjv//knLC5mFv1g58zZ84/M9/8t5kjYmmiublZhYdRJBI9ubm5aUTb4na7f+Y+pgEx/0waTU1NcoPB0I7mYGZm5g8qlaotLy8vKyMjQxfUSA8pEQGBArFY/BhWmMjKyvpIp9PJKisrWUlJCQMpXis9JCQCC4hBQNHS0vKmRCJ5hgU/LS0tfa2uri6jvLycgRCDa3jt9BGXCOJABgvUo/k1rPCTQqF4t6qqSlVTU8Nyc3M5nUAgcL9EWltb1Xj0gsB3crncrtFoFCDBioqKuIWJgCD3QgSukMASRiwwAhKDhYWFLXq9PrOiooLJZLIwAoIQkf9LJpS+ICDFwmWQT+CO97Dog7KyMimIMGQEQz+vGY3NzU2S51dXV0t8F8ELcl6MW8d8fy0vL5/z/TEhomAENGi/hYEfww2v5+fnM7VazVkgGezv77OdnR12fX3N9zCuDYHBAn/g9TnkR5Byr6ys/M0pREAEN7yB5wdQ6kIAqigVURcYMiSokQQuLy/ZxcVFmHtgHa7/7OyMnZyc0PdtfJ/Fp2cg95vH4wkENYMgIr8jBatAQEqWoHS8S5BliNTh4SHb29v7F1gFoS8hL0AmZEJRR0fHDblBKpUyuIjvvnuQtc7Pz9nGxgZZ6B+8WyCLAhnJ2NiYlnwM1mqwDQ26ayFQ0KMW0YalcNlDdLlhhD8RXzfizs5OGwqUtaCgYACu8QkpeV9CZIqLi6kgliIuvwKpGiIZlpPDw8MmKL9cXV3   lBiULMjkWsMG9PnpH6XcgnU2CJWKBxmxtbV3i+Q3IfBuzOIyMjDzyer0OBFhTvMkEHBwckN8Ni4uLHr6Lzc7OKv1+/8ulpSUtskfJd4dA81I2bW9vexHQlrj3kd7eXufp6enbaJKlgp0xQBkBvTAiAvr7+x8dHR19j51HkaGM2t3dZcfHx71x02RiYsKJ09aGujJPvhX8HCmvBmQkRkdH55EIVhDxR44jULlAzXqYMF+np6d9CGIbiBiys7OjJiOJR4QwMzPjQjLEHEdEELSmpArH0NCQf2pqymM0GnW4h7gQXFxQ8mU8LgkB7e3tCImT0BhBqIKDiCqlCtbX1+d3Op1mrVY7UFtb68cECa0hAAH7gkq+oP/qOJonrVKKNJ/HYWlTKpVOqgm0q0RHg8vl+pUsEOkewUVpESF0dXXNT05ODlZXV+tARIcY4tx1G3w+XzUtGOkaEjpa4qbvXQEHqxqL/YKg19OZFgm69aVtkWRBJPB4AqvpyYWRbqG4wRX08F6JgAT9hH2GYHyfLlnkmkgi1Ica83lKrkGAimDibDTzILdGJyZXYvF30LRDX4NAlvP1IqjAg0g0NDT4cSKbUyKCHebg8SHkMYT+7G69xlEAklBMUFWOBdyJ6TY4MD4+/jRV1+RjV19gYj12KKFdJhIiE+kOEiKIW6Gru7vbRROnSkSKiR/Q7yUFXjwhN8SKCUFwXHjwhzBgNpu5gzKtYI23QCIhK8ESHsSF1eFwhE7rlImkS4LGqVQq1tbW5mlsbLThIAwrgCkFq8Vi0SLV1nF/4HuSQ05ODquvr6ezadBqtbpMJlPUvSUlImtra9qFhYX1ubk57qoXD5Qp2DnDD9tTt9s9bbfbWU9PTxSBIBj7DzVNpYBZMniCAAAAAElFTkSuQmCC') no-repeat 65px
+  13px, -webkit-linear-gradient(top right, #FFFFFF, #aaaaaa, #b1b1b1);
+  border-top-right-radius: 25px;
+  -webkit-border-top-right-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+#remote {
+  bottom: -30px;
+  right: 0%;
+  position: fixed;
+  margin-right: -20px;
+  z-index: 4;
+  width: 80px;
+  height: 88px;
+  border: 1px solid #FFFFFF;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAtCAYAAACqCZtVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPISURBVFhH1VdZLyxBFP56jH2JfX0QEWtIJIgglkgQsT35AX6FJ0EQDzz6FZ54QOIJCSLxhITEGsS+xb7X7a+me+5Md4/Lnbm58SVnqqvOma9PnzpVdUqBB0xNTYnp6WksLy9jd3cXNzc3cjwiIgKpqanIy8tDdXU1GhoaLDlMgyMjI2J4eBgXFxdISEhAZGQkwsLC4O/vL/Wvr6+4u7vD1dUVjo6OEB8fj/b2doobl11rndjb20NSUhJycnKQkZEhJTExEaGhofj4+MDDwwMODw+xsbGBra0t+QL2jTB5rBKL2dlZlJaWIiQkRHr4+PiI6+trKIoiQxEYGAi73S49X1xcRFlZGTIzM924LOOzv78vTk9PMTo6Cr5kZ2cHfn5+EEJISUtLQ0VFBRobG2W41L6Jx5KYKC8vF/SQYQgPD5feEgzH7e0tjo+PZX9ubs6SwyPx+Pi4mJmZQUlJCdLT0xEVFSW9ZUw3NzdlCCorK9HS0vI9YoIheXl5AcPClCMYhtjYWBnj5+dnZGVlfZ+YaGpqEqurq3Iiifv7exQUFGBsbOzT//6ReGhoSKysrCA4OFhOIDMhNzcXHR0d3hETS0tLgpPIGJ+cnKCoqOhL//sSVK/pudC6/w/OT+rq6hITExM4ODiQufod2Gw2pKSkoL6+Hv39/ZJT/jQ3NwsmfHJyspx9fTF8FYy9vofExcVBdVBRuru7xfz8PKKjozUz73B5eYni4mIora2tIigoSBv2Dbhp2fjZ+ubiKyFsXJpWSm8kICAANrJbKb0R6bGVwhfyA4m5yv6F/LxQKDwhZH5o6OnpkUcPlQT3397eXvmsQ92wEBMTI59pd35+brIxecxT4uzsTBqzZQV   ktCF4DvKlbAmjjYn47e3NaUiwb7R5f3936l37rmIi1o2NrVE8jetiSje9DqOSUEsANz2FxaBOQLBvtFHq6uocWg0sW1lL6OCWypLVFUYb1nL5+flazwGltrbWjdhX+IELpKamxi0UaoXjTH6CuTw4OKj1HOjr65OHJgkI2nR2dspnHXKjdwVP2+3tbac8PT1pmt/gmcYygSe7niFGmELBCt4V7BtteD/RVydrZTpjtLFcIEZ4suGqJCmvEUYbtYixuQ2wLuDJrQu9ctVTOPaZDTmVtrY2wc1Ex9ramls4eOJmZ2drPQfW19fdFojRhvcSZWBgQExOTmpDvoF6qYStsLBQvs31U7wRcqn1s6MoVGs3sbCwwFbONjeR74AxZV7zvsf7odqqkdeg3pAEr7asjP4GzBBeI6qqqlRO4BfIm8rqBCqrLwAAAABJRU5ErkJggg==') no-repeat 20px
+  6px, -webkit-linear-gradient(top left, #FFFFFF, #aaaaaa, #b1b1b1);
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+#main-mii-info {
+  position: fixed;
+  top: -27px;
+  right: 0%;
+  margin-right: -20px;
+  z-index: 4;
+  width: 80px;
+  height: 86px;
+  border: 1px solid #FFFFFF;
+  background: -webkit-radial-gradient(circle, #FFFFFF, #e6e6e6);
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+#main-mii-info #main-mii-image {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 5;
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+#mii-info {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: rgba(50,50,50,0.7);
+    border: 1px solid rgba(50,50,50,0.4);
+    height: 62px;
+    width: 62px;
+    box-shadow: 0 3px 2px -2px rgba(239,239,240,0.3);
+}
+	
+#mii-info #mii-image {
+    width: 62px;
+    height: 62px;
+    background: -webkit-radial-gradient(circle, #f0f8ff, #cfe6fa);
+    border-radius: 5px;
+    display: block;
+}
+
+#main-tv {
+    position: fixed;
+    cursor: pointer;
+    top: 33px;
+	left: 270px;
+	font-size: 25px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #FFFFFF;
+            text-shadow: 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3;
+}
+
+#main-favorites {
+    position: fixed;
+    cursor: pointer;
+    top: 33px;
+	left: 365px;
+	font-size: 25px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #d7d7d7;
+    text-shadow: 1px 1px #000000;
+}
+
+#main-guide {
+    position: fixed;
+    cursor: pointer;
+    top: 33px;
+	left: 530px;
+	font-size: 25px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #d7d7d7;
+    text-shadow: 1px 1px #000000;
+}
+
+#main-arrow-featured {
+    position: fixed;
+    cursor: pointer;
+    top: 58px;
+	left: 270px;
+	font-size: 25px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #FFFFFF;
+            text-shadow: 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3;
+}
+
+#main-tv-featured {
+    position: fixed;
+    cursor: pointer;
+    top: 72px;
+	left: 180px;
+	font-size: 14px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: FFFFFF;
+            text-shadow: 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3;
+}
+#main-live-tv {
+    position: fixed;
+    cursor: pointer;
+    top: 25px;
+	left: 50px;
+	font-size: 22px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #FFFFFF;
+            text-shadow: 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3, 0px 0px 20px #3a90c3;
+}
+
+#main-recomended-tv {
+    position: fixed;
+    cursor: pointer;
+    top: 25px;
+	left: 150px;
+	font-size: 22px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #FFFFFF;
+    text-shadow: 1px 1px #000000;
+}
+
+#main-guide-tv {
+    position: fixed;
+    cursor: pointer;
+    top: 25px;
+	left: 350px;
+	font-size: 22px;
+	font-family: "Nintendo_RodinNTLG-M";
+	color: #FFFFFF;
+    text-shadow: 1px 1px #000000;
+}
