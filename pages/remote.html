@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>Nintendo TVii</title>
+<link rel="stylesheet" href="../css/style.css">
+ 
+<style>
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #818181;
+}
+
+#calculator {
+  position: fixed;
+  height: 480px;
+  width: 500px;
+  margin-top: 0px;
+  margin-left: 380px;
+  background-color: #dfd8d0;
+  border: 1px solid #908b85;
+  border-radius: 20px;
+  box-shadow: 7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #89847e;
+}
+
+#title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#buttons {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  position: fixed;
+  display: inline-block;
+  width: 340px;
+  height: auto;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+button {
+  font-size: 22px;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  background-color: #3a3a3a;
+  margin: 0 4px 10px 8px;
+  height: 55px;
+  width: 65px;
+
+  box-shadow: 0px 3px 0px 0px #222121, inset -1px -3px 10px 1px #515151;
+}
+
+button:active {
+  border: 1px solid #13ebeb;
+  background-color: #2dd6d6;
+  transform: translate(0px, 3px);
+  box-shadow: none;
+}
+
+.row {
+  margin-top: 20px
+}
+
+#topAdjust {
+  margin-top: -52px;
+}
+
+#equalButton {
+  position: absolute;
+  margin-left: 12px;
+  margin-top: -50px;
+  height: 90px;
+}
+
+#zeroButton {
+  width: 117px;
+}
+
+.power {
+  height: 45px;
+  width: 75px;
+  font-size: 18px;
+  background-color: #de1f45;
+  box-shadow: 0px 3px 0px 0px #671c2a;
+}
+
+.source {
+  height: 45px;
+  width: 75px;
+  font-size: 18px;
+  background-color: #3a3a3a;
+  box-shadow: 0px 3px 0px 0px #222121, inset -1px -3px 10px 1px #515151;
+}
+
+.circle {
+  font-size: 22px;
+  color: #fff;
+  border-radius: 100px;
+  border: none;
+  background-color: #3a3a3a;
+  margin: 0 4px 10px 8px;
+  height: 55px;
+  width: 65px;
+
+  box-shadow: 0px 3px 0px 0px #222121, inset -1px -3px 10px 1px #515151;
+}
+
+button,
+button:hover,
+button:active,
+button:visited {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #922031;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+
+</style>  
+
+<body translate="no">
+  <div class='container'>
+  <div id='calculator'>
+
+    <div id='buttons'>
+      <button class='source'>Source</button>
+      <button class='power'>Power</button>
+      <button class='power'>Cable</button>
+      <button class='source'>Guide</button>
+<br>
+      <button class='circle'>▲</button>
+      <button class='circle'>◀</button>
+      <button class='circle'>▶</button>
+      <button class='circle'>▼</button>
+<br>
+      <button value='7'>1</button>
+      <button value='8'>2</button>
+      <button value='9'>3</button>
+<br>
+
+      <button value='4'>4</button>
+      <button value='5'>5</button>
+      <button value='6'>6</button>
+<br>
+
+      <button value='1'>7</button>
+      <button value='2'>8</button>
+      <button value='3'>9</button>
+<br>
+
+      <button value='3'>.</button>
+      <button value='3'>0</button>
+      <button value='3'>-</button>
+
+    </div>
+    <!-- end buttons -->
+    <div id='tester'></div>
+  </div>
+  <!-- end calculator -->
+</div>
+<!-- end container -->
+
+</body>
+</html>
