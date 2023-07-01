@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>Vino - Wii U</title>
+  <link rel="stylesheet" href="css/main-style.css">
+</head>
+  <body>
+<img id="bg" src="img/bg.png">
+
+   <div id="main-mii-info">
+       <a navi_target href="pages/settings.php">
+        <img id='main-mii-image' onclick='vino.soundPlayEx('SE_FACE', 1);' src='https://s3.us-east-1.amazonaws.com/mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png'/>        </a>
+    </div>
+
+  <div id="menu-buttons">
+    <span id="main-tv">TV</span>
+    <span id="main-favorites">Favorites</span>
+    <span id="main-guide">Guide</span>
+    <span id="main-tv-featured">Top Shows and Movies Today</span>
+
+      <div id="exit" onclick="vino.soundPlayEx('SE_COMMON_FINISH', 1),vino.exit()"></a></div>
+
+      <div id="remote" onclick="vino.soundPlayEx('SE_POPUP', 1);"></a></div>
+    
+    <div navi_target id="search">
+    <input type="text"/></div>
+
+  </div>
+
+<div id="featured-programs">
+
+                  <div id="featured-program">
+                  <a navi_target href="pages/live-tv.html">
+                  <img src='img/program1.png' id="tv-program-img" onclick='vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);/'></a>
+                  <span id='featured-program-name'>Yo-kai Watch - Yo-kai Are Real!</span>
+                  <span id='featured-program-live'>S1:E1 - Live</span>
+                  </div>
+
+
+                  <div id="featured-program">
+                  <a navi_target href="pages/page1.html">
+                  <img src='img/program2.png' id="tv-program-img" onclick='vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);/'></a>
+                  <span id='featured-program-name'>This is a example that names cant be that long LO</span>
+                  <span id='featured-program-info'>Starts in 60 minutes</span>
+                  </div>
+
+
+                  <div id="featured-program">
+                  <a navi_target href="pages/page1.html">
+                  <img src='img/program3.png' id="tv-program-img" onclick='vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);/'></a>
+                  <span id='featured-program-name'>Funny Show Name - Funny Episode LMAO...</span>
+                  <span id='featured-program-info'>S5:E12 - Starts in 2 hours</span>
+                  </div>
+
+
+                  <div id="featured-program">
+                  <a navi_target href="pages/page1.html">
+                  <img src='img/program4.png' id="tv-program-img" onclick='vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);/'></a>
+                  <span id='featured-program-name'>Yo-kai Watch - Yo-kai Are Real!</span>
+                  <span id='featured-program-tomorrow'>Starts tomorrow</span>
+                  </div>
+
+</div>
+
+
+	<script src="/js/portal/complete-emu.js"></script>
+</body>
+</html>
