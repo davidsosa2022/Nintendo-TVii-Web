@@ -106,7 +106,6 @@ body {
 #featured-program-name {
     display: block;
     width: 95%;
-    font-family: "Nintendo_RodinNTLG-M";
     color:white;
     text-decoration: none;
     padding-top: 7px;
@@ -120,7 +119,6 @@ body {
   width: 95%;
   color:white;
   text-decoration: none;
-  font-family: "Nintendo_RodinNTLG-M";
   text-align: center;
   position: relative;
   padding-top: 2px;
@@ -133,7 +131,6 @@ body {
   width: 95%;
   color:white;
   text-decoration: none;
-  font-family: "Nintendo_RodinNTLG-M";
   text-align: center;
   position: relative;
   padding-top: 2px;
@@ -146,7 +143,6 @@ body {
   width: 95%;
   color:white;
   text-decoration: none;
-  font-family: "Nintendo_RodinNTLG-M";
   text-align: center;
   position: relative;
   padding-top: 2px;
@@ -174,7 +170,6 @@ body {
   margin-left: 5%;
   color:white;
   text-decoration: none;
-  font-family: "Nintendo_RodinNTLG-M";
   text-align: left;
   position: relative;
   top: -48px;
@@ -188,7 +183,6 @@ body {
   margin-left: 5%;
   color:white;
   text-decoration: none;
-  font-family: "Nintendo_RodinNTLG-M";
   text-align: left;
   position: relative;
   top: -48px;
@@ -229,7 +223,6 @@ body {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 1) inset;
     outline: none;
 }
-
 			
 #exit {
   position: fixed;
