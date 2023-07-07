@@ -78,12 +78,21 @@ src: url(../fonts/vino.woff);
 
 
 body {
+    position: fixed;
+    font-family: Nintendo_RodinNTLG-M;
+    background-image: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.wrapper{
     position: relative;
+    width: 854px;
+    height: 480px;
     white-space: nowrap;
     overflow-x: scroll !important;
     -webkit-overflow-scrolling: touch !important;
     overflow-scrolling: touch !important;
-    font-family: Nintendo_RodinNTLG-M;
 }
 
 #bg {
