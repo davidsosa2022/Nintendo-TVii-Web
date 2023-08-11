@@ -219,6 +219,8 @@ transform: translate(0px, 2px);
     color: white;
     width: 345px;
     height: 35px;
+    font-size: 18px;
+    padding: 0px 12px 0px;
     font-family: "Nintendo_RodinNTLG-M";
     background: rgba(0, 0, 0, 0);
     border: 1px solid #4b4b4b;
