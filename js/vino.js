@@ -12,8 +12,6 @@ span.innerText=vino.act_getName(activeUserSlot);
     return a + alpha * ( b - a )
   }
 
-  vino.navi_setMoveMethod(1);
-  vino.lyt_setIsEnableClientLoadingIcon(true);
 
   var lStickRightCheck = setInterval(function() {
     wiiu.gamepad.update()
@@ -31,20 +29,6 @@ span.innerText=vino.act_getName(activeUserSlot);
 
   }, 10);
 
- if (document.title=="home") {
-
-  var bButtonCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 16384) {
-      vino.soundPlayEx("SE_COMMON_FINISH", 1);
-      vino.exit();
-    }
-
-  }, 50);
-
-}
-  else {
-
   var bButtonCheck = setInterval(function() {
     wiiu.gamepad.update()
     if(wiiu.gamepad.hold === 16384) {
@@ -52,5 +36,3 @@ span.innerText=vino.act_getName(activeUserSlot);
     }
 
   }, 50);
-
-}
