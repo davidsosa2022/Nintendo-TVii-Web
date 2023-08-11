@@ -14,10 +14,20 @@ vino.exit();
 }
 
 function back() {
-vino.soundPlayEx('SE_COMMON_FINISH', 1);
+vino.soundPlayEx('SE_HTML_CANCEL_TOUCH_OFF', 1);
 history.back();
 }
 
 function miiClick() {
 vino.soundPlayEx('SE_FACE', 1);
+}
+
+function keyboardClick() {
+vino.soundPlayEx('SE_COMMON_TEXTBOX', 1);
+}
+
+function changeToChannel(p1, p2, p3) {
+vino.ir_send(p1, 0);
+vino.ir_send(p2, 0);
+vino.ir_send(p3, 0);
 }
