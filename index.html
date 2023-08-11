@@ -5,12 +5,11 @@
   <script src="js/vino.js"></script>
 </head>
   <body>
-<img id="bg" src="img/bg.png">
 <div class="wrapper">
 
    <div id="main-mii-info">
        <a navi_target href="pages/settings.html">
-        <img id='main-mii-image' onclick='vino.soundPlayEx('SE_FACE', 1);'></a>
+        <img id="main-mii-image" onclick='vino.soundPlayEx('SE_FACE', 1);'/></a>
     </div>
 
   <div id="menu-buttons">
@@ -19,9 +18,9 @@
     <span id="main-guide">Guide</span>
     <span id="main-tv-featured">Top Shows and Movies Today</span>
 
-      <div id="exit" onclick="vino.soundPlayEx('SE_COMMON_FINISH', 1),vino.exit()"></a></div>
+      <div navi_target id="exit" onclick="vino.soundPlayEx('SE_COMMON_FINISH', 1),vino.exit()"></div>
 
-      <div id="remote" onclick="vino.soundPlayEx('SE_POPUP', 1);"></a></div>
+      <div navi_target id="remote" onclick="vino.soundPlayEx('SE_POPUP', 1);"></div>
     
     <div navi_target id="search">
     <input type="text"/></div>
