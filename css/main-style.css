@@ -90,13 +90,6 @@ body {
     overflow-scrolling: touch !important;
 }
 
-#bg {
-        z-index: -9999;
-	top: 0;
-	left: 0;
-	position: fixed;
-}
-
 #featured-programs {
   padding-top: 100px;
   margin-left: 10px;
@@ -105,6 +98,14 @@ body {
 #featured-program {
   display: inline-block;
   margin-left: 20px;
+}
+
+#featured-program:hover {
+transform: translate(0px, 2px);
+}
+
+#featured-program:active {
+transform: translate(0px, 2px);
 }
 
 #featured-program-name {
