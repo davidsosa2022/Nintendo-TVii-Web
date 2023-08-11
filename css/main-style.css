@@ -81,8 +81,9 @@ body {
     position: relative;
     font-family: Nintendo_RodinNTLG-M;
     background-image: url("../img/bg.png");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
+    background-position: left top;
     white-space: nowrap;
     overflow-x: scroll !important;
     -webkit-overflow-scrolling: touch !important;
