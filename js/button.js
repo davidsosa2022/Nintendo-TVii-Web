@@ -22,6 +22,7 @@
   var bButtonCheck = setInterval(function() {
     wiiu.gamepad.update()
     if(wiiu.gamepad.hold === 16384) {
+      vino.soundPlayEx('SE_HTML_CANCEL_TOUCH_OFF', 1);
       history.back();
     }
 

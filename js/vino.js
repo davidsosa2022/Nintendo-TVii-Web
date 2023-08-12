@@ -1,22 +1,3 @@
-const IR_CODES = {
-    POWER: 0,
-    CH_UP: 1,
-    CH_DOWN: 2,
-    VOL_UP: 3,
-    VOL_DOWN: 4,
-    1: 11,
-    2: 12,
-    3: 13,
-    4: 14,
-    5: 15,
-    6: 16,
-    7: 17,
-    8: 18,
-    9: 19,
-    0: 20,
-    INPUT: 52
-};
-
 vino.ir_enableCodeset(1); //enable the IR codeset
 
 //get the user Mii image and name
