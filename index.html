@@ -15,6 +15,9 @@ function post() {
 
     //to add variables to the form, add it like this
     formData.append("body", "Hello TVii")
+
+    alert('appending works now (i just appended the body, so all following should work)')
+
     formData.append("topic_tag", "Topic Tag Test")
     formData.append("search_key", "TemplateShow")
     formData.append("app_data", "")
@@ -26,13 +29,13 @@ function post() {
     formData.append("is_app_jumpable", "0")
     //you can do this as many times as you want
 
-    alert('appended form data (thats good)')
+    alert('didnt appended form data (thats good)')
 
     var request = new XMLHttpRequest();
 
     alert('created xhr request')
 
-    request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts/")
+    request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
 
     alert('opened xhr request to GET to the api')
 
@@ -43,7 +46,7 @@ function post() {
 
     alert('sent xhr request')
 
-    alert(request.responseText)
+    alert(request.statusText)
 }
 </script>
 
