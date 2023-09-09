@@ -7,18 +7,20 @@
 
 <h2>Please write an message below or drawing. only one at the time</h2>
 
-<input type="text" id="textValue" name="text">
+<input type="text" id="textValue" name="text" value="i smell like pizza hut.">
 <button id="draw" onclick="vino.memo_open(true);">make drawing</button>
 
 <script>
 function post() {
     alert('post function')
 
-    var textVal = document.getElementById("textValue").value()
+    var textVal = document.getElementById("textValue").value
 
     var formData = new FormData();
 
     alert('created form data')
+
+    alert(document.getElementById("textValue").value)
 
     //to add variables to the form, add it like this
     formData.append("body", textVal)
@@ -57,11 +59,13 @@ function post() {
 function postMemo() {
     alert('post function')
 
-    var drawingVal = vino.memo_getImageTgaRaw();
+    var drawingVal = vino.memo_getImageTgaCompressed().toString();
 
     var formData = new FormData();
 
     alert('created form data')
+
+    alert(vino.memo_getImageTgaCompressed().toString())
 
     //to add variables to the form, add it like this
     formData.append("painting", drawingVal)
