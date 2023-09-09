@@ -35,7 +35,7 @@ function post() {
     alert('created xhr')
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
     alert('opened xhr request to POST to the api')
-    request.setRequestHeader('x-nintendo-servicetoken', "0")
+    request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
     alert(vino.olv_getParameterPack().toString())
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     alert('set parampack header')
