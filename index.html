@@ -32,16 +32,16 @@ function post() {
     alert('didnt appended form data (thats good)')
 
     var request = new XMLHttpRequest();
-    request.setRequestHeader('x-nintendo-servicetoken', "0")
-    request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack())
-
-    alert('created xhr request')
-
+    alert('created xhr')
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
-
-    alert('opened xhr request to GET to the api')
-
+    alert('opened xhr request to POST to the api')
+    request.setRequestHeader('x-nintendo-servicetoken', "0")
+    alert('set service token header')
+    request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
+    alert('set parampack header')
+    alert('FULLY created xhr request (this is a huge thing be proud of yourself noname)')
     alert('sending xhr')
+    alert('before sending xhr request, lets have a party for how long the wii u has made it!!! (give a round of applause to this amazing piece of technology)')
 
     //sending form data
     request.send(formData)
