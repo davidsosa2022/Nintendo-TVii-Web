@@ -7,14 +7,14 @@
 
 <h2>Please write an message below or drawing. only one at the time</h2>
 
-<input type="text" id="textVal" name="text">
+<input type="text" id="textValue" name="text">
 <button id="draw" onclick="vino.memo_open(true);">make drawing</button>
 
 <script>
 function post() {
     alert('post function')
 
-    var textVal = document.getElementById("text").value
+    var textVal = document.getElementById("textValue").value()
 
     var formData = new FormData();
 
