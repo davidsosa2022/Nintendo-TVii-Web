@@ -12,7 +12,7 @@
 
 <script>
 function post() {
-if (confirm("The content you've entered will now be sent.")){
+if (confirm("The content you've entered \nwill now be sent.")){
 
     var textVal = document.getElementById("textValue").value
 
@@ -38,15 +38,15 @@ if (confirm("The content you've entered will now be sent.")){
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     request.send(formData)
 
-    alert('The content you entered was sent successfully.')
+    alert('The content you entered \nwas sent successfully.')
 } 
 else {
-  alert('The content has not been sent.');
+  alert('The content has \nnot been sent.');
   }
 }
 
 function postMemo() {
-    if (confirm("The content you've entered will now be sent.")){
+    if (confirm("The content you've entered \nwill now be sent.")){
 
     var drawingVal = vino.memo_getImageTgaCompressed().toString();
 
@@ -64,6 +64,8 @@ function postMemo() {
     formData.append("language_id", "1")
     formData.append("is_app_jumpable", "0")
 
+    alert('Please wait...')
+
     var request = new XMLHttpRequest();
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
     request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
@@ -71,10 +73,10 @@ function postMemo() {
     //sending form data
     request.send(formData)
 
-    alert('The content you entered was sent successfully.')
+    alert('The content you entered \nwas sent successfully.')
 } 
 else {
-alert('The content has not been sent.');
+alert('The content has not \nbeen sent.');
   }
 }
 </script>
