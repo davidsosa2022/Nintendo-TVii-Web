@@ -29,20 +29,17 @@ function post() {
     formData.append("is_app_jumpable", "0")
     //you can do this as many times as you want
 
-    alert('didnt appended form data (thats good)')
+    alert('appended form data (thats good)')
 
     var request = new XMLHttpRequest();
     alert('created xhr')
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
     alert('opened xhr request to POST to the api')
     request.setRequestHeader('x-nintendo-servicetoken', "0")
-    alert('set service token header')
+    alert(vino.olv_getParameterPack().toString())
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     alert('set parampack header')
-    alert('FULLY created xhr request (this is a huge thing be proud of yourself noname)')
     alert('sending xhr')
-    alert('before sending xhr request, lets have a party for how long the wii u has made it!!! (give a round of applause to this amazing piece of technology)')
-
     //sending form data
     request.send(formData)
 
