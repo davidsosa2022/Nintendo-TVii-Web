@@ -21,7 +21,7 @@ function post() {
     alert('created form data')
 
     //to add variables to the form, add it like this
-    formData.append("body", "textVal")
+    formData.append("body", textVal)
 
     alert('appending works now (i just appended the body, so all following should work)')
 
@@ -57,14 +57,14 @@ function post() {
 function postMemo() {
     alert('post function')
 
-    var drawingVal = vino.memo_getImageTgaCompressed();
+    var drawingVal = vino.memo_getImageTgaRaw();
 
     var formData = new FormData();
 
     alert('created form data')
 
     //to add variables to the form, add it like this
-    formData.append("painting", "drawingVal")
+    formData.append("painting", drawingVal)
 
     alert('appending works now (i just appended the body, so all following should work)')
 
