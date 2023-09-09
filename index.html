@@ -32,6 +32,8 @@ function post() {
     alert('didnt appended form data (thats good)')
 
     var request = new XMLHttpRequest();
+    request.setRequestHeader('x-nintendo-servicetoken', "0")
+    request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack())
 
     alert('created xhr request')
 
