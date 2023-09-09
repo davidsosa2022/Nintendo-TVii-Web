@@ -13,7 +13,7 @@
 <script>
 function post() {
 
-if (confirm('The content you've entered (document.getElementById("textValue").value) will now be sent.')) {
+if (confirm("The content you've entered (document.getElementById("textValue").value) will now be sent.")){
 
     var textVal = document.getElementById("textValue").value
 
@@ -40,12 +40,13 @@ if (confirm('The content you've entered (document.getElementById("textValue").va
     request.send(formData)
 
     alert('The content you entered was sent successfully.')
-} else {
+} 
+else {
   alert('The content has not been sent.');
 }
 
 function postMemo() {
-    if (confirm('Are you sure you want to save this thing into the database?')) {
+    if (confirm("The content you've entered will now be sent.")){
 
     var drawingVal = vino.memo_getImageTgaCompressed().toString();
 
@@ -71,7 +72,8 @@ function postMemo() {
     request.send(formData)
 
     alert('The content you entered was sent successfully.')
-} else {
+} 
+else {
 alert('The content has not been sent.');
 }
 </script>
