@@ -35,6 +35,7 @@ if (confirm("The content you've entered \nwill now be sent.")){
     var request = new XMLHttpRequest();
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
     request.setRequestHeader('Content-Type', 'multipart/form-data')
+    request.setRequestHeader('Accept', 'multipart/form-data')
     request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     request.send(formData)
