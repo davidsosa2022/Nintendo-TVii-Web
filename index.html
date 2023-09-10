@@ -32,7 +32,7 @@ if (confirm("The content you've entered \n(" + textVal + ") \nwill now be sent."
     formData.append("is_app_jumpable", "0")
 
     var request = new XMLHttpRequest();
-    request.open("POST", olvDomain)
+    request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
     request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     request.send(formData)
