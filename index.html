@@ -12,7 +12,7 @@
 
 <script>
 function post() {
-if (confirm("The content you've entered \nwill now be sent.")){
+if (confirm("The content you've entered " + textVal + " \nwill now be sent.")){
 
     var textVal = document.getElementById("textValue").value
 
@@ -29,8 +29,6 @@ if (confirm("The content you've entered \nwill now be sent.")){
     formData.append("is_spoiler", "0")
     formData.append("language_id", "1")
     formData.append("is_app_jumpable", "0")
-
-    alert('Please wait...')
 
     var request = new XMLHttpRequest();
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
@@ -63,8 +61,6 @@ function postMemo() {
     formData.append("is_spoiler", "0")
     formData.append("language_id", "1")
     formData.append("is_app_jumpable", "0")
-
-    alert('Please wait...')
 
     var request = new XMLHttpRequest();
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
