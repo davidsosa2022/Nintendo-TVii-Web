@@ -7,7 +7,7 @@
 
 <h2>Please write an message below or drawing. only one at the time</h2>
 
-<input type="text" id="textValue" name="text" value="i smell like pizza hut.">
+<input type="text" id="textValue" name="text" value="Write text." maxlength="100">
 <button id="draw" onclick="vino.memo_open(true);">make drawing</button>
 
 <script>
@@ -38,7 +38,7 @@ if (confirm("The content you've entered \nwill now be sent.")){
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     request.send(formData)
 
-    alert('The content you entered \nwas sent successfully.')
+     setTimeout(alert('The content you entered \nwas sent successfully.'), 4000);
 } 
 else {
   alert('The content has \nnot been sent.');
@@ -73,7 +73,7 @@ function postMemo() {
     //sending form data
     request.send(formData)
 
-    alert('The content you entered \nwas sent successfully.')
+     setTimeout(alert('The content you entered \nwas sent successfully.'), 4000);
 } 
 else {
 alert('The content has not \nbeen sent.');
