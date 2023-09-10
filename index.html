@@ -34,8 +34,6 @@ if (confirm("The content you've entered \nwill now be sent.")){
 
     var request = new XMLHttpRequest();
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
-    request.setRequestHeader('Content-Type', 'multipart/form-data')
-    request.setRequestHeader('Accept', 'multipart/form-data')
     request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
     request.send(formData)
@@ -56,7 +54,7 @@ function postMemo() {
 
     formData.append("painting", drawingVal)
 
-    formData.append("topic_tag", "Testing with TVii posts...")
+    formData.append("topic_tag", "The Super Mario Bros Movie")
     formData.append("search_key", "TemplateShow")
     formData.append("app_data", "")
     formData.append("community_id", "0")
@@ -72,7 +70,6 @@ function postMemo() {
     request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
     request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
     request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
-    //sending form data
     request.send(formData)
 
    setTimeout(function() { alert("The content you entered \nwas sent successfully."); }, 3000);
