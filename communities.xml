@@ -5,10 +5,10 @@
   <request_name>communities</request_name>
   <communities>
     <community>
-      <olive_community_id>14866558073041374869</olive_community_id>
-      <community_id>116380</community_id>
-      <name>Game & Wario Community</name>
-      <description>ESRB: Everyone</description>
+      <olive_community_id>14866558073586666688</olive_community_id>
+      <community_id>381950</community_id>
+      <name>Mario vs. Donkey Kong: Tipping Stars Community</name>
+      <description>Welcome to the Mario vs. Donkey Kong: Tipping Stars Community. Asking for, offering and exchanging download codes is prohibited in this community and any parts of Miiverse. Players from around the world, regardless of language or region, can come together</description>
       <icon></icon>
       <icon_3ds></icon_3ds>
       <pid></pid>
@@ -16,27 +16,25 @@
       <is_user_community>0</is_user_community>
     </community>
     <community>
-      <olive_community_id>14866558073041388067</olive_community_id>
-      <community_id>116340</community_id>
-      <name>MIIVERSE SKETCH Artwork Community</name>
-      <description>MIIVERSE SKETCH drawings created by users of the North American version of GAME & WARIO.
-Give a Yeah! to the ones you like, and be sure to leave comments too!</description>
+      <olive_community_id>14866558073592804455</olive_community_id>
+      <community_id>386784</community_id>
+      <name>Mario vs. Donkey Kong: Tipping Stars - Nintendo Levels</name>
+      <description>Your official source for the latest Mario vs. Donkey Kong: Tipping Stars news and information. Check out the latest official levels from Nintendo in this community! Posting is restricted to Nintendo representatives, but feel free to add your own comments.</description>
       <icon></icon>
       <icon_3ds></icon_3ds>
       <pid></pid>
-      <app_data></app_data>
+      <app_data>TVZNSQI=</app_data>
       <is_user_community>0</is_user_community>
     </community>
     <community>
-      <olive_community_id>14866558073041376041</olive_community_id>
-      <community_id>116300</community_id>
-      <name>MIIVERSE SKETCH Word Community</name>
-      <description>MIIVERSE SKETCH word suggestions for the North American version of GAME & WARIO.
-The more Yeahs a word has, the more likely it is to be chosen. If there's a word you want to see drawn in the MIIVERSE SKETCH Artwork Community, be sure to give it a Yeah!</description>
+      <olive_community_id>14866558073586670250</olive_community_id>
+      <community_id>381953</community_id>
+      <name>Mario vs. Donkey Kong: Tipping Stars - User Levels</name>
+      <description>In this community, you can check out levels created by players of Mario vs. Donkey Kong: Tipping Stars!</description>
       <icon></icon>
       <icon_3ds></icon_3ds>
       <pid></pid>
-      <app_data></app_data>
+      <app_data>TVZNSQE=</app_data>
       <is_user_community>0</is_user_community>
     </community>
   </communities>
