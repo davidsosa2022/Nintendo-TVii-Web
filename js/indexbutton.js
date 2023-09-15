@@ -51,17 +51,6 @@
 
   }, 100);
 
-
-  var bButtonCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 16384) {
-     document.getElementById("back").classList.add('pressed');
-     vino.soundPlayEx('SE_HTML_CANCEL_TOUCH_OFF', 1);
-     history.back();
-    }
-
-  }, 100);
-
   var yButtonCheck = setInterval(function() {
     wiiu.gamepad.update()
     if(wiiu.gamepad.hold === 4096) {
