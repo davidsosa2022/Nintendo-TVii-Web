@@ -3,80 +3,56 @@
   <title>Vino - TV Tag</title>
   <link rel="stylesheet" href="../css/main-style.css">
 </head>
-  <body>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-}
+<body class="tag" onload="hideLoad()">
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 70px;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  height: 100%;
-  border-right: 1px solid black;
-  outline: 1px solid rgba(220, 220, 220, 0.2);
-}
+  <div id="menu-buttons">
+      <a navi_target id="back" class="backBtn" onclick="back();"></a>
+      <a navi_target id="remote" class="remoteBtn"></a>
+  </div>
 
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-li a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-#divider {
-  margin-left: 405px;
-  padding: 0;
-  width: 7px;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  position:fixed;
-  border: 1px solid #4a4a4a;
-}
-
-.sidebar-container {
-  margin: 0 0 15px 0;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
-  -ms-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-}
-</style>
-<body>
-<img id="bg" src="../img/bg.png">
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+<div id="sidebar-tag">
+<ul class="sidebar">
+  <li><a navi_target class="about" href="#about">About</a></li>
+  <li><a navi_target class="posts" href="#posts">Posts</a></li>
+  <li><a navi_target class="favorite" href="#favorite">Favorite</a></li>
+  <li><a navi_target class="points active" href="#points">Points</a></li>
+  <li><a navi_target class="searchText" href="#search">Search</a></li>
 </ul>
-
-
 </div>
+
+<div id="play-user-menu">
+
+  <a class="play-user-mii-banner">
+  <span class="play-user-mii-name">David Joaq</span>
+  <img class="play-user-mii" src='http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png'></span>
+  </a>
+
+  <a class="play-user-mii-points">
+  <span class="play-user-mii-points-num">140</span>
+  <span class="play-user-mii-points-sub">Points</span>
+  </a>
+
+  <a class="play-user-mii-popularity-posts">
+  <span class="play-user-mii-popularity-num">259th</span>
+  <span class="play-user-mii-popularity-sub">Ranking</span>
+  <span class="play-user-mii-posts-num">100/100</span>
+  <span class="play-user-mii-posts-sub">Posts/Yeahs</span>
+  </a>
+  
+  <div class="play-user-recent">
+  <li><a navi_target class="play-user-recent-activity checked" href="#about">Activity</a></li>
+  <li><a navi_target class="play-user-recent-leaderboard" href="#posts">Leaderboard</a></li>
+  </div>
+
+  <div class="play-user-recent-poll-answered" id="1">
+  <p>Will the Green team run or pass?</p>
+  <span class="points">10 points</span><span class="choosen correct">Run</span>
+  </div>
+   
+</div>
+
+<script type="text/javascript" src="../js/button.js"></script>
+<script type="text/javascript" src="../js/vino.js"></script>
 </body>
 </html>
 

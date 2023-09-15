@@ -3,52 +3,57 @@
     <title>Vino Wii U - Settings</title>
     <link rel="stylesheet" href="../css/main-style.css">
 </head>
-    <body>
+    <body onload="hideLoad()">
 
-        <div id="settings-mii-info">
-            <img id="settings-mii-body" src='../img/dummywholebody.png'>
-            <span id="settings-mii-name">Sarah</span>
+      <div id="settings-mii-info">
+            <img id="settings-mii-body" src='http://mii-images.account.nintendo.net/l7nesmcevej9_whole_body.png'>
+            <span id="settings-mii-name">David Joaq</span>
         </div>
 
+    <span id="main-live-tv" style="left: 40px;">Settings</span>
+    <span id="main-recomended-tv" style="left: 170px;">About</span>
 
-<img id="bg" src="../img/bg.png">
-
-        <div id="back" onclick="history.back()"></div>
+      <a navi_target id="back" class="backBtn" onclick="back();"></a>
+      <a navi_target id="remote" class="remoteBtn"></a>
                
 <div id="settings-pages">
 
-<div id="settings-page">
 <a navi_target href="settings/favorite_channels.html">
-       <img src="../img/favchn.png" onclick="vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);"></div></a>
+<div class="settings-page favorites">
+<span class="settings-span">Favorites</span>
+</div></a>
 
-<div id="settings-page">
 <a navi_target href="settings/providers.html">
-       <img src="../img/providers.png" onclick="vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);"></div></a>
+<div class="settings-page providers">
+<span class="settings-span">Streaming Providers</span>
+</div></a>
 
-<div id="settings-page">
 <a navi_target href="settings/social_settings.html">
-       <img src="../img/social.png" onclick="vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);"></div></a>
+<div class="settings-page social">
+<span class="settings-span">Social Networks</span>
+</div></a>
 
-<div id="settings-page"></div>
+<p style="font-size:27px;"></p>
 
-<br>
-
-<div id="settings-page">
 <a navi_target href="pages/pcset.html">
-       <img src="../img/pcset.png" onclick="vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);"></div></a>
+<div class="settings-page manual">
+<span class="settings-span">Manual</span>
+</div></a>
 
-<div id="settings-page">
 <a navi_target href="pages/usersetting.html">
-       <img src="../img/usersetting.png" onclick="vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);"></div></a>
+<div class="settings-page usersettings">
+<span class="settings-span">User Settings</span>
+</div></a>
 
-<div id="settings-page">
 <a navi_target href="pages/info.html">
-       <img src="../img/info.png" onclick="vino.soundPlayEx('SE_HTML_TOUCH_ON', 1);"></div></a>
+<div class="settings-page info">
+<span class="settings-span">Notifications</span>
+</div></a>
 
-<div id="settings-page"></div>
+<div style="display: inline-block; margin-right: 35px;"></div>
 
 </div>
-
-	<script src="../js/vino-settings.js"></script>
     </body>
+	<script type="text/javascript" src="../js/vino.js"></script>
+	<script type="text/javascript" src="../js/button.js"></script>
 </html>

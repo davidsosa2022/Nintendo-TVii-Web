@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vino - post Miiverse</title>
+  <link rel="stylesheet" href="../css/main-style.css">
+</head>
+<body>
+
+  <div id="menu-buttons">
+      <a navi_target id="back" class="backBtn" onclick="back();"></a>
+      <a navi_target id="remote" class="remoteBtn"></a>
+  </div>
+
+<h2>Post text from TVii to miiverse</h2>
+<h2>this is running from infinityfree and github, i hope i get server soon</h2>
+
+<h2>Please write an message below or drawing. only one at the time</h2>
+<p>Post text:</p></br>
+<input type="text" id="textValue" name="text" placeholder="Write a post here." value="" maxlength="100">
+<p>Post a drawing:</p></br>
+<button id="draw" onclick="postMemo()">Post Drawing</button>
+
+<script>
+document.getElementById('textValue').addEventListener('change', postText);
+function postText() {
+var userWrittenText = document.getElementById('textValue').value
+vino.olv_postText(userWrittenText, 'Topic Tag Test', 800, true, 'searchkey1', 'searchkey2', 'searchkey3', 'searchkey4', 'searchkey5');
+}
+
+function postMemo() {
+    vino.memo_open(true);
+
+    var check = setInterval(function() {
+        if (vino.memo_isFinish()) {
+            var painting = vino.memo_getImageTgaRaw();
+            vino.olv_postImage(painting, 'Topic Tag Test', 800, true, 'searchkey1', 'searchkey2', 'searchkey3', 'searchkey4', 'searchkey5');
+            clearInterval(check);
+        }
+    }, 50);
+}
+</script>
+<script type="text/javascript" src="../js/button.js"></script>
+<script type="text/javascript" src="../js/vino.js"></script>
+</body>
+</html>
