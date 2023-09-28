@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+  <html xmlns="http://www.w3.org/1999/xhtml"> 
+ 
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+ 
+<!-- External CSS Document(s) --> 
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" /> 
+ 
+<title>Online Drawing Application | Web Design Deluxe</title> 
+ 
+<!-- Eternal JavaScript Document(s) --> 
+  <script type="text/javascript" src="../js/canvas.js"></script> 
+ 
+</head> 
+<body> 
+ 
+<!-- Wrapper Begins -->	<div id="wrapper">
+  <div id="sidebar-tol">
+    <ul class="sidebar-tools">
+      <li><a navi_target="" class="pencil selected"  href="#about"></a></li>
+      <li><a navi_target="" id="sidebar-delete" class="delete" href="#points"></a></li>
+      <a href="#" class="button" id="btndownload">Save</a>
+
+      <ul class="pencil-thick-select">
+        <li navi_target class="pencil-t-big" id="pencil-t-big" onclick="context.lineWidth = '9.0';"></li>
+        <li navi_target class="pencil-t-medium" id="pencil-t-medium" onclick="context.lineWidth = '6.0';"></li>
+        <li navi_target class="pencil-t-normal" id="pencil-t-normal" onclick="context.lineWidth = '2.0';"></li>
+        <li navi_target class="pencil-t-tiny" id="pencil-t-tiny"  onclick="context.lineWidth = '1.0';"></li>
+      </ul>
+
+    </ul>
+    </div>
+
+    <div id="sidebar-col">
+      <ul class="sidebar-colors">
+        <li><a navi_target="" class="white" href="#about" onclick="context.strokeStyle = '#FFFFFF';"></a></li>
+        <li><a navi_target="" class="grey" href="#posts" onclick="context.strokeStyle = '#c3c3c3';"></a></li>
+        <li><a navi_target="" class="black" href="#favorite" onclick="context.strokeStyle = '#000000';"></a></li>
+        <li><a navi_target="" class="red" href="#points" onclick="context.strokeStyle = '#ec1c24';"></a></li>
+        <li><a navi_target="" id="blue" class="blue" href="#points" onclick="context.strokeStyle = '#00a8f3';"></a></li>
+        <li><a navi_target="" class="green" href="#points" onclick="context.strokeStyle = '#48ff00';"></a></li>
+        <li><a navi_target="" class="yellow" href="#points" onclick="context.strokeStyle = '#ffe600';"></a></li>
+        <li><a navi_target="" class="pink" href="#points" onclick="context.strokeStyle = '#ffaec8';"></a></li>
+      </ul>
+      </div>
+
+		<div id="blackboardPlaceholder">
+
+<p><!-- Tool Selector --> 
+<select name="selector" id="selector"> 
+<option value="chalk">Chalk</option> 
+</select> 
+</p>
+
+<!-- Canvas Begins --> 
+<canvas id="drawingCanvas" height="480" width="854"> 
+<p class="noscript">We're sorry, this web application is currently not supported with your browser. Please use an alternate browser or download a supported <br />browser. Supported browsers: <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, <a href="http://www.apple.com/safari">Safari</a>, <br />and <a href="http://www.konqueror.org">Konqueror</a>. Also make sure your JavaScript is enabled.</p> 
+</canvas>
+<!-- Canvas Ends -->
+
+		</div> 
+
+
+	</div>
+ 
+</body> 
+</html>
