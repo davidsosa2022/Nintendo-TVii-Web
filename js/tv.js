@@ -1,17 +1,7 @@
-ridOfLoad();
-
-//Button code
-const activeUserSlot = vino.act_getCurrentSlotNo(); // The slot for the active user
-setMiiBody = document.getElementById("settings-mii-body");
-setMiiName = document.getElementById("settings-mii-name");
-setMiiName.innerText=vino.act_getName(activeUserSlot);
-setMiiBody.src=vino.act_getMiiImageEx(activeUserSlot, 7);
-
 //Button code
   function lerp( a, b, alpha ) {
     return a + alpha * ( b - a )
   }
-
 
   var lStickRightCheck = setInterval(function() {
     wiiu.gamepad.update()
@@ -37,3 +27,14 @@ setMiiBody.src=vino.act_getMiiImageEx(activeUserSlot, 7);
     }
 
   }, 150);
+
+  var yButtonCheck = setInterval(function() {
+    wiiu.gamepad.update()
+    if(wiiu.gamepad.hold === 4096) {
+    vino.emulate_touch(360, 480, 1);
+    vino.emulate_inputDelay(2);
+    }
+
+  }, 120);
+
+
