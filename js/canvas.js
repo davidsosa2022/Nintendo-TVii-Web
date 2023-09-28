@@ -137,19 +137,19 @@ var bMouseIsDown = false;
 var iWidth = oCanvas.width; 
    var iHeight = oCanvas.height; 
 
-   var button = document.getElementById('btndownload');
+var button = document.getElementById('btndownload');
    button.addEventListener('click', function (e) {
       var screenshot = document.createElement("img");
       screenshot.src = oCanvas.toDataURL();
       document.body.appendChild(screenshot);
       alert(screenshot)
       console.log(screenshot)
-   
+
       var formData = new FormData();
-   
+
       //to add variables to the form, add it like this
-      formData.append("screenshot", screenshot)
-   
+      formData.append("screenshot", oCtx.toDataURL())
+
       formData.append("topic_tag", "Generic NFL show because yes.")
       formData.append("search_key", "TemplateShow")
       formData.append("app_data", "")
@@ -160,7 +160,7 @@ var iWidth = oCanvas.width;
       formData.append("language_id", "1")
       formData.append("is_app_jumpable", "0")
       //you can do this as many times as you want
-   
+
       var request = new XMLHttpRequest();
       request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
       request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
@@ -168,7 +168,7 @@ var iWidth = oCanvas.width;
       //sending form data
       request.send(formData)
  
-   });  
+   });
    
 }
 
