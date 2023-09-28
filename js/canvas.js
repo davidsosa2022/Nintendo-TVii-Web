@@ -144,6 +144,8 @@ var button = document.getElementById('btndownload');
 
       var screenshot = oCanvas.toDataURL("image/jpeg");
 
+      screenshot = screenshot.replace("data:image/jpeg;base64,", "");
+
       alert(screenshot)
       console.log(screenshot)
 
