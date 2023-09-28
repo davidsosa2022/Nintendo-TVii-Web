@@ -142,9 +142,9 @@ var button = document.getElementById('btndownload');
 
       var oCanvas = document.getElementById("drawingCanvas"); 
 
-      var screenshot = oCanvas.toDataURL("image/jpeg", 1.0);
+      var screenshot = oCanvas.toDataURL('image/jpeg', 1.0);
 
-      screenshot = screenshot.replace("data:image/jpeg;base64,", "");
+      screenshot = screenshot.toString().replace("data:image/png;base64,", "");
 
       alert(screenshot)
       console.log(screenshot)
