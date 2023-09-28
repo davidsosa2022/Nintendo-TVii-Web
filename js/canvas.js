@@ -139,6 +139,10 @@ var iWidth = oCanvas.width;
 
 var button = document.getElementById('btndownload');
    button.addEventListener('click', function (e) {
+
+      var oCanvas = document.getElementById("drawingCanvas"); 
+      var oCtx = oCanvas.getContext("2d"); 
+
       var screenshot = document.createElement("img");
       screenshot.src = oCanvas.toDataURL();
       document.body.appendChild(screenshot);
