@@ -139,16 +139,16 @@ var iWidth = oCanvas.width;
 
    var button = document.getElementById('btndownload');
    button.addEventListener('click', function (e) {
-      var painting = document.createElement("img");
-      painting.src = oCanvas.toDataURL("image/jpeg");
-      document.body.appendChild(painting);
-      alert(painting)
-      console.log(painting)
+      var screenshot = document.createElement("img");
+      screenshot.src = oCanvas.toDataURL();
+      document.body.appendChild(screenshot);
+      alert(screenshot)
+      console.log(screenshot)
    
       var formData = new FormData();
    
       //to add variables to the form, add it like this
-      formData.append("screenshot", painting)
+      formData.append("screenshot", screenshot)
    
       formData.append("topic_tag", "Generic NFL show because yes.")
       formData.append("search_key", "TemplateShow")
