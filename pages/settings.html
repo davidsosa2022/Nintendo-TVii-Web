@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <head>
     <title>Vino Wii U - Settings</title>
+     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Script-Type" content="text/javascript">
     <link rel="stylesheet" href="../css/main-style.css">
 </head>
-    <body onload="hideLoad()">
+    <body class="scroll">
 
       <div id="settings-mii-info">
-            <img id="settings-mii-body" src='http://mii-images.account.nintendo.net/l7nesmcevej9_whole_body.png'>
-            <span id="settings-mii-name">David Joaq</span>
+            <img id="settings-mii-body"/>
+            <span id="settings-mii-name"/>
         </div>
 
     <span id="main-live-tv" style="left: 40px;">Settings</span>
     <span id="main-recomended-tv" style="left: 170px;">About</span>
 
-      <a navi_target id="back" class="backBtn" onclick="back();"></a>
-      <a navi_target id="remote" class="remoteBtn"></a>
+      <a data-sound="SE_RETURN" id="back" class="backBtn" onclick="back();"></a>
+      <a data-sound="SE_COMMON_SELECT" id="remote" class="remoteBtn"></a>
                
 <div id="settings-pages">
 
-<a navi_target href="settings/favorite_channels.html">
-<div class="settings-page favorites">
+<div navi_scroll style="display:inline-block">
+<a class="settings-page favorites" data-sound="SE_COMMON_SELECT" href="settings/favorite_channels.html">
 <span class="settings-span">Favorites</span>
-</div></a>
+</a>
+</div>
 
-<a navi_target href="settings/providers.html">
-<div class="settings-page providers">
+<div navi_scroll style="display:inline-block">
+<a class="settings-page providers" data-sound="SE_COMMON_SELECT" href="settings/providers.html">
 <span class="settings-span">Streaming Providers</span>
-</div></a>
+</a>
+</div>
 
-<a navi_target href="settings/social_settings.html">
-<div class="settings-page social">
+<div navi_scroll style="display:inline-block">
+<a class="settings-page social" data-sound="SE_COMMON_SELECT" href="settings/social_settings.html">
 <span class="settings-span">Social Networks</span>
-</div></a>
+</a>
+</div>
 
 <p style="font-size:27px;"></p>
 
-<a navi_target href="pages/pcset.html">
-<div class="settings-page manual">
+<div navi_scroll style="display:inline-block">
+<a class="settings-page manual" data-sound="SE_COMMON_SELECT" href="pages/pcset.html">
 <span class="settings-span">Manual</span>
-</div></a>
+</a>
+</div>
 
-<a navi_target href="pages/usersetting.html">
-<div class="settings-page usersettings">
+<div navi_scroll style="display:inline-block">
+<a class="settings-page usersettings" data-sound="SE_COMMON_SELECT" href="pages/usersetting.html">
 <span class="settings-span">User Settings</span>
-</div></a>
+</a>
+</div>
 
-<a navi_target href="pages/info.html">
-<div class="settings-page info">
+<div navi_scroll style="display:inline-block">
+<a class="settings-page info" data-sound="SE_COMMON_SELECT" href="pages/info.html">
 <span class="settings-span">Notifications</span>
-</div></a>
+</a>
+</div>
 
 <div style="display: inline-block; margin-right: 35px;"></div>
 
 </div>
     </body>
 	<script type="text/javascript" src="../js/vino.js"></script>
-	<script type="text/javascript" src="../js/button.js"></script>
+	<script type="text/javascript" src="../js/settings.js"></script>
 </html>

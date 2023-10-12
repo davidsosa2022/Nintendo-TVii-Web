@@ -2,15 +2,19 @@
   <html xmlns="http://www.w3.org/1999/xhtml"> 
  
 <head> 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Script-Type" content="text/javascript">
  
 <!-- External CSS Document(s) --> 
   <link rel="stylesheet" type="text/css" href="../css/styles.css" /> 
+  <link rel="stylesheet" type="text/css" href="../css/main-style.css" /> 
  
 <title>Online Drawing Application | Web Design Deluxe</title> 
  
 <!-- Eternal JavaScript Document(s) --> 
   <script type="text/javascript" src="../js/canvas.js"></script> 
+  <script type="text/javascript" src="../js/vino.js"></script> 
  
 </head> 
 <body> 
@@ -18,30 +22,41 @@
 <!-- Wrapper Begins -->	<div id="wrapper">
   <div id="sidebar-tol">
     <ul class="sidebar-tools">
-      <li><a navi_target="" class="pencil selected"  href="#about"></a></li>
-      <li><a navi_target="" id="sidebar-delete" class="delete" href="#points"></a></li>
-      <a href="#" class="button" id="btndownload">Save</a>
+      <li navi_scroll><a id="sidebar-pencil" class="pencil selected"  href="#about"></a></li>
+      <li navi_scroll><a id="sidebar-delete" class="delete" href="#points"></a></li>
+      <a class="button" id="btndownload" >Save</a>
 
-      <ul class="pencil-thick-select">
-        <li navi_target class="pencil-t-big" id="pencil-t-big" onclick="context.lineWidth = '9.0';"></li>
-        <li navi_target class="pencil-t-medium" id="pencil-t-medium" onclick="context.lineWidth = '6.0';"></li>
-        <li navi_target class="pencil-t-normal" id="pencil-t-normal" onclick="context.lineWidth = '2.0';"></li>
-        <li navi_target class="pencil-t-tiny" id="pencil-t-tiny"  onclick="context.lineWidth = '1.0';"></li>
+      <ul id="pencil-thick-select-popup" class="pencil-thick-select">
+        <li class="pencil-t-big" id="pencil-t-big" onclick="context.lineWidth = '10.0';"></li>
+        <li class="pencil-t-medium" id="pencil-t-medium" onclick="context.lineWidth = '6.0';"></li>
+        <li class="pencil-t-normal" id="pencil-t-normal" onclick="context.lineWidth = '3.0';"></li>
+        <li class="pencil-t-tiny" id="pencil-t-tiny"  onclick="context.lineWidth = '1.0';"></li>
+        <li class="pencil-t-tiny"><input type="number" id="inputLineWidth" class="green" value="#" minlength="1" maxlength="2"></li>
       </ul>
 
     </ul>
     </div>
 
     <div id="sidebar-col">
-      <ul class="sidebar-colors">
-        <li><a navi_target="" class="white" href="#about" onclick="context.strokeStyle = '#FFFFFF';"></a></li>
-        <li><a navi_target="" class="grey" href="#posts" onclick="context.strokeStyle = '#c3c3c3';"></a></li>
-        <li><a navi_target="" class="black" href="#favorite" onclick="context.strokeStyle = '#000000';"></a></li>
-        <li><a navi_target="" class="red" href="#points" onclick="context.strokeStyle = '#ec1c24';"></a></li>
-        <li><a navi_target="" id="blue" class="blue" href="#points" onclick="context.strokeStyle = '#00a8f3';"></a></li>
-        <li><a navi_target="" class="green" href="#points" onclick="context.strokeStyle = '#48ff00';"></a></li>
-        <li><a navi_target="" class="yellow" href="#points" onclick="context.strokeStyle = '#ffe600';"></a></li>
-        <li><a navi_target="" class="pink" href="#points" onclick="context.strokeStyle = '#ffaec8';"></a></li>
+      <ul class="sidebar-colors" id="sidebar-colors-scroll">
+        <li><a class="red" href="#points" onclick="changeColor('#ff0000');"></a></li>
+        <li><a class="red-2" href="#points" onclick="changeColor('#ff4d54');"></a></li>
+        <li><a class="red-3" href="#points" onclick="changeColor('#ff9ca0');"></a></li>
+        <li><a class="black" href="#favorite" onclick="changeColor('#000000');"></a></li>
+        <li><a class="grey-2" href="#posts" onclick="changeColor('#949494');"></a></li>
+        <li><a class="grey" href="#posts" onclick="changeColor('#e7e7e7');"></a></li>
+        <li><a class="white" href="#about" onclick="changeColor('#FFFFFF');"></a></li>
+        <li><a class="blue" href="#points" onclick="changeColor('#00b0ff');"></a></li>
+        <li><a class="green" href="#points" onclick="changeColor('#48ff00');"></a></li>
+        <li><a class="yellow" href="#points" onclick="changeColor('#ffe600');"></a></li>
+        <li><a class="pink" href="#points" onclick="changeColor('#ffaec8');"></a></li>
+
+        <li><input type="text" id="colorHexInput" class="green" value="#" minlength="7" maxlength="7"></li>
+        <li><a class="yellow" href="#points" onclick="changeColor('#ffe600');"></a></li>
+        <li><a class="pink" href="#points" onclick="changeColor('#ffaec8');"></a></li>
+        <li><a class="green" href="#points" onclick="changeColor('#48ff00');"></a></li>
+        <li><a class="yellow" href="#points" onclick="changeColor('#ffe600');"></a></li>
+        <li><a class="pink" href="#points" onclick="changeColor('#ffaec8');"></a></li>
       </ul>
       </div>
 
@@ -54,7 +69,7 @@
 </p>
 
 <!-- Canvas Begins --> 
-<canvas id="drawingCanvas" height="480" width="854"> 
+<canvas id="drawingCanvas" height="407" width="723"> 
 <p class="noscript">We're sorry, this web application is currently not supported with your browser. Please use an alternate browser or download a supported <br />browser. Supported browsers: <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, <a href="http://www.apple.com/safari">Safari</a>, <br />and <a href="http://www.konqueror.org">Konqueror</a>. Also make sure your JavaScript is enabled.</p> 
 </canvas>
 <!-- Canvas Ends -->

@@ -1,0 +1,119 @@
+<html>
+<head>
+  <title>Vino - TV Tag</title>
+   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <link rel="stylesheet" href="../css/main-style.css">
+</head>
+<body class="tag" onload="hideLoad()">
+
+  <div id="menu-buttons">
+    <a data-sound="SE_RETURN" id="back" class="backBtn" onclick="back();"></a>
+    <a data-sound="SE_COMMON_SELECT" id="remote" class="remoteBtn"></a>
+  </div>
+
+<div id="sidebar-tag">
+  <ul class="sidebar">
+    <li navi_scroll><a class="about" href="#about">About</a></li>
+    <li navi_scroll><a class="posts" href="#posts">Posts</a></li>
+    <li navi_scroll><a class="favorite" href="#favorite">Favorite</a></li>
+    <li navi_scroll><a class="points selected" href="#points">Points</a></li>
+    <li navi_scroll><a class="searchText" href="#search">Search</a></li>
+  </ul>
+  </div>
+
+<div id="play-user-menu">
+
+  <div class="play-user-mii-banner">
+  <img id="play-user-mii"/>
+  <span id="play-user-mii-name"/>
+  </div>
+
+  <div class="play-user-mii-points">
+  <span class="play-user-mii-points-num">140</span>
+  <span class="play-user-mii-points-sub">Points</span>
+  </div>
+
+  <div class="play-user-mii-popularity-posts">
+  <span class="play-user-mii-popularity-num">259th</span>
+  <span class="play-user-mii-popularity-sub">Ranking</span>
+  <span class="play-user-mii-posts-num">100/100</span>
+  <span class="play-user-mii-posts-sub">Posts/Yeahs</span>
+  </div>
+  
+  <div class="play-user-recent">
+    <div navi_scroll style="display:inline-block;"><a class="play-user-recent-activity" href="user-play_activity.html">Activity</a></div>
+    <div navi_scroll style="display:inline-block;"><a class="play-user-recent-leaderboard selected" href="user-play_leaderboard.html">Leaderboard</a></div>
+    </div>
+
+  <div id="play-user-recent-answers">
+
+  <div class="play-user-recent-poll answered" id="1">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll incorrect" id="2">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="3">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="4">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll incorrect" id="5">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="6">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </li>
+
+  <div class="play-user-recent-poll answered" id="7">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll incorrect" id="8">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="9">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="10">
+  <p>Will the Green team actually win this one...</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="11">
+  <p>Will the Green team run or pass?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  <div class="play-user-recent-poll answered" id="12">
+  <p>Will the Green team run or die?</p>
+  <span class="points-answer">10 points&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run</span>
+  </div>
+
+  </div>
+
+</div>
+
+<script type="text/javascript" src="../js/vino.js"></script>
+<script type="text/javascript" src="../js/tags.js"></script>
+</body>
+</html>
