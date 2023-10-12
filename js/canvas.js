@@ -1,5 +1,11 @@
 var context;
 
+function changeColor(color) {
+   vino.lyt_startTouchEffect();
+   vino.soundPlay('SE_A_DECIDE');
+   context.strokeStyle = color;
+ }
+
 // Check for the canvas tag onload. 
    if(window.addEventListener) { 
  window.addEventListener('load', function () {
@@ -37,22 +43,46 @@ canvaso = document.getElementById('drawingCanvas');
    container.appendChild(canvas); 
    context = canvas.getContext('2d'); 
    context.strokeStyle = "#FFFFFF";// Default line color. 
-   context.lineWidth = 2.0;// Default stroke weight. 
+   context.lineWidth = 3.0;// Default stroke weight. 
 
    // Fill transparent canvas with dark grey (So we can use the color to erase).
-   document.getElementById('sidebar-delete').addEventListener('click', cleanDraw)
+   document.getElementById('sidebar-delete').addEventListener('click', cleanDraw);
+   document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
+   document.getElementById('inputLineWidth').addEventListener('change', changeLineWidth);
+   document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
+   document.getElementById("sidebar-pencil").addEventListener('click', penSelect);
+   document.getElementById("pencil-thick-select-popup").addEventListener('click', penThickSelect);
 
+   function changeInputColor() {
+      var inputColor = document.getElementById('colorHexInput').value
+      changeColor(inputColor);
+      }
+
+      function changeLineWidth() {
+         var inputThick = document.getElementById('inputLineWidth').value
+         context.lineWidth = inputThick + '.0';
+         }
+
+   function colorScroll() {vino.soundPlay('SE_LIST_SCROLL');}
+   function penSelect() {   vino.lyt_startTouchEffect(); vino.soundPlay('SE_A_CHECK'); vino.soundPlay('SE_POPUP');}
+   function penThickSelect() {vino.soundPlay('SE_MOVEPAGE_SELECT');}
+   
    const moment = new Image();
    moment.onload = drawMoment;
    moment.src = '../img/doodleplaceholder.png';
    
-   function drawMoment() {
-     context.drawImage(moment, 0, 0);
-   }
+   function drawMoment() {context.drawImage(moment, 0, 0, 723, 407);}
 
    function cleanDraw() {
-      canvaso.width = canvaso.width;
-      context.drawImage(moment, 0, 0);
+      vino.lyt_startTouchEffect();
+      document.getElementById('sidebar-delete').classList.add('selected');
+      vino.soundPlay('SE_DELETE_SMALL');
+      setTimeout(function() { 
+         canvaso.width = canvaso.width;
+         context.drawImage(moment, 0, 0, 723, 407);
+         document.getElementById('sidebar-delete').classList.remove('selected');
+      }, 800);
+
    } 
 
 // Create a select field with our tools. 
@@ -129,49 +159,30 @@ canvaso = document.getElementById('drawingCanvas');
 
 }, false); }
 
-window.onload = function() { 
+window.onload = function() {
+hideLoad();
 var bMouseIsDown = false; 
-
-   var oCanvas = document.getElementById("drawingCanvas"); 
-   var oCtx = oCanvas.getContext("2d"); 
+var oCanvas = document.getElementById("drawingCanvas"); 
+var oCtx = oCanvas.getContext("2d"); 
 var iWidth = oCanvas.width; 
-   var iHeight = oCanvas.height; 
+var iHeight = oCanvas.height; 
 
 var button = document.getElementById('btndownload');
    button.addEventListener('click', function (e) {
-
       var oCanvas = document.getElementById("drawingCanvas"); 
 
-      var screenshot = oCanvas.toDataURL('image/jpeg', 1.0);
+      var screenshot = oCanvas.toDataURL('image/png');
 
-      screenshot = screenshot.toString().replace("data:image/png;base64,", "");
+      const image = new Image();
+      image.onload = appendimg;
+      image.src = oCanvas.toDataURL('image/png');
+
+      function appendimg() {
+         document.body.appendChild(image);
+      } 
 
       alert(screenshot)
       console.log(screenshot)
-
-      var formData = new FormData();
-
-      //to add variables to the form, add it like this
-      formData.append("screenshot", screenshot)
-
-      formData.append("topic_tag", "Generic NFL show because yes.")
-      formData.append("search_key", "TemplateShow")
-      formData.append("app_data", "")
-      formData.append("community_id", "0")
-      formData.append("feeling_id", "1")
-      formData.append("is_autopost", "1")
-      formData.append("is_spoiler", "0")
-      formData.append("language_id", "1")
-      formData.append("is_app_jumpable", "0")
-      //you can do this as many times as you want
-
-      var request = new XMLHttpRequest();
-      request.open("POST", "https://olvapi.nonamegiven.xyz/v1/posts")
-      request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
-      request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
-      //sending form data
-      request.send(formData)
- 
    });
    
 }
