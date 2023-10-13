@@ -1,11 +1,13 @@
+//get the Mii image, along with current slot no.
+const activeUserSlot = vino.act_getCurrentSlotNo();
+
+document.addEventListener("DOMContentLoaded", function() {
 //if the user has already seen the splash screen, set loading icon for 1 second and 30
 if (sessionStorage.getItem("homeLoaded")  === "true") {
   document.getElementById("wrapper-home").classList.remove("hide");
   ridOfLoad();
   }
 
-//get the Mii image, along with current slot no.
-const activeUserSlot = vino.act_getCurrentSlotNo();
 var miiImg = document.getElementById("mii-image");
 miiImg.src=vino.act_getMiiImage(activeUserSlot);
 
@@ -17,8 +19,7 @@ miiImg.src=vino.act_getMiiImage(activeUserSlot);
   var yButtonCheck = setInterval(function() {
     wiiu.gamepad.update()
     if(wiiu.gamepad.hold === 4096) {
-    vino.emulate_touch(360, 480, 1);
-    vino.emulate_inputDelay(2);
+      searchY();
     }
 
   }, 120);
@@ -35,3 +36,4 @@ if (!sessionStorage.getItem("homeLoaded")) {
     document.body.style.position = "relative";
   }, 4100);
 }
+});

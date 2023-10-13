@@ -14,6 +14,12 @@ if (typeof vino === 'undefined') {
         lyt_startTouchNodeEffect: function(one, two, three, four) {
             console.log('Show touch mouse effect at ' + one, two, three, four);
         },
+        emulate_touch: function(one, two, three) {
+          console.log('Emulate touch at ' + one, two, three);
+       },
+        emulate_inputDelay: function(one) {
+        console.log('Input delay of ' + one + ' seconds');
+       },
         exit: function () {
             console.log('Exit app');
             window.location.href = "https://google.com"
@@ -242,6 +248,58 @@ if (typeof vino === 'undefined') {
     };
 }
 if (typeof wiiu === 'undefined') {window.wiiu = {},window.wiiu.gamepad = {update: function() {}};}
+
+
+//enable the IR features and codeset
+vino.ir_enableCodeset(1);
+
+function changeChannelDemo(ir1, ir2, ir3) {
+setTimeout(function(){vino.ir_send(ir1, 0);}, 500);
+setTimeout(function(){vino.ir_send(ir2, 0);}, 1000);
+setTimeout(function(){vino.ir_send(ir3, 0);}, 1500);
+}
+
+//functions from onclick and else
+function showLoad() {
+  vino.loading_setIconVisibility(true);
+  }
+  
+  function hideLoad() {
+  vino.loading_setIconVisibility(false);
+  }
+  
+  function ridOfLoad() {
+  vino.loading_setIconVisibility(false);
+  }
+  
+  function hover(x) {
+      x.classList.add('hover');
+  }
+  
+  function uhover(x) {
+      x.classList.remove('hover');
+  }
+  
+  function exit() {
+  vino.exit();
+  }
+  
+  function back() {
+  history.back();
+  }
+  
+  function searchY() {
+    vino.emulate_touch(360, 480, 1);
+    vino.emulate_inputDelay(2);
+  }
+
+//literally an auto power down api is the last thing i expected
+if (vino.apd_isEnabled()) {
+  vino.apd_enable();
+} else {
+  vino.apd_disable();
+}
+
 //actual JS starts here, first, show load icon
 vino.loading_setIconRect(360, 160, 120, 120);
 vino.loading_setIconAppear(true);
@@ -250,6 +308,7 @@ vino.loading_setIconAppear(true);
 vino.lyt_setIsEnableClientLoadingIcon(true);
 vino.lyt_setIsEnableWhiteMask(true);
 
+document.addEventListener("DOMContentLoaded", function() {
 // Button code
 const navItems = document.querySelectorAll("[navi_scroll]");
 var currentIndex = 0;
@@ -310,6 +369,12 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
+function resetNavi() {
+  for (var i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove('navi-selected');
+    }
+}
 
 //reset navi LOL!
 document.addEventListener("click", resetNavi);
@@ -399,66 +464,4 @@ if (typeof(canHistoryB) != 'undefined' && canHistoryB != null) {
       }, 150);
 }
 
-//functions from onclick and else
-function showLoad() {
-vino.loading_setIconVisibility(true);
-}
-
-function hideLoad() {
-vino.loading_setIconVisibility(false);
-}
-
-function ridOfLoad() {
-vino.loading_setIconVisibility(false);
-}
-
-function hover(x) {
-    x.classList.add('hover');
-}
-
-function uhover(x) {
-    x.classList.remove('hover');
-}
-
-function resetNavi() {
-    for (var i = 0; i < navItems.length; i++) {
-        navItems[i].classList.remove('navi-selected');
-      }
-}
-
-function exit() {
-vino.lyt_startTouchEffect();
-vino.exit();
-}
-
-function back() {
-vino.lyt_startTouchEffect();
-history.back();
-}
-
-(function () {
-    var els = document.querySelectorAll("[data-sound]");
-    if (!els) return;
-    for (var i = 0; i < els.length; i++) {
-        els[i].addEventListener("click", function(e) {
-            vino.soundPlay(e.currentTarget.getAttribute('data-sound'));
-        });
-    }
-})();
-
-
-//enable the IR features and codeset
-vino.ir_enableCodeset(1);
-
-function changeChannelDemo(ir1, ir2, ir3) {
-setTimeout(function(){vino.ir_send(ir1, 0);}, 500);
-setTimeout(function(){vino.ir_send(ir2, 0);}, 1000);
-setTimeout(function(){vino.ir_send(ir3, 0);}, 1500);
-}
-
-//literally an auto power down api is the last thing i expected
-if (vino.apd_isEnabled()) {
-  vino.apd_enable();
-} else {
-  vino.apd_disable();
-}
+});

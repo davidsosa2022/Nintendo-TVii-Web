@@ -48,7 +48,6 @@ canvaso = document.getElementById('drawingCanvas');
    // Fill transparent canvas with dark grey (So we can use the color to erase).
    document.getElementById('sidebar-delete').addEventListener('click', cleanDraw);
    document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
-   document.getElementById('inputLineWidth').addEventListener('change', changeLineWidth);
    document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
    document.getElementById("sidebar-pencil").addEventListener('click', penSelect);
    document.getElementById("pencil-thick-select-popup").addEventListener('click', penThickSelect);
@@ -57,11 +56,6 @@ canvaso = document.getElementById('drawingCanvas');
       var inputColor = document.getElementById('colorHexInput').value
       changeColor(inputColor);
       }
-
-      function changeLineWidth() {
-         var inputThick = document.getElementById('inputLineWidth').value
-         context.lineWidth = inputThick + '.0';
-         }
 
    function colorScroll() {vino.soundPlay('SE_LIST_SCROLL');}
    function penSelect() {   vino.lyt_startTouchEffect(); vino.soundPlay('SE_A_CHECK'); vino.soundPlay('SE_POPUP');}

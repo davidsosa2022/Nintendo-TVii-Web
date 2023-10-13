@@ -1,6 +1,8 @@
 ridOfLoad();
 
 const activeUserSlot = vino.act_getCurrentSlotNo(); // The slot for the active user
+
+document.addEventListener("DOMContentLoaded", function() {
 setMiiName = document.getElementById("play-user-mii-name");
 setMii = document.getElementById("play-user-mii");
 setMiiName.innerText=vino.act_getName(activeUserSlot);
@@ -23,3 +25,4 @@ document.getElementById("play-user-recent-answers").addEventListener('scroll', f
     }
 
   }, 10);
+});
