@@ -25,7 +25,7 @@ body {
  
   #blackboardPlaceholder { 
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 0;
   width: 723px; 
   height: 407px; 
@@ -38,12 +38,12 @@ body {
  border:none; 
  color:#FFF; 
  overflow:hidden; 
- top: 1px;
+ top: 5px;
  left: 60px;
  background-color: transparent; 
  } 
  
-#tempCanvas { position: absolute; width:723px; height: 407px; top: 1px; left: 60px; z-index:2; overflow:hidden; }
+#tempCanvas { position: absolute; width:723px; height: 407px; top: 5px; left: 60px; z-index:2; overflow:hidden; }
 
 ul.sidebar-tools {
    list-style-type: none;
