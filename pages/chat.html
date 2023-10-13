@@ -10,9 +10,15 @@
 <body class="tag" onload="hideLoad()">
 
   <div id="menu-buttons"> 
-    <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" id="back" class="backBtn"></a>
-    <a href="javascript:void(0);" data-sound="SE_COMMON_SELECT" id="remote" class="remoteBtn"></a>
+    <div navi_scroll id="back">
+    <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
+    </a></div>
+
+    <div navi_scroll id="remote">
+      <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
+      </a></div>
   </div>
+
 <div class="tag-live-comments" id="tag-live-comments-js">
 
   <div class="live-comment no-doodle" id="1">

@@ -13,12 +13,21 @@
 <title>Online Drawing Application | Web Design Deluxe</title> 
  
 <!-- Eternal JavaScript Document(s) --> 
-  <script type="text/javascript" src="../js/canvas.js"></script> 
-  <script type="text/javascript" src="../js/vino.js"></script> 
+  <script type="text/javascript" src="../js/vino.js"></script>
+  <script type="text/javascript" src="../js/canvas.js"></script>
  
 </head> 
 <body> 
- 
+
+  <div id="menu-buttons"> 
+    <div navi_scroll id="back">
+      <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
+      </a></div>
+  
+      <div navi_scroll id="remote">
+        <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
+        </a></div>
+   </div>
 <!-- Wrapper Begins -->	<div id="wrapper">
   <div id="sidebar-tol">
     <ul class="sidebar-tools">
@@ -31,7 +40,6 @@
         <li class="pencil-t-medium" id="pencil-t-medium" onclick="context.lineWidth = '6.0';"></li>
         <li class="pencil-t-normal" id="pencil-t-normal" onclick="context.lineWidth = '3.0';"></li>
         <li class="pencil-t-tiny" id="pencil-t-tiny"  onclick="context.lineWidth = '1.0';"></li>
-        <li class="pencil-t-tiny"><input type="number" id="inputLineWidth" class="green" value="#" minlength="1" maxlength="2"></li>
       </ul>
 
     </ul>
@@ -78,6 +86,6 @@
 
 
 	</div>
- 
+
 </body> 
 </html>

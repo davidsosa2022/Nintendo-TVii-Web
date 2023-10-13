@@ -4,7 +4,9 @@
    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <meta http-equiv="Content-Script-Type" content="text/javascript">
-  <link rel="stylesheet" href="../css/main-style.css">
+   <link rel="stylesheet" href="../css/main-style.css">
+   <script type="text/javascript" src="../js/vino.js"></script>
+   <script type="text/javascript" src="../js/tv.js"></script>
 </head>
   <body class="scroll" onload="hideLoad()">
 
@@ -13,8 +15,13 @@
     <span id="main-recomended-tv">Recomended</span>
     <span id="main-guide-tv">Guide</span> 
 
-      <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" id="back" class="backBtn"></a>
-      <a href="javascript:void(0);" data-sound="SE_COMMON_SELECT" id="remote" class="remoteBtn"></a>
+    <div navi_scroll id="back">
+      <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
+      </a></div>
+  
+      <div navi_scroll id="remote">
+        <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
+        </a></div>
   </div>
 
 <div id="tv-programs">
@@ -132,7 +139,5 @@
                                       </div>
     
 </div>
-<script type="text/javascript" src="../js/vino.js"></script>
-<script type="text/javascript" src="../js/tv.js"></script>
 </body>
 </html>
