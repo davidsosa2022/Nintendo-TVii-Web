@@ -6,6 +6,8 @@
    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <meta http-equiv="Content-Script-Type" content="text/javascript">
+   <script type="text/javascript" src="js/vino.js"></script>
+   <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
 
@@ -13,19 +15,30 @@
 
 <div id="wrapper-home" class="hide">
 
-  <div navi_scroll data-sound="SE_DECIDE" id="mii-info">
-    <a href="pages/settings.html">
-     <img id="mii-image"/></a>
-    </div>
-    
    <div id="menu-buttons">
-      <a data-sound="SE_COMMON_FINISH" id="exit" class="exitBtn" onclick="exit();"></a>
 
-      <a data-sound="SE_HELP" id="help" class="helpBtn" href="pages/chat.html"></a>
+    <div navi_scroll id="mii-info">
+      <a href="pages/settings.html" data-sound="SE_DECIDE">
+       <img id="mii-image"/></a>
+      </div>
 
-      <a data-sound="SE_COMMON_SELECT" id="remote" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);"></a>
+      <div navi_scroll id="exit">
+      <a href="javascript:void(0)" class="exitBtn" data-sound="SE_COMMON_FINISH" onclick="exit();">
+      </a></div>
 
-    <input type="text" data-sound="SE_COMMON_TEXTBOX" id="search" class="search"></a>
+      <div navi_scroll id="search">
+        <a href="javascript:void(0);" onclick="searchY();"><input type="text" class="search">
+      </a></div>
+
+      <div navi_scroll id="remote">
+        <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
+      </a></div>
+
+      <div navi_scroll id="help">
+      <a data-sound="SE_HELP" class="helpBtn" href="pages/chat.html">
+      </a></div>
+
+   </div>
 
 <div id="home-icons">
         <div navi_scroll id="favorites-section">
@@ -66,7 +79,6 @@
  </div>
 </div>
 
-<script type="text/javascript" src="js/vino.js"></script>
-<script type="text/javascript" src="js/home.js"></script>
+
 </body>
 </html>
