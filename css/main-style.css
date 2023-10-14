@@ -10,21 +10,23 @@ body {
     font-family: nintendo_NTLG-DB_002;
     white-space: nowrap;
     background-image: url('../img/bg2.png');
+    background-color: #555555;
 }   
 
 body.tag {
     background-image: url('../img/bg3.png');
+    background-color: #555555;
     overflow-y: scroll !important;
     white-space: normal;
 }
 
 body.scroll {
-    background-image: url('../img/bg.png');
-
+    background-image:  url('../img/bg.png');
+    background-color: #555555;
 }
 
 .navi-selected {
-  outline: 3px solid #007bff;
+  outline: 4px solid #007bff;
 }
 
 a, li, div {
@@ -40,8 +42,11 @@ a, li, div {
   display: block;
   top: 100px;
   left: 200px;
-  width: 430px;
-  height: 900px;
+  width: 440px;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  text-align: left;
   border: 1px solid white;
   background: #ebebeb;
 }
@@ -69,8 +74,7 @@ a, li, div {
 .live-comment .image-mii {
   position: absolute;
   display: block;
-  top: -8px;
-  left: 10px;
+  float: left;
   width: 40px;
   height: 40px;
   border: 1px solid #c1c6c2;
@@ -101,8 +105,7 @@ a, li, div {
   color: #000000;
   font-size: 14px;
   word-break: break-all;
-  top: -24px;
-  left: 0px;
+  float: inline-start;
 }
 
 #tv-programs {
@@ -418,9 +421,10 @@ a, li, div {
     position: relative;
     text-align: center;
     display: block;
+    font-weight: bold;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #tv-section {
@@ -435,9 +439,10 @@ a, li, div {
     position: relative;
     text-align: center;
     display: block;
+    font-weight: bold;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #movies-section {
@@ -452,9 +457,10 @@ a, li, div {
     position: relative;
     text-align: center;
     display: block;
+    font-weight: bold;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #sports-section {
@@ -469,9 +475,10 @@ a, li, div {
     position: relative;
     text-align: center;
     display: block;
+    font-weight: bold;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #tvtag-section {
@@ -486,9 +493,10 @@ a, li, div {
     position: relative;
     text-align: center;
     display: block;
+    font-weight: bold;
     text-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 ul.sidebar {
