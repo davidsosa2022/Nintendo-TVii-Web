@@ -16,7 +16,6 @@ body {
 body.tag {
     background-image: url('../img/bg3.png');
     background-color: #555555;
-    overflow-y: scroll !important;
     white-space: normal;
 }
 
@@ -39,73 +38,82 @@ a, li, div {
 
 .tag-live-comments {
   position: relative;
+  z-index: 1;
   display: block;
-  bottom: 0px;
+  border-radius: 4px;
+  top: 100px;
   left: 200px;
   width: 440px;
-  word-wrap: break-word;
-  margin: 0;
-  padding: 0;
   text-align: left;
   border: 1px solid white;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.8);
+  -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.8);
   background: #ebebeb;
 }
 
 .live-comment {
   position: relative;
   display: block;
-  margin: 0px;
-  padding: 0px;
-  width: 440px;
-  height: 120px;
+  border-top: 1px solid #fdfdfd;
   border-bottom: 1px solid #c1c6c2;
-}
-
-.live-comment.no-doodle {
-  position: relative;
-  display: block;
-  margin: 0px;
-  padding: 0px;
-  width: 440px;
-  height: 120px;
-  border-bottom: 1px solid #c1c6c2;
+  padding: 10px;
+  padding-bottom: 0px;
 }
 
 .live-comment .image-mii {
-  position: absolute;
+  position: relative;
   display: block;
   float: left;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #c1c6c2;
+  width: 42px;
+  height: 42px;
   background: #ffffff;
+  margin-right: 10px;
+  box-shadow: 0px 1px 2px gray;
 }
 
 .live-comment .username-mii {
   position: relative;
-  color: #56a8ff;
   display: block;
-  font-size: 17px;
-  top: -6px;
-  left: 59px;
+  color: #56a8ff;
+  font-size: 16px;
+  margin: 2px;
+  padding: 0px;
 }
 
 .live-comment .date {
   position: relative;
-  color: #5e605d;
   display: block;
+  color: #5e605d;
   font-size: 12px;
-  top: -20px;
-  left: 60px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .live-comment .content {
   position: relative;
-  display: inline;
+  display: block;
   color: #000000;
-  font-size: 14px;
-  word-break: break-all;
-  float: inline-start;
+  font-size: 15px;
+}
+
+.live-comment.doodle .content {
+  margin-bottom: 0px;
+}
+
+.live-comment.doodle .content-img {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.tag-live-moment-image {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 854px;
+  height: 480px;
+  color: #ffffff;
+  z-index: 0;
 }
 
 #tv-programs {
@@ -189,6 +197,35 @@ a, li, div {
   width: 65px;
   height: 65px;
   z-index: 9999;
+}
+
+#doodle {
+  position: fixed;
+  top: -1px;
+  left: -2px;
+  width: 172px;
+  height: 69px;
+  z-index: 9999;
+}
+
+.doodleBtn {
+  position: fixed;
+  top: -1px;
+  left: -2px;
+  border-bottom-right-radius: 26px;
+  width: 168px;
+  height: 66px;
+  border: 1px solid #757575;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.71);
+  color: #ffffff;
+  line-height: 2.9;
+  font-size: 22px;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHLSURBVFhH7ZexSgNBEIZzomgaSSMEFLQRBAvttFRsfA2fxoewsLNNqV3eQWJl0EJEJYL6ABK/f29OkiOX3bvchRj84M/e7e3Mzs7OXpLa3NPv95uohe7RoXVPHwvkGiV8oC17PD2YtIEGA0l4QXs2rHqYTIG0NXMGytC+Da8OJklqxIcydGBm5YPzdI34UIZ2zLw8cJpVIz4eUXlbhjNfjfhQhiY/9jjJuzVZKEPFawjjsgJJKFZDGBWtER+38r/gZgkAgwZNC526jnK5s9YPgZS9NYPoEDRtqvFoIKoqEL0oZyIQZURb70cDzaAKtMDgQGYmI/81MoQGmkEV/MGMCAafO7Py0QLDMiIYvIjeZGl0UDe+nAgFEp4R0HfTElpxdzE9dIK67q4YN+gsiqLP+DYQoq+jLy3FaFv/OtL/nrzkzkhC5rc2q3qmOUavriOMYhlJYBXpzPTQtj3W8w0UkiEd30IZ+QUH6WCEfg4OBuTbsnynJgucjApGPKDBgDbRqFMW/kLzEOGoTqu6WHU9w7yjTnzpWEO78aUjqZE8dZWNgkGjMuNj8hpJg8NllDeYwsd3HJE+cHxJc6RrD9/oCl2wNU+uZz6p1X4AGjYTs1nKz9cAAAAASUVORK5CYII=') no-repeat 20px 13px,  rgba(36, 37, 38, 0.8);
+  z-index: 9999;
+}
+
+.doodleBtn:before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
 }
 
 #help {
