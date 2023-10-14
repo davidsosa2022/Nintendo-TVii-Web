@@ -6,8 +6,6 @@
    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <meta http-equiv="Content-Script-Type" content="text/javascript">
-   <script type="text/javascript" src="js/vino.js"></script>
-   <script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
 
@@ -22,20 +20,20 @@
        <img id="mii-image"/></a>
       </div>
 
-      <div navi_scroll id="exit">
-      <a href="javascript:void(0)" class="exitBtn" data-sound="SE_COMMON_FINISH" onclick="exit();">
-      </a></div>
+      <div id="exit">
+      <a href="javascript:void(0)" class="exitBtn" data-sound="SE_COMMON_FINISH" onclick="exit();"></a>
+      </div>
 
       <div navi_scroll id="search">
         <a href="javascript:void(0);" onclick="searchY();"><input type="text" class="search">
       </a></div>
 
-      <div navi_scroll id="remote">
+      <div id="remote">
         <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
       </a></div>
 
-      <div navi_scroll id="help">
-      <a data-sound="SE_HELP" class="helpBtn" href="http://127.0.0.1:5500/">
+      <div id="help">
+      <a data-sound="SE_HELP" class="helpBtn" href="pages/chat.html">
       </a></div>
 
    </div>
@@ -78,7 +76,7 @@
 
  </div>
 </div>
-
-
+<script type="text/javascript" src="js/vino.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
 </body>
 </html>
