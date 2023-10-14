@@ -10,6 +10,7 @@
 <body class="tag" onload="hideLoad()">
 
 <div id="menu-buttons">
+  
   <div id="back">
     <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
     </a></div>
@@ -19,18 +20,24 @@
       </a></div>
 
       <div navi_scroll id="doodle">
-        <a data-sound="SE_POPUP" class="doodleBtn" href="doodle.html">Doodle</a></div>
-  </div>
+        <a data-sound="SE_POPUP" class="doodleBtn" href="doodle.html">Doodle
+        </a></div>
+
+        <div id="back-top">
+          <a data-sound="SE_TOP" class="backTopBtn" onclick="topFunction()" href="javascript:void(0);"></a></div>
+        </div>
 
 <div class="tag-live-comments" id="tag-live-comments-js">
 
-  <img src="../img/doodleplaceholder.png" style="width: 100%;padding:0;margin:0;">
+  <img class="live-comment-moment-img" src="../img/doodle.png">
   
   <div class="live-comment" id="1">
   <img class="image-mii" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
   <p class="username-mii">David Joaq</p>
-  <p class="date">5 minutes ago</p>
+  <p class="date">5 minutes ago • 2 Yeahs</p>
   <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
+  <input type="button" class="yeah-button">
+  <input type="text" class="reply-button">
   </div>
 
   <div class="live-comment" id="2">
@@ -166,7 +173,7 @@
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
           </div>
           
-          <div class="live-comment" id="2">
+          <div class="live-comment doodle" id="2">
             <img class="image-mii" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
             <p class="username-mii">Daviiiiiiiiiid Guacamole Soda</p>
             <p class="date">5 minutes ago</p>
@@ -188,7 +195,7 @@
                   <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
                   </div>
 
-                  <div class="live-comment" id="2">
+                  <div class="live-comment doodle" id="2">
                     <img class="image-mii" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
                     <p class="username-mii">Daviiiiiiiiiid Guacamole Soda</p>
                     <p class="date">5 minutes ago</p>
@@ -203,7 +210,7 @@
     <p class="content">what the actual spaghetti man, what the actual lord e lord papa mamma mia its a me LOL</p>
     </div>
 
-    <div class="live-comment" id="2">
+    <div class="live-comment doodle" id="2">
       <img class="image-mii" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
       <p class="username-mii">Daviiiiiiiiiid Guacamole Soda</p>
       <p class="date">5 minutes ago</p>
@@ -236,4 +243,5 @@
 </body>
 
 <script type="text/javascript" src="../js/vino.js"></script>
+<script type="text/javascript" src="../js/tags.js"></script>
 </html>
