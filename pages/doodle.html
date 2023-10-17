@@ -7,28 +7,27 @@
    <meta http-equiv="Content-Script-Type" content="text/javascript">
  
 <!-- External CSS Document(s) --> 
-  <link rel="stylesheet" type="text/css" href="../css/styles.css" /> 
   <link rel="stylesheet" type="text/css" href="../css/main-style.css" /> 
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" /> 
  
 <title>Online Drawing Application | Web Design Deluxe</title> 
  
 <!-- Eternal JavaScript Document(s) --> 
-  <script type="text/javascript" src="../js/vino.js"></script>
-  <script type="text/javascript" src="../js/canvas.js"></script>
+  <script type="text/javascript" src="../js/doodle.js"></script>
  
 </head> 
 <body> 
-
-  <div id="menu-buttons"> 
-    <div navi_scroll id="back">
+<!-- Wrapper Begins -->	
+<div id="doodle-modal">
+  <div id="menu-buttons">
+    <div id="back">
       <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
       </a></div>
   
-      <div navi_scroll id="remote">
+      <div id="remote">
         <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
         </a></div>
-   </div>
-<!-- Wrapper Begins -->	<div id="wrapper">
+  </div>
   <div id="sidebar-tol">
     <ul class="sidebar-tools">
       <li navi_scroll><a id="sidebar-pencil" class="pencil selected"  href="#about"></a></li>
@@ -68,7 +67,7 @@
       </ul>
       </div>
 
-		<div id="blackboardPlaceholder">
+		<div id="doodle-content">
 
 <p><!-- Tool Selector --> 
 <select name="selector" id="selector"> 
@@ -77,15 +76,13 @@
 </p>
 
 <!-- Canvas Begins --> 
-<canvas id="drawingCanvas" height="407" width="723"> 
+<canvas id="doodle-canvas" height="407" width="723"> 
 <p class="noscript">We're sorry, this web application is currently not supported with your browser. Please use an alternate browser or download a supported <br />browser. Supported browsers: <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, <a href="http://www.apple.com/safari">Safari</a>, <br />and <a href="http://www.konqueror.org">Konqueror</a>. Also make sure your JavaScript is enabled.</p> 
 </canvas>
 <!-- Canvas Ends -->
 
 		</div> 
-
-
 	</div>
-
+  <script type="text/javascript" src="../js/vino.js"></script>
 </body> 
 </html>
