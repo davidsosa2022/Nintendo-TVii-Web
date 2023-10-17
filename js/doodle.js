@@ -146,6 +146,8 @@ function redo() {
     context.putImageData(state, 0, 0);
   }
 }
+window.undo = undo;
+window.redo = redo;
    var tools = {}; 
  // Chalk tool. 
    tools.chalk = function () { 
