@@ -6,7 +6,6 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <meta http-equiv="Content-Script-Type" content="text/javascript">
   <link rel="stylesheet" href="../css/main-style.css">
-  <script type="text/javascript" src="../js/doodle.js"></script>
 </head>
 <body class="tag">
 
@@ -35,6 +34,8 @@
             <ul class="sidebar-tools">
               <li navi_scroll><a id="sidebar-pencil" class="pencil selected"  href="javascript:void(0);"></a></li>
               <li navi_scroll><a id="sidebar-delete" class="delete" href="javascript:void(0);"></a></li>
+<button onclick="undo()">Undo</button>
+<button onclick="redo()">Redo</button>
             </ul>
         
               <ul id="pencil-thick-select-popup" class="pencil-thick-select">
@@ -378,4 +379,5 @@
 
 <script type="text/javascript" src="../js/vino.js"></script>
 <script type="text/javascript" src="../js/tags.js"></script>
+  <script type="text/javascript" src="../js/doodle.js"></script>
 </html>
