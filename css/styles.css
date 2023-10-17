@@ -16,34 +16,33 @@ body {
    text-decoration: none;
  }  
  
-#wrapper { 
-  position: absolute; 
-  width: 854px; 
+#doodle-modal { 
+  position: absolute;
+  width: 854px;
   margin:0 auto; 
-  padding-top:0px;
 } 
  
-  #blackboardPlaceholder { 
+  #doodle-content { 
   position: absolute;
-  top: 5px;
-  left: 0;
+  top: 10px;
+  left: 60px;
   width: 723px; 
   height: 407px; 
   margin: 0 auto; 
   cursor: crosshair; 
 }
 
-#drawingCanvas { 
+#doodle-canvas { 
  position:absolute; 
  border:none; 
  color:#FFF; 
  overflow:hidden; 
- top: 5px;
- left: 60px;
+ top: 0px;
+ left: 0px;
  background-color: transparent; 
  } 
  
-#tempCanvas { position: absolute; width:723px; height: 407px; top: 5px; left: 60px; z-index:2; overflow:hidden; }
+#doodle-temp-canvas { position: absolute; width:723px; height: 407px; top: 0px; left: 0px; overflow:hidden; }
 
 ul.sidebar-tools {
    list-style-type: none;
@@ -55,7 +54,7 @@ ul.sidebar-tools {
    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAABCAIAAADiuDFoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAaSURBVBhXY1RTU2egBfgPpakOdLUV127YAQC4WgQC1gvvNQAAAABJRU5ErkJggg==');
    position: fixed;
    height: 480px;
-   z-index: 999;
+   z-index: 10;
    border-right: 1px solid black;
  }
  
