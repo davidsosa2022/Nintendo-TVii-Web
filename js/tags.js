@@ -1,4 +1,4 @@
-ridOfLoad();
+tvii.showLoadVisible(false);
 
 var doodleModal = document.getElementById("doodle-modal");
 var liveCommentsModal = document.getElementById("tag-live-comments-js");
@@ -53,7 +53,7 @@ function showDoodleModal() {
   finishModalButton.style.display = "block";
  }
 
- function hideDoodleModal() {
+function hideDoodleModal() {
   isDoodle = false;
   
   doodleModal.style.display = "none";
@@ -69,12 +69,10 @@ function showDoodleModal() {
  bButtonCheck = setInterval(function() {
   wiiu.gamepad.update()
   if(wiiu.gamepad.hold === 16384 && isDoodle === true) {
-    vino.soundPlay('SE_RETURN');
     hideDoodleModal();
     history.forward();
   }
-  else if(wiiu.gamepad.hold === 16384 && isDoodle === false && doodleModal.style.display === "none") {
-    vino.soundPlay('SE_RETURN');
+  else if (wiiu.gamepad.hold === 16384 && isDoodle === false && liveCommentsModal.style.display === "block") {
     history.back();
   }  
  }, 150);

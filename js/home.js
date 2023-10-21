@@ -3,7 +3,7 @@ const activeUserSlot = vino.act_getCurrentSlotNo();
 //if the user has already seen the splash screen, set loading icon for 1 second and 30
 if (sessionStorage.getItem("homeLoaded")  === "true") {
   document.getElementById("wrapper-home").classList.remove("hide");
-  ridOfLoad();
+  tvii.showLoadVisible(false);
   }
 
 var miiImg = document.getElementById("mii-image");
@@ -24,7 +24,7 @@ miiImg.src=vino.act_getMiiImage(activeUserSlot);
 
 //initial splash screen
 if (!sessionStorage.getItem("homeLoaded")) {
-  setTimeout(hideLoad, 4000);
+  setTimeout(function() {tvii.showLoadVisible(false)}, 4500);
   document.body.style.position = "fixed";
   vino.navi_setMoveMethod(-1); 
   sessionStorage.setItem("homeLoaded", "true");

@@ -6,9 +6,43 @@ function changeColor(color) {
    context.strokeStyle = color;
  }
 
+ function selectPenSize(x) {
+   document.getElementById("pencil-t-big").classList.remove("selected");
+   document.getElementById("pencil-t-medium").classList.remove("selected");
+   document.getElementById("pencil-t-normal").classList.remove("selected");
+   document.getElementById("pencil-t-tiny").classList.remove("selected");
+   x.classList.add("selected");
+}
+
+var listItems = document.querySelectorAll("#sidebar-colors-scroll li a");
+
+// Add a class to a specific element and remove it from its siblings
+function addClassToElement(sib) {
+  // Remove the class from all siblings
+  for (var i = 0; i < listItems.length; i++) {
+    var li = listItems[i];
+    if (li !== sib) {
+      li.classList.remove("selected");
+    }
+  }
+
+  // Add the class to the specific element
+  sib.classList.add("selected");
+}
+
+// Adding click event listeners to each li element
+for (var i = 0; i < listItems.length; i++) {
+  var li = listItems[i];
+  li.addEventListener("click", function() {
+    addClassToElement(this);
+  });
+}
+
+
 // Check for the canvas tag onload. 
-   if(window.addEventListener) { 
+if(window.addEventListener) { 
  window.addEventListener('load', function () {
+   document.getElementById("pencil-t-normal").classList.add("selected");
 var canvas, canvaso, contexto; 
  // Default tool. (chalk, line, rectangle) 
    var tool; 
@@ -16,27 +50,11 @@ var canvas, canvaso, contexto;
  
 function init () { 
 canvaso = document.getElementById('doodle-canvas'); 
-   if (!canvaso) { 
-   alert('Error! The canvas element was not found!'); 
-   return; 
-   } 
- if (!canvaso.getContext) { 
-   alert('Error! No canvas.getContext!'); 
-   return; 
-   } 
 // Create 2d canvas. 
    contexto = canvaso.getContext('2d'); 
-   if (!contexto) { 
-   alert('Error! Failed to getContext!'); 
-   return; 
-   } 
  // Build the temporary canvas. 
    var container = canvaso.parentNode; 
-   canvas = document.createElement('canvas'); 
-   if (!canvas) { 
-   alert('Error! Cannot create a new canvas element!'); 
-   return; 
-   } 
+   canvas = document.createElement('canvas');  
    canvas.id  = 'doodle-temp-canvas'; 
    canvas.width  = canvaso.width; 
    canvas.height = canvaso.height; 
@@ -45,27 +63,48 @@ canvaso = document.getElementById('doodle-canvas');
    context.strokeStyle = "#FFFFFF";// Default line color. 
    context.lineWidth = 3.0;// Default stroke weight. 
 
-   // Fill transparent canvas with dark grey (So we can use the color to erase).
    document.getElementById('sidebar-delete').addEventListener('click', cleanDraw);
+   document.getElementById('pencil-thick-select-popup').addEventListener('click', isPenSelectShow);
    document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
    document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
    document.getElementById("sidebar-pencil").addEventListener('click', penSelect);
    document.getElementById("pencil-thick-select-popup").addEventListener('click', penThickSelect);
 
    function changeInputColor() {
+      document.getElementById('colorHexInput').classList.add('selected');
       var inputColor = document.getElementById('colorHexInput').value
       changeColor(inputColor);
+      setTimeout(function() { 
+         document.getElementById('colorHexInput').classList.remove('selected');
+      }, 800);
+      }
+   function colorScroll() {vino.soundPlay('SE_LIST_SCROLL'); isPenSelectShow();}
+
+
+   function penSelect() {
+         vino.lyt_startTouchEffect(); vino.soundPlay('SE_WAVE_TOGGLE_CHECK');
+         document.getElementById('pencil-thick-select-popup').classList.toggle("show");
       }
 
-   function colorScroll() {vino.soundPlay('SE_LIST_SCROLL');}
-   function penSelect() {   vino.lyt_startTouchEffect(); vino.soundPlay('SE_A_CHECK'); vino.soundPlay('SE_POPUP');}
+      function isPenSelectShow() {
+         if (document.getElementById('pencil-thick-select-popup').classList.contains('show')){
+            document.getElementById('pencil-thick-select-popup').classList.remove('show');
+         }
+      }
+
+      window.addEventListener('click', function (event) {
+         if (event.target == document.getElementById('doodle-modal')) {
+         isPenSelectShow()
+          }
+     });
+
    function penThickSelect() {vino.soundPlay('SE_MOVEPAGE_SELECT');}
    
    const moment = new Image();
    moment.onload = drawMoment;
    moment.src = '../img/doodleplaceholder.png';
    
-   function drawMoment() {context.drawImage(moment, 0, 0, 723, 407);}
+   function drawMoment() {contexto.drawImage(moment, 0, 0, 723, 407);}
 
    function cleanDraw() {
       vino.lyt_startTouchEffect();
@@ -73,7 +112,7 @@ canvaso = document.getElementById('doodle-canvas');
       vino.soundPlay('SE_DELETE_SMALL');
       setTimeout(function() { 
          canvaso.width = canvaso.width;
-         context.drawImage(moment, 0, 0, 723, 407);
+         contexto.drawImage(moment, 0, 0, 723, 407);
          document.getElementById('sidebar-delete').classList.remove('selected');
       }, 800);
 
@@ -81,10 +120,6 @@ canvaso = document.getElementById('doodle-canvas');
 
 // Create a select field with our tools. 
  var tool_select = document.getElementById('selector'); 
- if (!tool_select) { 
- alert('Error! Failed to get the select element!'); 
- return; 
- } 
  tool_select.addEventListener('change', ev_tool_change, false); 
  
  // Activate the default tool (chalk). 
@@ -121,91 +156,50 @@ canvaso = document.getElementById('doodle-canvas');
    function img_update () { 
    contexto.drawImage(canvas, 0, 0); 
    context.clearRect(0, 0, canvas.width, canvas.height); 
-   }
-var undoStack = [];
-var redoStack = [];
-// Function to save the current canvas state for the temporary canvas
-function saveState() {
-  undoStack.push(context.getImageData(0, 0, canvas.width, canvas.height));
-}
-
-// Function to undo the last drawing action on the temporary canvas
-function undo() {
-  if (undoStack.length > 0) {
-    redoStack.push(context.getImageData(0, 0, canvas.width, canvas.height));
-    var state = undoStack.pop();
-    context.putImageData(state, 0, 0);
-  }
-}
-
-// Function to redo the last undone action on the temporary canvas
-function redo() {
-  if (redoStack.length > 0) {
-    undoStack.push(context.getImageData(0, 0, canvas.width, canvas.height));
-    var state = redoStack.pop();
-    context.putImageData(state, 0, 0);
-  }
-}
-window.undo = undo;
-window.redo = redo;
+   } 
    var tools = {}; 
  // Chalk tool. 
-   tools.chalk = function () { 
-   var tool = this; 
+   tools.chalk = function () {
+   var tool = this;
    this.started = false; 
  // Begin drawing with the chalk tool. 
    this.mousedown = function (ev) { 
    context.beginPath(); 
    context.lineJoin = "round";
    context.moveTo(ev._x, ev._y); 
-   tool.started = true;
-  saveState();
+   tool.started = true; 
    }; 
    this.mousemove = function (ev) { 
    if (tool.started) { 
    context.lineTo(ev._x, ev._y); 
    context.stroke(); 
-  saveState();
    } 
    }; 
    this.mouseup = function (ev) { 
    if (tool.started) { 
    tool.mousemove(ev); 
    tool.started = false; 
-   img_update();
-  saveState();
+   img_update(); 
    } 
    }; 
    };
-
  init();
-
 }, false); }
 
 window.onload = function() {
-hideLoad();
-var bMouseIsDown = false; 
 var oCanvas = document.getElementById("doodle-canvas"); 
-var oCtx = oCanvas.getContext("2d"); 
-var iWidth = oCanvas.width; 
-var iHeight = oCanvas.height; 
 
-var button = document.getElementById('finishModal');
-   button.addEventListener('click', function (e) {
-      var oCanvas = document.getElementById("doodle-canvas"); 
+var canvasFinish = document.getElementById('finishModal');
+canvasFinish.addEventListener('click', function (e) {
 
-      var screenshot = oCanvas.toDataURL('image/png');
-
-      const image = new Image();
-      image.onload = appendimg;
-      image.src = oCanvas.toDataURL('image/png');
+      const myDoodle = new Image();
+      myDoodle.onload = appendimg;
+      myDoodle.src = oCanvas.toDataURL('image/png');
 
       function appendimg() {
-         document.body.appendChild(image);
+         document.body.appendChild(myDoodle);
       } 
 
-      alert(screenshot)
-      console.log(screenshot)
    });
    
 }
