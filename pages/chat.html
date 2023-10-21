@@ -11,7 +11,7 @@
 
 <div id="menu-buttons">
   <div id="back">
-    <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
+    <a href="javascript:void(0);" onclick="tvii.back();" data-sound="SE_WAVE_CANCEL" class="backBtn">
     </a></div>
     <div id="remote">
       <a data-sound="SE_COMMON_SELECT" class="remoteBtn" onclick="changeChannelDemo(12, 15, 15);" href="javascript:void(0);">
@@ -20,7 +20,7 @@
         <a data-sound="SE_POPUP" onclick="showDoodleModal();" class="doodleBtn" href="javascript:void(0);">Doodle
         </a></div>
           <div navi_scroll id="exitModal">
-            <a data-sound="SE_RETURN" class="exitModalBtn" onclick="hideDoodleModal()" href="javascript:void(0);">
+            <a data-sound="SE_WAVE_CANCEL" class="exitModalBtn" onclick="hideDoodleModal()" href="javascript:void(0);">
             </a></div>
             <div navi_scroll id="finishModal">
               <a data-sound="SE_COMMON_SELECT" class="finishModalBtn" onclick="" href="javascript:void(0);">
@@ -34,40 +34,48 @@
             <ul class="sidebar-tools">
               <li navi_scroll><a id="sidebar-pencil" class="pencil selected"  href="javascript:void(0);"></a></li>
               <li navi_scroll><a id="sidebar-delete" class="delete" href="javascript:void(0);"></a></li>
-<button onclick="undo()">Undo</button>
-<button onclick="redo()">Redo</button>
             </ul>
         
               <ul id="pencil-thick-select-popup" class="pencil-thick-select">
-                <li class="pencil-t-big" id="pencil-t-big" onclick="context.lineWidth = '10.0';"></li>
-                <li class="pencil-t-medium" id="pencil-t-medium" onclick="context.lineWidth = '6.0';"></li>
-                <li class="pencil-t-normal" id="pencil-t-normal" onclick="context.lineWidth = '3.0';"></li>
-                <li class="pencil-t-tiny" id="pencil-t-tiny"  onclick="context.lineWidth = '1.0';"></li>
+                <li class="pencil t-big" id="pencil-t-big" onclick="context.lineWidth = '10.0'; selectPenSize(this);"></li>
+                <li class="pencil t-medium" id="pencil-t-medium" onclick="context.lineWidth = '6.0'; selectPenSize(this);"></li>
+                <li class="pencil t-normal" id="pencil-t-normal" onclick="context.lineWidth = '3.0'; selectPenSize(this);"></li>
+                <li class="pencil t-tiny" id="pencil-t-tiny"  onclick="context.lineWidth = '1.0'; selectPenSize(this);"></li>
               </ul>
         
               <ul class="sidebar-colors" id="sidebar-colors-scroll">
                 <li><a href="javascript:void(0);"></a></li>
+                <li><a class="red-4" href="javascript:void(0);" onclick="changeColor('#ff9ca0');"></a></li>
                 <li><a class="red" href="javascript:void(0);" onclick="changeColor('#ff0000');"></a></li>
                 <li><a class="red-2" href="javascript:void(0);" onclick="changeColor('#ff4d54');"></a></li>
                 <li><a class="red-3" href="javascript:void(0);" onclick="changeColor('#ff9ca0');"></a></li>
+                <li><a class="pink" href="javascript:void(0);" onclick="changeColor('#ffaec8');"></a></li>
                 <li><a class="black" href="javascript:void(0);" onclick="changeColor('#000000');"></a></li>
                 <li><a class="grey-2" href="javascript:void(0);" onclick="changeColor('#949494');"></a></li>
                 <li><a class="grey" href="javascript:void(0);" onclick="changeColor('#e7e7e7');"></a></li>
                 <li><a class="white" href="javascript:void(0);" onclick="changeColor('#FFFFFF');"></a></li>
+                <li><a class="blue-2" href="javascript:void(0);" onclick="changeColor('#00b0ff');"></a></li>
+                <li><a class="blue-3" href="javascript:void(0);" onclick="changeColor('#00b0ff');"></a></li>
+                <li><a class="blue-4" href="javascript:void(0);" onclick="changeColor('#00b0ff');"></a></li>
                 <li><a class="blue" href="javascript:void(0);" onclick="changeColor('#00b0ff');"></a></li>
+                <li><a class="blue-5" href="javascript:void(0);" onclick="changeColor('#00b0ff');"></a></li>
+                <li><a class="green-3" href="javascript:void(0);" onclick="changeColor('#48ff00');"></a></li>
                 <li><a class="green" href="javascript:void(0);" onclick="changeColor('#48ff00');"></a></li>
+                <li><a class="green-2" href="javascript:void(0);" onclick="changeColor('#48ff00');"></a></li>
+                <li><a class="green-4" href="javascript:void(0);" onclick="changeColor('#48ff00');"></a></li>
+                <li><a class="yellow-2" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
                 <li><a class="yellow" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
-                <li><a class="pink" href="javascript:void(0);" onclick="changeColor('#ffaec8');"></a></li>
-        
-                <li><input type="text" id="colorHexInput" class="green" value="#" minlength="7" maxlength="7"></li>
-                <li><a class="yellow" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
-                <li><a class="pink" href="javascript:void(0);" onclick="changeColor('#ffaec8');"></a></li>
-                <li><a class="green" href="javascript:void(0);" onclick="changeColor('#48ff00');"></a></li>
-                <li><a class="yellow" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
-                <li><a class="pink" href="javascript:void(0);" onclick="changeColor('#ffaec8');"></a></li>
-                <li><a href="javascript:void(0);"></a></li>
+                <li><a class="orange" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
+                <li><a class="orange-2" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
+                <li><a class="orange-3" href="javascript:void(0);" onclick="changeColor('#ffe600');"></a></li>
+                <li><input type="text"  id="colorHexInput" value="#" minlength="7" maxlength="7"></li>
+                <li><a style="height: 75px;" href="javascript:void(0);"></a></li>
               </ul>
         
+              <div class="doodle-comment-input">
+                <input type="text" data-sound="SE_OPEN_TEXT" placeholder="Touch here to add a comment to your doodle..." maxlength="100" data-sound="SE_WAVE_OK_SUB" class="doodle-user-input">
+                </div>
+
             <div id="doodle-content">
         
         <p><!-- Tool Selector --> 
@@ -80,10 +88,6 @@
         <canvas id="doodle-canvas" height="407" width="723"> 
         <p class="noscript">We're sorry, this web application is currently not supported with your browser. Please use an alternate browser or download a supported <br />browser. Supported browsers: <a href="http://www.google.com/chrome">Google Chrome</a>, <a href="http://www.opera.com">Opera</a>, <a href="http://www.mozilla.com">Firefox</a>, <a href="http://www.apple.com/safari">Safari</a>, <br />and <a href="http://www.konqueror.org">Konqueror</a>. Also make sure your JavaScript is enabled.</p> 
         </canvas>
-
-        <div class="doodle-comment-input">
-          <input type="text" placeholder="&nbsp;Touch here to add a comment to your doodle..." maxlength="100" data-sound="SE_WAVE_OK_SUB" class="doodle-user-input">
-          </div>
         <!-- Canvas Ends -->
         
             </div> 
@@ -93,19 +97,19 @@
 
   <div class="live-moment-img-label">
     <img class="live-comment-moment-img" src="../img/doodleplaceholder.png">
-    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
     <p>The Gauleys keep fighting between the Brians, one Brian just got a hit, ouch!, seeing who will win this championship label!</p>
     <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 67 Yeahs</p>
   </div>
 
   <div class="live-comment-input">
-    <input type="text" placeholder="&nbsp;15 comments" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="user-input">
+    <input type="text" data-sound="SE_OPEN_TEXT" placeholder="15 comments" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="user-input">
     </div>
 
   <div class="live-comment" id="1">
   <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-  <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-  <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+  <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+  <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
   <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
   <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 6 Yeahs</p>
   <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -114,7 +118,7 @@
     <div class="live-reply">
        <div class="reply-image"></div>
        <img data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/10ecdoewepj7h_normal_face.png" class="image-mii">
-       <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+       <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
        <p class="username-mii" data-sound="SE_WAVE_MII_FACE">NoNameGave</p>
        <p class="date" data-sound="SE_WAVE_MII_FACE">2 minutes ago</p>
        <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -124,8 +128,8 @@
 
   <div class="live-comment" id="2">
     <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/25lfmbbipkk9j_normal_face.png">
-    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
     <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Braden</p>
     <p class="date" data-sound="SE_WAVE_MII_FACE">A few moments ago • 0 Yeahs</p>
     <p class="content">This is so fake.</p>
@@ -133,8 +137,8 @@
 
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/3bhq5v2tznmdk_normal_face.png">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">CymbalMonkey</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">1 minutes ago • 212 Yeahs</p>
       <p class="content">the realest nintendo tvii has ever been tbh, but it is impressive by any means</p>
@@ -142,8 +146,8 @@
       
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/30xmo1m1u7gyz_normal_face.png">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Khentendo</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 11 Yeahs</p>
         <p class="content">Oh my god, TVii!, its here!!!!.</p>
@@ -151,7 +155,7 @@
           <div class="live-reply">
              <div class="reply-image"></div>
              <img data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png" class="image-mii">
-             <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+             <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
              <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Savid Dosa</p>
              <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago</p>
              <p class="content">will he accept you as you are tho...? have you tested talking with the doctor about this?</p>
@@ -159,7 +163,7 @@
           <div class="live-reply">
              <div class="reply-image"></div>
              <img data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png" class="image-mii">
-             <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+             <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
              <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Savid Dosa</p>
              <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago</p>
              <p class="content">ok</p>
@@ -169,8 +173,8 @@
         
         <div class="live-comment" id="2">
     <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/3avg1zb72bccp_normal_face.png">
-    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
     <p class="username-mii" data-sound="SE_WAVE_MII_FACE">「Imora」</p>
     <p class="date" data-sound="SE_WAVE_MII_FACE">2 hours ago • 2 Yeahs</p>
     <p class="content">This is an tvii, i thought it was juxt, damn, its just tvii.</p>
@@ -178,8 +182,8 @@
   
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/2lzq6jgsjvtbx_normal_face.png">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Term</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -187,8 +191,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -196,8 +200,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -205,8 +209,8 @@
           
           <div class="live-comment" id="2">
             <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
             <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
     <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -214,8 +218,8 @@
   
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -223,8 +227,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -232,8 +236,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -241,8 +245,8 @@
           
           <div class="live-comment" id="2">
             <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
             <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
     <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -250,8 +254,8 @@
   
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -259,8 +263,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -268,8 +272,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -277,8 +281,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -286,8 +290,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic casting a warm glow over the tranquil ocean waves.</p>
@@ -299,14 +303,14 @@
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
             <p class="content">lo</p>
             <img class="content-img" src="../img/doodle.png">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           </div>
           
           <div class="live-comment" id="2">
             <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
             <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
                 <p class="content">mario did a poopee lol, but he doesnt know</p>
@@ -314,8 +318,8 @@
                   
                   <div class="live-comment" id="2">
                     <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-                    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-                    <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+                    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+                    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
                     <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
                     <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
     <p class="content">what the actual spaghetti man, what the actual lord e lord papa mamma mia its a me LOL</p>
@@ -327,13 +331,13 @@
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">if i make fun of your crazy feeties, or give sugar cookies to miss diabetes, thats not only a technical foul, but possibly an homicide</p>
       <img class="content-img" src="../img/doodle.png">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <div class="replies">
         <div class="live-reply">
            <div class="reply-image"></div>
            <img data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/10ecdoewepj7h_normal_face.png" class="image-mii">
-           <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+           <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
            <p class="username-mii" data-sound="SE_WAVE_MII_FACE">NoNameGave</p>
            <p class="date" data-sound="SE_WAVE_MII_FACE">2 minutes ago</p>
            <p class="content">this drawing smells</p>
@@ -343,8 +347,8 @@
 
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">lol</p>
@@ -352,8 +356,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">t</p>
@@ -361,8 +365,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WAVE_MII_FACE" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="hover(this)" onmouseout="uhover(this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -379,5 +383,5 @@
 
 <script type="text/javascript" src="../js/vino.js"></script>
 <script type="text/javascript" src="../js/tags.js"></script>
-  <script type="text/javascript" src="../js/doodle.js"></script>
+<script type="text/javascript" src="../js/doodle.js"></script>
 </html>

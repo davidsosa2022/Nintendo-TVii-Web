@@ -6,7 +6,7 @@
    <meta http-equiv="Content-Script-Type" content="text/javascript">
    <link rel="stylesheet" href="../css/main-style.css">
 </head>
-  <body class="scroll" onload="hideLoad()">
+  <body class="scroll" onload="tvii.showLoad(false)">
 
   <div id="menu-buttons">
     <span id="main-live-tv">Live</span>
@@ -14,7 +14,7 @@
     <span id="main-guide-tv">Guide</span> 
 
     <div id="back">
-      <a href="javascript:void(0);" onclick="back();" data-sound="SE_RETURN" class="backBtn">
+      <a href="javascript:void(0);" onclick="tvii.back();" data-sound="SE_WAVE_CANCEL" class="backBtn">
       </a></div>
   
       <div id="remote">

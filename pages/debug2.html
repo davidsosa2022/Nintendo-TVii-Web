@@ -4,54 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        ::-webkit-scrollbar {
+            width: 12px;
         }
 
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            object-fit: cover;
+        ::-webkit-scrollbar-thumb {
+            background: #888;
         }
 
         .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        .scrollable-content {
-            height: 200vh; /* Adjust the height to make the page scrollable */
-            background-color: rgba(255, 255, 255, 0.8); /* Example background color */
-            text-align: center;
+            width: 200px;
+            height: 200px;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img class="background" src="https://via.placeholder.com/1920x1080" alt="Background Image"> <!-- Replace with your image URL -->
-        <div class="content">
-            <h1>Fixed Background Image</h1>
-            <p>This is a demonstration of a fixed background image with scrolling content.</p>
+    <div class="content" style="scrollbar-color: #888 #f1f1f1;">
+        <div style="height: 2000px;">
+            Scroll up or down to adjust the volume while staying centered.
         </div>
     </div>
-    <div class="scrollable-content">
-        <h2>Scrollable Content</h2>
-        <p>This is additional content to showcase scrolling.</p>
-        <!-- Add more content here -->
-    </div>
+
+    <script>
+        var content = document.querySelector('.content');
+        var center = content.scrollHeight / 2;
+        content.scrollTop = center;
+
+        content.addEventListener('scroll', function() {
+            if (content.scrollTop < center / 2) {
+                console.log('Volume Up');
+                content.scrollTop = center;
+            } else if (content.scrollTop > center + center / 2) {
+                console.log('Volume Down');
+                content.scrollTop = center;
+            }
+        });
+    </script>
 </body>
 </html>
+
 
