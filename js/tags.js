@@ -15,7 +15,6 @@ finishModalButton.style.display = "none";
 var isDoodle = false;
 }
 
-const activeUserSlot = vino.act_getCurrentSlotNo(); // The slot for the active user
 if(document.getElementById("play-user-mii-name")){
   setMiiName = document.getElementById("play-user-mii-name");
 setMii = document.getElementById("play-user-mii");

@@ -251,62 +251,13 @@ if (typeof vino === 'undefined') {
 if (typeof wiiu === 'undefined') {window.wiiu = {},window.wiiu.gamepad = {update: function() {}};}
 
 // actual app JS stars here..., ill remove the emulation on prod, lo
-
-var homePageModal = document.getElementById("wrapper-home");
-var settingsPageModal = document.getElementById("wrapper-settings");
-var tvShowsPageModal = document.getElementById("wrapper-tv-shows");
-var tvRemoteModal = document.getElementById("tv-remote");
-var tvRemoteFavShortcut = document.getElementById("tv-remote-favs");
-var exitModalButton = document.getElementById("exitModal");
-
-// Button code
-const navItems = document.querySelectorAll("[navi_scroll]");
-var currentIndex = 0;
-
-// Function to handle scrolling left
-function scrollLeft() {
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = 0;
-  }
-  scrollToCurrentItem();
-}
-
-// Function to handle scrolling right
-function scrollRight() {
-  currentIndex++;
-  if (currentIndex >= navItems.length) {
-    currentIndex = navItems.length - 1;
-  }
-  scrollToCurrentItem();
-}
-
-// Function to scroll to the currently focused item
-function scrollToCurrentItem() {
-  // Remove active class from all items
-  for (var i = 0; i < navItems.length; i++) {
-    navItems[i].classList.remove('navi-selected');
-  }
-
-  // Add active class to the currently focused item
-  navItems[currentIndex].classList.add('navi-selected');
-
-  // Scroll to the focused item using scrollIntoView
-  navItems[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function executeOrNavigate(href) {
-  const focusedItem = navItems[currentIndex].querySelector('a');
-  vino.soundPlay('SE_COMMON_SELECT');
-  // Navigate to the href
-  if (focusedItem.href) {
-    window.location.href = focusedItem.href;
-  }
-}
-
-// Initialize by scrolling to the first element
-scrollToCurrentItem();
-
+var d = document;
+var homePageModal = d.getElementById("wrapper-home");
+var settingsPageModal = d.getElementById("wrapper-settings");
+var tvShowsPageModal = d.getElementById("wrapper-tv-shows");
+var tvRemoteModal = d.getElementById("tv-remote");
+var tvRemoteFavShortcut = d.getElementById("tv-remote-favs");
+var exitModalButton = d.getElementById("exitModal");
 
 // because your own js global is mega cool!
 window.tvii = {
@@ -321,7 +272,13 @@ window.tvii = {
     vino.emulate_inputDelay(2);
     },
     toggleTVRemote: function (val) {
+      if (tvRemoteModal.classList.contains('show')){
+        vino.navi_setMoveMethod(0);
         tvRemoteModal.classList.toggle('show');
+      } else    {
+        vino.navi_setMoveMethod(-1);
+        tvRemoteModal.classList.toggle('show');
+        }
     },
     enableCSet: function (val) {
     vino.ir_enableCodeset(val);
@@ -336,29 +293,29 @@ window.tvii = {
     },
     showSettingsModal: function() {
     homePageModal.style.display = 'none';
-    document.body.classList.add('scroll');
+    d.body.classList.add('scroll');
     settingsPageModal.style.display = 'block';
-    document.body.scrollLeft += 200;
+    d.body.scrollLeft += 200;
     },
     hideSettingsModal: function() {
-    document.body.classList.remove('scroll');
+    d.body.classList.remove('scroll');
     settingsPageModal.style.display = 'none';
     homePageModal.style.display = 'block';
     },
     showTVShowsModal: function() {
     homePageModal.style.display = 'none';
-    document.body.classList.add('scroll');
+    d.body.classList.add('scroll');
     tvShowsPageModal.style.display = 'block';
     },
     hideTVShowsModal: function() {
-    document.body.classList.remove('scroll');
+    d.body.classList.remove('scroll');
     tvShowsPageModal.style.display = 'none';
     homePageModal.style.display = 'block';
     },
     ir_changeChannel: function(ir1, ir2, ir3) {
-    setTimeout(function(){vino.ir_send(ir1, 0);}, 500);
-    setTimeout(function(){vino.ir_send(ir2, 0);}, 1000);
-    setTimeout(function(){vino.ir_send(ir3, 0);}, 1500);
+    vino.ir_send(ir1, 0);
+    setTimeout(function(){vino.ir_send(ir2, 0);}, 500);
+    setTimeout(function(){vino.ir_send(ir3, 0);}, 1000);
     },
     ir_send: function(ir1) {
         vino.ir_send(ir1, 0);
@@ -388,7 +345,7 @@ function lerp( a, b, alpha ) {
 var lStickRightCheck = setInterval(function() {
   wiiu.gamepad.update()
   if(wiiu.gamepad.hold === 536870912) {
-    document.body.scrollLeft += lerp(-15, 15, (wiiu.gamepad.lStickX));
+    d.body.scrollLeft += lerp(-15, 15, (wiiu.gamepad.lStickX));
   }
 
 }, 10);
@@ -396,7 +353,7 @@ var lStickRightCheck = setInterval(function() {
 var lStickLeftCheck = setInterval(function() {
   wiiu.gamepad.update()
   if(wiiu.gamepad.hold === 1073741824) {
-    document.body.scrollLeft += lerp(-15, -15, (wiiu.gamepad.lStickX));
+    d.body.scrollLeft += lerp(-15, -15, (wiiu.gamepad.lStickX));
   }
 
 }, 10);
@@ -404,7 +361,7 @@ var lStickLeftCheck = setInterval(function() {
 var lStickUpCheck = setInterval(function() {
   wiiu.gamepad.update()
   if(wiiu.gamepad.hold ===  268435456) {
-    document.body.scrollTop += lerp(-15, -15, (wiiu.gamepad.lStickY));
+    d.body.scrollTop += lerp(-15, -15, (wiiu.gamepad.lStickY));
   }
 
 }, 10);
@@ -412,7 +369,7 @@ var lStickUpCheck = setInterval(function() {
 var lStickDownCheck = setInterval(function() {
   wiiu.gamepad.update()
   if(wiiu.gamepad.hold === 134217728) {
-    document.body.scrollTop += lerp(15, 15, (wiiu.gamepad.lStickY));
+    d.body.scrollTop += lerp(15, 15, (wiiu.gamepad.lStickY));
   }
 
 }, 10);
@@ -424,68 +381,31 @@ var yButtonCheck = setInterval(function() {
     }
 }, 50);
 
-var dPadRightCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 2048) {
-        scrollLeft();
-    }
-    }, 150);
-
-  var dPadLeftCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 1024) {
-        scrollRight();
-    }
-  }, 150);
-
-  var dPadUpCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 512) {
-        scrollLeft();
-    }
-    }, 150);
-
-  var dPadDownCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 256) {
-        scrollRight();
-    }
-  }, 150);
-
-  var aButtonCheck = setInterval(function() {
-    wiiu.gamepad.update()
-    if(wiiu.gamepad.hold === 32768) {
-    const focusedItem = navItems[currentIndex].querySelector('a');
-    if (focusedItem) {
-        executeOrNavigate(focusedItem.getAttribute('href'));
-      }
-}
-  }, 150);
-
-var canHistoryB = document.getElementById('back');
+var canHistoryB = d.getElementById('back');
 if (typeof(canHistoryB) != 'undefined' && canHistoryB != null) {
   var bButtonCheck = setInterval(function() {
       wiiu.gamepad.update()
        if(wiiu.gamepad.hold === 16384 && tvRemoteModal.classList.contains('show')) {
+        vino.navi_setMoveMethod(0);
         vino.soundPlay('SE_A_CLOSE_TOUCH_OFF');
         tvRemoteModal.classList.remove('show');
        }
       else if(wiiu.gamepad.hold === 16384 && tvShowsPageModal.style.display === 'block') {
         vino.soundPlay('SE_A_CLOSE_TOUCH_OFF');
-        document.body.classList.remove('scroll');
+        d.body.classList.remove('scroll');
         tvShowsPageModal.style.display = 'none';
         homePageModal.style.display = 'block';
        } 
        else if(wiiu.gamepad.hold === 16384 && settingsPageModal.style.display === 'block') {
        vino.soundPlay('SE_A_CLOSE_TOUCH_OFF');
-       document.body.classList.remove('scroll');
+       d.body.classList.remove('scroll');
        settingsPageModal.style.display = 'none';
        homePageModal.style.display = 'block';
       }
     }, 150);
 }
 (function () {
-  var els = document.querySelectorAll("[data-sound]");
+  var els = d.querySelectorAll("[data-sound]");
   if (!els) return;
   for (var i = 0; i < els.length; i++) {
       els[i].addEventListener("click", function(e) {
@@ -495,7 +415,7 @@ if (typeof(canHistoryB) != 'undefined' && canHistoryB != null) {
 })();
 
 (function () {
-    var elt = document.querySelectorAll("[navi_touch]");
+    var elt = d.querySelectorAll("[navi_touch]");
     if (!elt) return;
     for (var i = 0; i < elt.length; i++) {
         elt[i].addEventListener("click", function(e) {
@@ -517,33 +437,41 @@ window.onclick = function(event) {
   }
 }
 
+window.addEventListener("click", function () {
+  vino.navi_reset();
+})
+
+window.addEventListener("scroll", function () {
+  vino.navi_reset();
+})
+
 tvRemoteFavShortcut.addEventListener("scroll", function () {
     vino.soundPlay("SE_SLIDER_CHANGE");
  })
 
 //home page code, if the user has already seen the splash screen, set loading icon for 1 second and 30
 if (sessionStorage.getItem("homeLoaded")  === "true") {
-  document.getElementById("wrapper-home").classList.remove("hide");
+  d.getElementById("wrapper-home").classList.remove("hide");
   tvii.showLoadVisible(false);
   }
 
-var miiImg = document.getElementById("mii-image");
+var miiImg = d.getElementById("mii-image");
 miiImg.src=vino.act_getMiiImage(activeUserSlot);
 //initial splash screen
 if (!sessionStorage.getItem("homeLoaded")) {
-  setTimeout(function() {tvii.showLoadVisible(false)}, 4500);
-  document.body.style.position = "fixed";
+  setTimeout(function() {tvii.showLoad(false)}, 4000);
+  d.body.style.position = "fixed";
   vino.navi_setMoveMethod(-1); 
   sessionStorage.setItem("homeLoaded", "true");
   setTimeout(function() {
-    document.getElementById("wrapper-home").classList.remove("hide");
+    d.getElementById("wrapper-home").classList.remove("hide");
     vino.navi_setMoveMethod(0);
-    document.body.style.position = "relative";
+    d.body.style.position = "relative";
   }, 4100);
 }
 
 //settings page code, set mii name and body image
-setMiiBody = document.getElementById("settings-mii-body");
-setMiiName = document.getElementById("settings-mii-name");
+setMiiBody = d.getElementById("settings-mii-body");
+setMiiName = d.getElementById("settings-mii-name");
 setMiiName.innerText=vino.act_getName(activeUserSlot);
 setMiiBody.src=vino.act_getMiiImageEx(activeUserSlot, 7);
