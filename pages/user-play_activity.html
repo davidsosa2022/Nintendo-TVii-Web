@@ -6,7 +6,7 @@
    <meta http-equiv="Content-Script-Type" content="text/javascript">
    <link rel="stylesheet" href="../css/main-style.css">
 </head>
-<body class="tag" onload="hideLoad()">
+<body class="tag" onload="tvii.showLoad(false)">
 
   <div id="menu-buttons">
     <div id="back">
@@ -18,15 +18,15 @@
         </a></div>
   </div>
 
-<div id="sidebar-tag">
-<ul class="sidebar">
-  <li navi_scroll><a data-sound="SE_COMMON_SELECT" class="about" href="#about">About</a></li>
-  <li navi_scroll><a data-sound="SE_COMMON_SELECT" class="posts" href="#posts">Posts</a></li>
-  <li navi_scroll><a data-sound="SE_COMMON_SELECT" class="favorite" href="#favorite">Favorite</a></li>
-  <li navi_scroll><a data-sound="SE_COMMON_SELECT" class="points selected" href="#points">Points</a></li>
-  <li navi_scroll><a data-sound="SE_COMMON_SELECT" class="searchText" href="#search">Search</a></li>
-</ul>
-</div>
+  <div id="sidebar-tag">
+    <ul class="sidebar">
+      <li><a navi_target navi_touch class="about" href="#about">About</a></li>
+      <li><a navi_target navi_touch class="tune" href="#posts">Tune</a></li>
+      <li><a navi_target navi_touch class="tvinput" href="#search">TV Input</a></li>
+      <li><a navi_target navi_touch class="favorite" onclick="this.classList.toggle('checked')" href="#favorite">Favorite</a></li>
+      <li><a navi_target navi_touch class="points checked" href="#points">Points</a></li>
+    </ul>
+    </div>
 
 <div id="play-user-menu">
 
@@ -48,8 +48,8 @@
   </div>
   
   <div class="play-user-recent">
-  <div navi_scroll style="display:inline-block;"><a class="play-user-recent-activity selected" href="user-play_activity.html">Activity</a></div>
-  <div navi_scroll style="display:inline-block;"><a class="play-user-recent-leaderboard" href="user-play_leaderboard.html">Leaderboard</a></div>
+  <a navi_target navi_touch class="play-user-recent-activity selected" href="user-play_activity.html">Activity</a>
+  <a navi_target navi_touch class="play-user-recent-leaderboard" href="user-play_leaderboard.html">Leaderboard</a>
   </div>
 
   <div id="play-user-recent-answers">

@@ -6,7 +6,7 @@
    <meta http-equiv="Content-Script-Type" content="text/javascript">
   <link rel="stylesheet" href="../css/main-style.css">
 </head>
-<body class="tag" onload="hideLoad()">
+<body class="tag" onload="tvii.showLoad(false)">
 
   <div id="menu-buttons">
     <div id="back">
@@ -20,103 +20,154 @@
 
 <div id="sidebar-tag">
   <ul class="sidebar">
-    <li navi_scroll><a class="about" href="#about">About</a></li>
-    <li navi_scroll><a class="posts" href="#posts">Posts</a></li>
-    <li navi_scroll><a class="favorite" href="#favorite">Favorite</a></li>
-    <li navi_scroll><a class="points selected" href="#points">Points</a></li>
-    <li navi_scroll><a class="searchText" href="#search">Search</a></li>
+    <li><a navi_target navi_touch class="about" href="#about">About</a></li>
+    <li><a navi_target navi_touch class="tune" href="#posts">Tune</a></li>
+    <li><a navi_target navi_touch class="tvinput" href="#search">TV Input</a></li>
+    <li><a navi_target navi_touch class="favorite" onclick="this.classList.toggle('checked')" href="#favorite">Favorite</a></li>
+    <li><a navi_target navi_touch class="points" href="#points">Points</a></li>
   </ul>
   </div>
-  
-  <a class="separator"></a>
   
 <div class="tv-tag-moments">
 
 <div id="1" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="1" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content">The crazy adventures of Braden</p>
+  <p class="moment-content">NoName decides to kiss Braden is a really fast and completely unexpected way to the surprise of everyone.</p>
   <span class="post-counter">34</span>
+  <span class="yeah-counter">12</span>
 </a>
 </div>
 
 <div id="2" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="2" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content grey">Braden kicks an car accidentally and then procedes to cry for 10 hours and after that he literally fucking dies</p>
+  <p class="moment-content">Braden steals an car and then procedes to cry for 10 hours and after that he literally fucking dies</p>
   <span class="post-counter">34</span>
+  <span class="yeah-counter">3</span>
 </a>
 </div>
 
 <div id="3" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="3" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content">Something</p>
+  <p class="moment-content">NoName did something really bad.</p>
   <span class="post-counter">3</span>
+  <span class="yeah-counter">34</span>
 </a>
 </div>
 
 <div id="4" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="4" src="../img/momentd.png" class="moment-img">
   <p class="moment-content">Something unfortunate happens at the residence where Jan Luna lives...</p>
   <span class="post-counter">18</span>
+  <span class="yeah-counter">1</span>
 </a>
 </div>
 
 <div id="5" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="5" src="../img/momentd.png" class="moment-img">
   <p class="moment-content">Someone decided it was a good idea to shut and shit down this service, they were very wrong with such a dumb choice, man.</p>
   <span class="post-counter">34</span>
+  <span class="yeah-counter">19</span>
 </a>
 </div>
 
 <div id="6" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="6" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content">Something unfortunate happens at the residence where Jan Luna lives...</p>
-  <span class="post-counter">34</span>
+  <p class="moment-content">The new movie was so bad that David wanted to threw up, but he couldnt even do that.</p>
+  <span class="post-counter">9999</span>
+  <span class="yeah-counter">9999</span>
+</a>
+</div>
+
+<div id="5" class="moment poll">
+  <a href="javascript:void(0)">
+  <p class="poll-question">What would Braden himself actually do if like, David Joaq just died?</p>
+  <input type="radio" navi_touch class="poll-input" id="david" name="is_braden_gay" value="HTML">
+  <label navi_target class="poll-label" for="david">Buy a Nintendo Switch and run.</label>
+  <span class="poll-votes">1293</span><br>
+
+  <input type="radio" navi_touch class="poll-input" id="brad" name="is_braden_gay" value="JS">
+  <label navi_target class="poll-label"  for="brad">Go to Walmart and buy all gum.</label>
+  <span class="poll-votes">5</span><br>
+
+  <input type="radio" navi_touch class="poll-input" id="noname" name="is_braden_gay" value="Rust">
+  <label navi_target class="poll-label" for="noname">Buy tickets for Taylor Swift.</label>
+  <span class="poll-votes">102</span><br>
+
+  <input type="radio" navi_touch class="poll-input" id="poopi" name="is_braden_gay" value="poo">
+  <label navi_target class="poll-label" for="poopi">Do nothing.</label>
+  <span class="poll-votes">34</span><br>
 </a>
 </div>
 
 <div id="7" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="7" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content">Something unfortunate happens at the residence where Jan Luna lives...</p>
+  <p class="moment-content">Everyone thinks the Five Nights At Freddy movie was really good.</p>
   <span class="post-counter">34</span>
+  <span class="yeah-counter">112</span>
 </a>
 </div>
 
 <div id="4" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="4" src="../img/momentd.png" class="moment-img">
   <p class="moment-content">Something unfortunate happens at the residence where Jan Luna lives...</p>
   <span class="post-counter">34</span>
+  <span class="yeah-counter">64</span>
 </a>
 </div>
 
 <div id="5" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="5" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content">Something unfortunate happens at the residence where Jan Luna lives...</p>
-  <span class="post-counter">34</span>
+  <p class="moment-content grey">An fight occurs inside the theater and David starts recording everything on it.</p>
+  <span class="post-counter">43</span>
+  <span class="yeah-counter">21</span>
 </a>
 </div>
 
 <div id="6" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="6" src="../img/momentd.png" class="moment-img">
-  <p class="moment-content">Something unfortunate happens at the residence where David lives...</p>
-  <span class="post-counter">34</span>
+  <p class="moment-content">Someone really hated the movie and tried to put the entire theater on fire, thankfully Braden stopped it just in time.</p>
+  <span class="post-counter">64</span>
+  <span class="yeah-counter">4</span>
+</a>
+</div>
+
+<div id="5" class="moment poll">
+  <a href="javascript:void(0)">
+  <p class="poll-question">What would David do if Braden randomly dies?</p>
+  <input type="radio" navi_touch class="poll-input" id="html" name="fav_language" value="HTML">
+  <label navi_target class="poll-label" for="html">Start Crying</label>
+  <span class="poll-votes">9999</span><br>
+
+  <input type="radio" navi_touch class="poll-input" id="js" name="fav_language" value="JS">
+  <label navi_target class="poll-label"  for="js">The Nation is listening, David.</label>
+  <span class="poll-votes">125</span><br>
+
+  <input type="radio" navi_touch class="poll-input" id="rust" name="fav_language" value="Rust">
+  <label navi_target class="poll-label" for="rust">Ignore it and run</label>
+  <span class="poll-votes">34</span><br>
+
+  <input type="radio" navi_touch class="poll-input" id="poop" name="fav_language" value="poo">
+  <label navi_target class="poll-label" for="poop">The Nation is listening, Braden.</label>
+  <span class="poll-votes">12</span><br>
 </a>
 </div>
 
 <div id="7" class="moment">
-  <a href="javascript:void(0)">
+  <a navi_target href="javascript:void(0)">
   <img id="7" src="../img/momentd.png" class="moment-img">
   <p class="moment-content">Something unfortunate happens at the residence where Luna lives...</p>
-  <span class="post-counter">34</span>
+  <span class="post-counter">0</span>
+  <span class="yeah-counter">0</span>
 </a>
 </div>
 
