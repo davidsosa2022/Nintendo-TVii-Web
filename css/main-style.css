@@ -1098,10 +1098,10 @@ border-top: 1px solid #aaaaaa;
 .tv-tag-moments {
   position: relative;
   width: 750px;
-  margin: 45px;
+  margin: 80px;
   margin-top: 10px;
-  margin-bottom: 80px;
-  left: 42px;
+  margin-bottom: 100px;
+  left: 0px;
   font-size: 0;
   padding: 0px;
 }
@@ -1119,76 +1119,81 @@ border-top: 1px solid #aaaaaa;
 }
 
 .tv-tag-moments .moment.poll {
-  margin: 16px;
-  margin-top: 16px;
-  border: 1px solid #f0f0f0;
-  padding-top: 7px;
-  margin-bottom: 0px;
-  margin-left: 14.5px;
-  background: -webkit-linear-gradient(#e1e1e1,#cccccc, #b3b3b3, #b3b3b3, #b3b3b3);
-  border-radius: 3px;
-  width: 342px;
-  height: 190px;
+    margin: 16px;
+    margin-top: 16px;
+    border: 1px solid #f0f0f0;
+    padding-top: 19px;
+    margin-bottom: 0px;
+    margin-left: 14.5px;
+    background: -webkit-linear-gradient(#e1e1e1,#cccccc, #b3b3b3, #b3b3b3, #b3b3b3);
+    border-radius: 3px;
+    width: 342px;
+    height: 174px;
 }
 
 .tv-tag-moments .moment:nth-child(odd) {
-  top: 0px;
+  top: 50px;
 }
 
 .tv-tag-moments .moment:nth-child(even) {
-   top: 35px;
+  top: 5px;
+}
+
+.tv-tag-moments .moment.poll a {
+    position: relative;
+    top: -14px;
 }
 
 .tv-tag-moments .poll-question {
-  display: block;
-  font-size: 15.5px;
-  margin: 12px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  width: 319px;
-  font-weight: bold;
-  color: #333333;
+    display: block;
+    font-size: 15.5px;
+    margin: 12px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    width: 319px;
+    font-weight: bold;
+    color: #333333;
 }
 
 .tv-tag-moments .poll-input {
-  position: relative;
-  top: 4px;
-  display: inline-block;
-  margin-left: 9px;
-  margin-top: 2px;
-  margin-bottom: 0px;
-  width: 20px;
-  height: 20px;
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    margin-left: 9px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    width: 20px;
+    height: 20px;
 }
 
 .tv-tag-moments .poll-label {
-  margin: 7px;
-  margin-top: -10px;
-  margin-bottom: 7px;
-  margin-left: 0px;
-  display: inline-block;
-  font-size: 14.2px;
-  color:#333333;
-  box-sizing: border-box;
+    margin: 7px;
+    margin-top: -10px;
+    margin-bottom: 4px;
+    margin-left: 0px;
+    display: inline-block;
+    font-size: 14.2px;
+    color: #333333;
+    box-sizing: border-box;
 }
 
 .tv-tag-moments .poll-votes {
-  position: relative;
-  display: block;
-  top: -26px;
-  right: -276px;
-  margin: 0px;
-  margin-bottom: -18px;
-  padding-right: 6px;
-  width: 50px;
-  border: 1px solid #e7e7e7;
-  background: -webkit-linear-gradient(#979797, #848484, #878787);
-  text-align: right;
-  border-radius: 25px;
-  font-size: 14px;
-  color: #f0f0f0;
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.75);
+    position: relative;
+    display: block;
+    top: -26px;
+    right: -276px;
+    margin: 0px;
+    margin-bottom: -18px;
+    padding-right: 6px;
+    width: 50px;
+    border: 1px solid #e7e7e7;
+    background: -webkit-linear-gradient(#979797, #848484, #878787);
+    text-align: right;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #f0f0f0;
+    box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.75);
 }
 
 .tv-tag-moments .moment-img {
