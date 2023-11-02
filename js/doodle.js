@@ -203,4 +203,3 @@ canvasFinish.addEventListener('click', function (e) {
    });
    
 }
-

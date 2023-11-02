@@ -445,18 +445,22 @@ window.addEventListener("scroll", function () {
   vino.navi_reset();
 })
 
+if (tvRemoteFavShortcut){
 tvRemoteFavShortcut.addEventListener("scroll", function () {
     vino.soundPlay("SE_SLIDER_CHANGE");
  })
+}
 
 //home page code, if the user has already seen the splash screen, set loading icon for 1 second and 30
-if (sessionStorage.getItem("homeLoaded")  === "true") {
+if (sessionStorage.getItem("homeLoaded")  === "true" &&  d.getElementById("wrapper-home")) {
   d.getElementById("wrapper-home").classList.remove("hide");
   tvii.showLoadVisible(false);
   }
 
+if (d.getElementById("mii-image")){
 var miiImg = d.getElementById("mii-image");
 miiImg.src=vino.act_getMiiImage(activeUserSlot);
+}
 //initial splash screen
 if (!sessionStorage.getItem("homeLoaded")) {
   setTimeout(function() {tvii.showLoad(false)}, 4000);
@@ -470,8 +474,10 @@ if (!sessionStorage.getItem("homeLoaded")) {
   }, 4100);
 }
 
+if (d.getElementById("settings-mii-body")){
 //settings page code, set mii name and body image
 setMiiBody = d.getElementById("settings-mii-body");
 setMiiName = d.getElementById("settings-mii-name");
 setMiiName.innerText=vino.act_getName(activeUserSlot);
 setMiiBody.src=vino.act_getMiiImageEx(activeUserSlot, 7);
+}
