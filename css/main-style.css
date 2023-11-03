@@ -1210,6 +1210,7 @@ border-top: 1px solid #aaaaaa;
   width: 342px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5));
   color: #ffffff;
   font-size: 16px;
   text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
@@ -1218,11 +1219,26 @@ border-top: 1px solid #aaaaaa;
 }
 
 
-.tv-tag-moments .moment-info {
+.tv-tag-moments .moment-counters {
   position: absolute;
-  bottom: -15px;
+  top: 10px;
   left: 0px;
   width: 342px;
+  height: 42px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0));
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.tv-tag-moments .moment-info {
+  position: absolute;
+  bottom: -12px;
+  left: 0px;
+  width: 342px;
+  height: 36px;
+  background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5));
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   color: #ffffff;
@@ -1233,7 +1249,8 @@ border-top: 1px solid #aaaaaa;
 }
 
 .tv-tag-moments .moment-info ~ .moment-content {
-  bottom: 0px; /* Set the bottom property to 0px */
+  bottom: 4px;
+  background: rgba(0, 0, 0, 0.0); /* Set the bottom property to 0px */
 }
 
 .tv-tag-moments .moment-content.grey {
@@ -1243,11 +1260,11 @@ border-top: 1px solid #aaaaaa;
 .tv-tag-moments .post-counter {
   position: absolute;
   display: inline-block;
-  left: 12px;
+  left: 9px;
   color: #ffffff;
   text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
   font-size: 16px;
-  top: 11px;
+  top: 0px;
   box-sizing: border-box;
 }
 
@@ -1267,7 +1284,7 @@ border-top: 1px solid #aaaaaa;
   color: #ffffff;
   text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
   font-size: 16px;
-  top: 11px;
+  top: 0px;
   box-sizing: border-box;
 }
 
