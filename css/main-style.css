@@ -1139,12 +1139,9 @@ border-top: 1px solid #aaaaaa;
   top: 5px;
 }
 
-.tv-tag-moments .moment.poll a {
-    position: relative;
-    top: -14px;
-}
-
 .tv-tag-moments .poll-question {
+    position: relative;
+    top: -12px;
     display: block;
     font-size: 15.5px;
     margin: 12px;
@@ -1157,7 +1154,7 @@ border-top: 1px solid #aaaaaa;
 
 .tv-tag-moments .poll-input {
     position: relative;
-    top: 4px;
+    top: -7px;
     display: inline-block;
     margin-left: 9px;
     margin-top: 2px;
@@ -1167,6 +1164,8 @@ border-top: 1px solid #aaaaaa;
 }
 
 .tv-tag-moments .poll-label {
+    position: relative;
+    top: -10px;
     margin: 7px;
     margin-top: -10px;
     margin-bottom: 4px;
@@ -1174,13 +1173,12 @@ border-top: 1px solid #aaaaaa;
     display: inline-block;
     font-size: 14.2px;
     color: #333333;
-    box-sizing: border-box;
 }
 
 .tv-tag-moments .poll-votes {
     position: relative;
     display: block;
-    top: -26px;
+    top: -33px;
     right: -276px;
     margin: 0px;
     margin-bottom: -18px;
