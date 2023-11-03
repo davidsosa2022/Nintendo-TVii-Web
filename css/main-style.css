@@ -1543,13 +1543,11 @@ ul.sidebar {
   margin: 0;
   padding: 0;
   top: 0px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAABCAIAAADsEU8HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAaSURBVBhXY1RTU2egBfgPpekJdLUV127YAQDflgQC1IW+AgAAAABJRU5ErkJggg==');
   width: 70px;
   z-index: 10;
   position: fixed;
   height: 480px;
-  outline: 1px solid rgba(65, 65, 65, 0.5);
-  border-right: 1px solid black;
 }
 
 .sidebar li a {
@@ -1559,15 +1557,17 @@ ul.sidebar {
   margin: 0px;
   text-align: center;
   line-height: 8.8;
+  width: 69px;
   height: 64px;
   border-bottom: 1px solid black;
-  border-top: 1px solid rgba(65, 65, 65, 0.5);
+  border-top: 1px solid #535048;
   font-size: 12px;
   text-shadow: 0px 1px 3px rgba(0,0,0,0.9);
 }
 
 .sidebar li:last-child {
-  border-bottom: 1px solid rgba(65, 65, 65, 0.5);
+  width: 69px;
+  border-bottom: 1px solid #535048;
 }
 
 .sidebar li a.about {
