@@ -1133,11 +1133,11 @@ border-top: 1px solid #aaaaaa;
 }
 
 .tv-tag-moments .moment:nth-child(odd) {
-  top: 50px;
+  top: 0px;
 }
 
 .tv-tag-moments .moment:nth-child(even) {
-  top: 5px;
+  top: 35px;
 }
 
 .tv-tag-moments .poll-question {
@@ -1215,6 +1215,25 @@ border-top: 1px solid #aaaaaa;
   text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
   padding: 10px;
   box-sizing: border-box;
+}
+
+
+.tv-tag-moments .moment-info {
+  position: absolute;
+  bottom: -15px;
+  left: 0px;
+  width: 342px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #ffffff;
+  font-size: 12px;
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.tv-tag-moments .moment-info ~ .moment-content {
+  bottom: 0px; /* Set the bottom property to 0px */
 }
 
 .tv-tag-moments .moment-content.grey {
