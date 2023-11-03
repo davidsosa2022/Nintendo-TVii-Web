@@ -1154,7 +1154,7 @@ border-top: 1px solid #aaaaaa;
 
 .tv-tag-moments .poll-input {
     position: relative;
-    top: -7px;
+    top: -10px;
     display: inline-block;
     margin-left: 9px;
     margin-top: 2px;
@@ -1165,7 +1165,7 @@ border-top: 1px solid #aaaaaa;
 
 .tv-tag-moments .poll-label {
     position: relative;
-    top: -10px;
+    top: -14px;
     margin: 7px;
     margin-top: -10px;
     margin-bottom: 4px;
