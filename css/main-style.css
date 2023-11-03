@@ -1098,7 +1098,8 @@ border-top: 1px solid #aaaaaa;
 .tv-tag-moments {
   position: relative;
   width: 750px;
-  margin: 80px;
+  margin: 80px;  
+  margin-left: 83px;
   margin-top: 10px;
   margin-bottom: 100px;
   left: 0px;
