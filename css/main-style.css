@@ -1614,11 +1614,10 @@ ul.sidebar {
 
 #play-user-menu {
   position: fixed;
-  left: 71px;
+  left: 70px;
   width: 400px;
   height: 481px;
   background: #e1e1e1;
-  outline: 1px solid black;
 }
 
 .play-user-mii-banner {
