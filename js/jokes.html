@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send XML Data to URL</title>
+</head>
+<body>
+
+<script>
+    const xmlData = `<mii>
+	<name>Jennifer</name>
+	<primary>Y</primary>
+	<data>AwAAEBs8xqsHR9PCiA56Sz2EJgtEiQAAVVtKAGUAbgBuAGkAZgBlAHIAAAAAAEhWApAHBR1pRBoz
+		NUUSZhIIZg4AACkASmVURAAuAFMAAAAAAAAAAAAAAAAAAAAAAKy7</data>
+</mii>`;
+    const contentLength = xmlData.length;
+
+    fetch('https://account.nintendo.net/v1/api/people/@me/miis/@primary', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/xml',
+            'X-Nintendo-Platform-ID': '1',
+            'X-Nintendo-Device-Type': '2',
+            'X-Nintendo-Device-ID': '1149838636',
+            'X-Nintendo-Serial-Number': 'FW106965791',
+            'X-Nintendo-System-Version': '0270',
+            'X-Nintendo-Region': '2',
+            'X-Nintendo-Country': 'US',
+            'X-Nintendo-FPD-Version': '0000',
+            'X-Nintendo-Application-Version': '00AB',
+            'X-Nintendo-Title-ID': '0005001010040100',
+            'X-Nintendo-Unique-ID': '00401',
+            'X-Nintendo-Enviroment': 'L1',
+            'Accept-Language': 'en',
+            'Content-Length': contentLength,
+            'Accept': '*/*',
+            'Authorization': 'Bearer 8a1097d964bb2cb78039b3a62b033572',
+            'X-Nintendo-Client-ID': 'a2efa818a34fa16b8afbc8a74eba3eda',
+            'X-Nintendo-Client-Secret': 'ac91cdb5658bd4954ade78533a339cf9a'
+        },
+        body: xmlData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Request succeeded with JSON response:', data);
+    })
+    .catch(error => {
+        console.error('Request failed', error);
+    });
+</script>
+
+</body>
+</html>
