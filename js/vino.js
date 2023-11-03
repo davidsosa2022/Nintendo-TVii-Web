@@ -434,6 +434,7 @@ vino.apd_disable();
 window.onclick = function(event) {
   if (event.target == tvRemoteModal) {
     tvRemoteModal.classList.toggle('show');
+    vino.navi_setMoveMethod(0);
   }
 }
 
