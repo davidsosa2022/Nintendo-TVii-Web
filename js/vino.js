@@ -260,6 +260,8 @@ if (typeof vino === 'undefined') {
   };
 }
 
+if (!sessionStorage.getItem("pcCheck")) {
+
 if (vino.pc_getMiiverseControlLevel() === "2") {
      sessionStorage.setItem("olvPostState", "blocked");
   }
@@ -278,6 +280,8 @@ if (vino.pc_getMiiverseControlLevel() === "2") {
    }
   }
 
+     sessionStorage.setItem("pcCheck", "complete");
+ }
 
 if (typeof wiiu === 'undefined') {window.wiiu = {},window.wiiu.gamepad = {update: function() {}};}
 
@@ -368,6 +372,7 @@ tvii.enableCSet(1);
 //set layout auto loading icon
 vino.lyt_setIsEnableClientLoadingIcon(false);
 vino.lyt_setIsEnableWhiteMask(true);
+vino.navi_setBaseVisibilityOnKeyEvent(true);
 
 function lerp( a, b, alpha ) {
   return a + alpha * ( b - a )
@@ -470,7 +475,7 @@ window.onclick = function(event) {
 }
 
 window.addEventListener("click", function () {
-  alert(vino.navi_getRect());
+  vino.navi_reset();
 })
 
 window.addEventListener("scroll", function () {
