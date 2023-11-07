@@ -243,10 +243,41 @@ if (typeof vino === 'undefined') {
       suggest_getString: function() {
           console.log('Get string ' + '"Hello"');
           return 'Hello';
+      },
+      pc_isControlled: function() {
+          console.log('Parental Controls are disabled');
+          return false;
+      },
+      pc_getMiiverseControlLevel: function() {
+          console.log('No Miiverse Control Settings');
+          return 0;
+      },
+      pc_isControlledNetworkCommunication: function() {
+          console.log('No Network Communication Settings');
+          return false;
       }
 
   };
 }
+
+if (vino.pc_getMiiverseControlLevel() === "2") {
+     sessionStorage.setItem("olvPostState", "blocked");
+  }
+  else {
+     sessionStorage.setItem("olvPostState", "enabled");
+  }
+
+  if (vino.pc_isControlled() && vino.pc_isControlledNetworkCommunication()) {
+  alert("Parental Controls are enabled for\n this application\nPlease enter the PIN to access it.")
+  if (vino.pc_checkPIN()) {
+    alert("Nintendo TVii can be used now.")
+  }
+  else  {
+    alert("The PIN was incorrect\nNintendo TVii will now close.\nTry again later.")
+    vino.exit();
+   }
+  }
+
 
 if (typeof wiiu === 'undefined') {window.wiiu = {},window.wiiu.gamepad = {update: function() {}};}
 
