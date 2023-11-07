@@ -11,7 +11,7 @@
 <body>
 </body>
   <script>
-  const VinoUrl = "davidsosa2022.github.io/vino_test_web/home.html";
+  const VinoUrl = "davidsosa2022.github.io/Nintendo-TVii-Web/home.html";
 
   if (vino.pc_getMiiverseControlLevel() === "2") {
      sessionStorage.setItem("olvPostState", "blocked");
@@ -28,7 +28,7 @@
   alert("Parental Controls are enabled for this application, please enter the PIN to access it.")
   if (vino.pc_checkPIN()) {
     alert("Nintendo TVii can be used now.")
-    window.location.replace(VinoUrl);
+    window.location.href(VinoUrl);
   }
   else  {
     alert("The PIN was incorrect, Nintendo TVii will now close, try again later.")
