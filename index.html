@@ -11,32 +11,30 @@
 
 <body>
 </body>
-  <script>
-
+<script>
   if (vino.pc_getMiiverseControlLevel() === "2") {
-     sessionStorage.setItem("olvPostState", "blocked");
-  }
-  else {
-     sessionStorage.setItem("olvPostState", "enabled");
+    sessionStorage.setItem("olvPostState", "blocked");
+  } else {
+    sessionStorage.setItem("olvPostState", "enabled");
   }
 
   if (!vino.ls_getItem("vino")) {
-  vino.ls_setItem("vino", "true"); 
+    vino.ls_setItem("vino", "true");
   }
 
   if (vino.pc_isControlled() && vino.pc_isControlledNetworkCommunication()) {
-  alert("Parental Controls are enabled for this application, please enter the PIN to access it.")
-  if (vino.pc_checkPIN()) {
-    alert("Nintendo TVii can be used now.")
+    alert("Parental Controls are enabled for this application, please enter the PIN to access it.");
+    if (vino.pc_checkPIN()) {
+      alert("Nintendo TVii can be used now.");
+      window.location.href = "https://davidsosa2022.github.io/Nintendo-TVii-Web/home.html";
+    } else {
+      alert("The PIN was incorrect, Nintendo TVii will now close, try again later.");
+      vino.exitForce();
+    }
+  } else {
+    // Redirect to the default URL if none of the conditions above are met
     window.location.href = "https://davidsosa2022.github.io/Nintendo-TVii-Web/home.html";
   }
-  else  {
-    alert("The PIN was incorrect, Nintendo TVii will now close, try again later.")
-    vino.exitForce();
-   }
-  }
+</script>
 
-  window.location.href = "https://davidsosa2022.github.io/Nintendo-TVii-Web/home.html";
-
-  </script>
 </html>
