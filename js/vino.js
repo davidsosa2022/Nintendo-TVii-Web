@@ -470,7 +470,7 @@ window.onclick = function(event) {
 }
 
 window.addEventListener("click", function () {
-  vino.navi_reset();
+  alert(vino.navi_getRect());
 })
 
 window.addEventListener("scroll", function () {
