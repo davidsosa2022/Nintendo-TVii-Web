@@ -77,6 +77,9 @@ if (typeof vino === 'undefined') {
       navi_setMoveMethod: function(one) {
           console.log('Set move method ' + one);
       },
+      navi_setBaseVisibilityOnKeyEvent: function(bool) {
+          console.log('Base visibility is ' + bool);
+      },
       act_getCurrentSlotNo: function() {
           console.log('Returned account slot "1"');
           return 1;
