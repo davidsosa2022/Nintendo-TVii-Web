@@ -705,8 +705,6 @@ ul.sidebar {
   height: 52px;
   background: #ebebeb;
   border-top: 1px solid #c1c6c2;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
   padding: 0;
   left: 200px;
   display: block;
