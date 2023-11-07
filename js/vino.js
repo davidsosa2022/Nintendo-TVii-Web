@@ -335,7 +335,7 @@ tvii.showLoad(true);
 //enable the IR features and codeset
 tvii.enableCSet(1);
 //set layout auto loading icon
-vino.lyt_setIsEnableClientLoadingIcon(true);
+vino.lyt_setIsEnableClientLoadingIcon(false);
 vino.lyt_setIsEnableWhiteMask(true);
 
 function lerp( a, b, alpha ) {
