@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Wii U TV</title>
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+</head>
+
+<body>
+  <div id="tv-remote" class="tvRemotePopupModal">
+
+    <div navi_scroll id="exitModal">
+      <a data-sound="SE_A_CLOSE_TOUCH_OFF" class="exitModalBtn" onclick="tvii.toggleTVRemote();"
+        href="javascript:void(0);">
+      </a>
+    </div>
+
+    <div class="tv-remote-favorites" id="tv-remote-favs">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+      <img navi_touch data-sound="SE_A_DECIDE_TOUCH_OFF" src="img/channel.png" class="favorite-shortcut" id="1"
+        onclick="tvii.ir_changeChannel(11, 16, 13)">
+    </div>
+    <img src="img/remote.png" class="remoteContent" usemap="#image-map">
+    <map name="image-map">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="1" onclick="tvii.ir_send(11)" coords="184,221,115,167" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="2" onclick="tvii.ir_send(12)" coords="253,221,185,167" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="3" onclick="tvii.ir_send(13)" coords="254,167,322,221" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="4" onclick="tvii.ir_send(14)" coords="185,275,115,222" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="5" onclick="tvii.ir_send(15)" coords="186,222,253,275" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="6" onclick="tvii.ir_send(16)" coords="254,222,322,275" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="7" onclick="tvii.ir_send(17)" coords="115,276,185,330" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="8" onclick="tvii.ir_send(18)" coords="185,276,252,330" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="9" onclick="tvii.ir_send(19)" coords="253,276,322,330" shape="rect">
+      <area navi_touch data-sound="SE_A_CTRL_TOUCH_OFF" title="ok" onclick="tvii.ir_send(60)" coords="460,277,46" shape="circle">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="." onclick="tvii.ir_send(55)" coords="115,331,185,384" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="0" onclick="tvii.ir_send(20)" coords="185,331,253,384" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="-" onclick="tvii.ir_send(51)" coords="254,331,322,384" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="ch up" onclick="tvii.ir_send(1)" coords="85,275,27,165" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="ch dw" onclick="tvii.ir_send(2)" coords="27,275,85,387" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="sou" onclick="tvii.ir_send(52)" coords="351,167,421,239" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="gui" onclick="tvii.ir_send(53)" coords="499,167,568,240" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="power tv" onclick="tvii.ir_send(0)" coords="351,313,423,385" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="power cab" onclick="tvii.ir_send(0)" coords="497,314,567,383" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="vol up" onclick="tvii.ir_send(3)" coords="599,164,659,278" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="vol dw" onclick="tvii.ir_send(4)" coords="599,279,659,389" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="left" onclick="tvii.ir_send(58)" coords="351,240,414,312" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="right" onclick="tvii.ir_send(59)" coords="505,240,568,314" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="up" onclick="tvii.ir_send(56)" coords="422,168,498,231" shape="rect">
+      <area navi_touch data-sound="SE_A_DECIDE2_TOUCH_OFF" title="down" onclick="tvii.ir_send(57)" coords="423,319,496,385" shape="rect">
+    </map>
+  </div>
+
+  <div id="wrapper-home" class="hide">
+
+    <div id="menu-buttons">
+      <div data-sound="SE_A_DECIDE_TOUCH_OFF" onclick="tvii.showSettingsModal();" navi_target id="mii-info">
+        <a href="javascript:void(0);">
+          <img id="mii-image" /></a>
+      </div>
+      <div id="exit">
+        <a href="javascript:void(0);" navi_target class="exitBtn" data-sound="SE_COMMON_FINISH_TOUCH_OFF" onclick="tvii.exit();">
+        </a>
+      </div>
+      <div id="search">
+        <a href="javascript:void(0);" onclick="searchY();"><input type="text" class="search">
+        </a>
+      </div>
+      <div id="remote">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target class="remoteBtn" onclick="tvii.toggleTVRemote()"
+          href="javascript:void(0);">
+        </a>
+      </div>
+      <div id="help">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target class="helpBtn" href="pages/chat.html">
+        </a>
+      </div>
+    </div>
+    <div id="home-icons">
+      <div id="favorites-section">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target href="pages/live-tv.html">
+          <img id="favorites-img" src="img/favorites.png">
+          <span id="favorites-label">Favorites</span>
+        </a>
+      </div>
+      <div id="tv-section">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target onclick="tvii.showTVShowsModal();" href="javascript:void(0)">
+          <img id="tv-img" src="img/tv.png">
+          <span id="tv-label">TV</span>
+        </a>
+      </div>
+      <div id="movies-section">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target href="pages/user-play_activity.html">
+          <img id="movies-img" src="img/movies.png">
+          <span id="movies-label">Movies</span>
+        </a>
+      </div>
+      <div id="sports-section">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target href="https://davidsosa2022.github.io/Nintendo-TVii-Web/">
+          <img id="sports-img" src="img/sports.png">
+          <span id="sports-label">Sports</span>
+        </a>
+      </div>
+      <div id="tvtag-section">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target href="pages/doodle.html">
+          <img id="tvtag-img" src="img/tvtag.png">
+          <span id="tvtag-label">TV Tag</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="wrapper-settings">
+
+    <div id="settings-mii-info" data-sound="SE_WORD_MII">
+      <img navi_target id="settings-mii-body" />
+      <span id="settings-mii-name" />
+    </div>
+
+    <a href="javascript:void(0);" class="label settings-tab selected" data-sound="SE_A_TAB_TOUCH_OFF">Settings</a>
+    <a href="javascript:void(0);" class="label about-tab" data-sound="SE_A_TAB_TOUCH_OFF">About</a>
+
+    <div id="menu-buttons">
+      <div id="back">
+        <a href="javascript:void(0);" navi_target onclick="tvii.hideSettingsModal();" data-sound="SE_A_CLOSE_TOUCH_OFF"
+          class="backBtn">
+        </a>
+      </div>
+
+      <div id="remote">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target class="remoteBtn" onclick="tvii.toggleTVRemote()"
+          href="javascript:void(0);">
+        </a>
+      </div>
+
+      <div id="homeSign">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" navi_target class="homeSignBtn" href="../index.html">
+        </a>
+      </div>
+    </div>
+
+    <div id="settings-pages">
+      <div style="display:inline-block">
+        <a class="settings-page favorites" navi_target data-sound="SE_A_DECIDE_TOUCH_OFF" href="settings/favorite_channels.html">
+          <span class="settings-span">Favorite Channels</span>
+        </a>
+      </div>
+      <div style="display:inline-block">
+        <a class="settings-page usersettings" navi_target data-sound="SE_A_DECIDE_TOUCH_OFF" href="settings/providers.html">
+          <span class="settings-span">User Settings</span>
+        </a>
+      </div>
+      <div style="display:inline-block">
+        <a class="settings-page providers" navi_target data-sound="SE_A_DECIDE_TOUCH_OFF" href="settings/social_settings.html">
+          <span class="settings-span">Streaming Providers</span>
+        </a>
+      </div>
+      <p style="font-size:27px;"></p>
+      <div style="display:inline-block">
+        <a class="settings-page social" navi_target data-sound="SE_A_DECIDE_TOUCH_OFF" href="pages/pcset.html">
+          <span class="settings-span">Social Networks</span>
+        </a>
+      </div>
+      <div style="display:inline-block">
+        <a class="settings-page manual" navi_target data-sound="SE_A_DECIDE_TOUCH_OFF" href="pages/usersetting.html">
+          <span class="settings-span">Manual</span>
+        </a>
+      </div>
+      <div style="display:inline-block">
+        <a class="settings-page delete" navi_target data-sound="SE_A_DECIDE_TOUCH_OFF" href="pages/info.html">
+          <span class="settings-span">Delete Save Data</span>
+        </a>
+      </div>
+      <div style="display: inline-block; margin-right: 40px;"></div>
+
+    </div>
+
+  </div>
+
+  <div id="wrapper-tv-shows">
+    <div id="menu-buttons">
+      <a data-sound="SE_A_TAB_TOUCH_OFF" class="label live-tv-tab selected">Live</a>
+      <a data-sound="SE_A_TAB_TOUCH_OFF" class="label recommended-tv-tab">Recomended</a>
+      <a data-sound="SE_A_TAB_TOUCH_OFF" class="label guide-tv-tab">Guide</a>
+
+      <div id="back">
+        <a href="javascript:void(0);" onclick="tvii.hideTVShowsModal();" data-sound="SE_A_CLOSE_TOUCH_OFF"
+          class="backBtn">
+        </a>
+      </div>
+
+      <div id="remote">
+        <a data-sound="SE_A_DECIDE_TOUCH_OFF" class="remoteBtn" onclick="tvii.toggleTVRemote()"
+          href="javascript:void(0);">
+        </a>
+      </div>
+    </div>
+
+    <div navi_scroll class="tv-program showcase">
+      <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="/pages/olvdebug.html">
+        <img src='../img/program8.png' id="tv-program-img-showcase"></a>
+    </div>
+
+    <div id="tv-programs">
+
+      <ul>
+        <li>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="/pages/debug2.html">
+              <img src='../img/program5.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program3.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program1.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program2.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program9.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program14.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program13.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program12.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program4.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program4.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program17.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program18.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program19.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program20.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program21.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program22.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program22.png' id="tv-program-img"></a>
+          </div>
+        </li>
+        <li>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program10.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program11.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program15.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program16.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program17.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program18.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program19.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program20.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program22.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program22.png' id="tv-program-img"></a>
+          </div>
+    
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program17.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program18.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program19.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program20.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program21.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program22.png' id="tv-program-img"></a>
+          </div>
+          <div navi_scroll class="tv-program">
+            <a data-sound="SE_A_DECIDE_TOUCH_OFF" href="debug.html">
+              <img src='../img/program22.png' id="tv-program-img"></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="js/vino.js"></script>
+</body>
+
+</html>
