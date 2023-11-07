@@ -22,15 +22,14 @@
   }
 
   if (vino.pc_isControlled() && vino.pc_isControlledNetworkCommunication()) {
-  alert("Parental Controls are enabled for this application\nPlease enter the PIN to access it.")
+  alert("Parental Controls are enabled for\n this application\nPlease enter the PIN to access it.")
   if (vino.pc_checkPIN()) {
     alert("Nintendo TVii can be used now.")
     window.location.href = "https://davidsosa2022.github.io/Nintendo-TVii-Web/home.html";
   }
   else  {
-    alert("The PIN was incorrect, Nintendo TVii will now close.\nTry again later.")
-    vino.soundPlay("SE_COMMON_FINISH");
-    vino.exitForce();
+    alert("The PIN was incorrect\nNintendo TVii will now close.\nTry again later.")
+    vino.exit();
    }
   }
 
