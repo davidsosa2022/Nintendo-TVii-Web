@@ -197,7 +197,7 @@ canvasFinish.addEventListener('click', function (e) {
       myDoodle.src = oCanvas.toDataURL('image/jpg');
 
       function appendimg() {
-         alert(myDoodle);
+         alert(oCanvas.toDataURL('image/jpg'));
          document.body.appendChild(myDoodle);
       } 
 
