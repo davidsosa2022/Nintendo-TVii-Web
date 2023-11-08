@@ -190,16 +190,49 @@ window.onload = function() {
 var oCanvas = document.getElementById("doodle-canvas"); 
 
 var canvasFinish = document.getElementById('finishModal');
+var doodleCommentValue = document.getElementById('doodle-input-value').value
 canvasFinish.addEventListener('click', function (e) {
 
       const myDoodle = new Image();
       myDoodle.onload = appendimg;
-      myDoodle.src = oCanvas.toDataURL('image/jpg');
+      myDoodle.src = oCanvas.toDataURL('image/png');
 
       function appendimg() {
          alert(oCanvas.toDataURL('image/jpg'));
          document.body.appendChild(myDoodle);
-      } 
+
+function post() {
+    alert('post function')
+
+    var formData = new FormData();
+
+    alert('created form data')
+
+    formData.append("body", doodleCommentValue)
+    formData.append("screenshot", oCanvas.toDataURL('image/png'))
+    formData.append("topic_tag", "Topic Tag Test")
+    formData.append("search_key", "TemplateShow")
+    formData.append("app_data", "")
+    formData.append("community_id", "0")
+    formData.append("feeling_id", "1")
+    formData.append("is_autopost", "1")
+    formData.append("is_spoiler", "0")
+    formData.append("language_id", "1")
+    formData.append("is_app_jumpable", "0")
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "https://balls.rverse.club/v1/posts")
+    request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
+    request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
+    request.send(formData)
+
+    alert('sent xhr request')
+
+    alert(request.statusText)
+}
+
+  post()
+      }
 
    });
    
