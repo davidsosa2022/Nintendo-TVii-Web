@@ -189,15 +189,17 @@ canvaso = document.getElementById('doodle-canvas');
 window.onload = function() {
 var curDoodle = document.getElementById("doodle-canvas"); 
 var finishBtn = document.getElementById('finishModal');
-
 finishBtn.addEventListener('click', function (e) {
       var userDoodle = new Image();
-      userDoodle.src = curDoodle.toDataURL();
-      userDoodle.onload = post;
-});
+      userDoodle.onload = appendimg;
+      userDoodle.src = curDoodle.toDataURL('image/png');
+
+      function appendimg() {
+         document.body.appendChild(userDoodle);
+         post();
+      }
 
 function post() {
-    document.body.appendChild(userDoodle);
     alert('Content has been posted.')
     var doodleComVal = document.getElementById("doodle-input-value").value;
     var formData = new FormData();
@@ -218,5 +220,6 @@ function post() {
     alert(request.statusText)
 }
 
-  
+   });
+   
 }
