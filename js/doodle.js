@@ -68,7 +68,6 @@ canvaso = document.getElementById('doodle-canvas');
    document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
    document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
    document.getElementById("sidebar-pencil").addEventListener('click', penSelect);
-   document.getElementById("pencil-thick-select-popup").addEventListener('click', penThickSelect);
 
    function changeInputColor() {
       document.getElementById('colorHexInput').classList.add('selected');
@@ -92,14 +91,13 @@ canvaso = document.getElementById('doodle-canvas');
          }
       }
 
-      window.addEventListener('click', function (event) {
-         if (event.target == document.getElementById('doodle-modal')) {
+      window.addEventListener('mousemove', function (event) {
+         if (event.target == document.getElementById('doodle-temp-canvas')) {
          isPenSelectShow()
           }
      });
-
-   function penThickSelect() {vino.soundPlay('SE_MOVEPAGE_SELECT');}
    
+   //This selects the image for doodling
    const moment = new Image();
    moment.onload = drawMoment;
    moment.src = '../img/doodleplaceholder.png';
@@ -186,53 +184,44 @@ canvaso = document.getElementById('doodle-canvas');
  init();
 }, false); }
 
+   //posts the doodle
+
 window.onload = function() {
-var oCanvas = document.getElementById("doodle-canvas"); 
+var curDoodle = document.getElementById("doodle-canvas"); 
 
-var canvasFinish = document.getElementById('finishModal');
+var finishBtn = document.getElementById('finishModal');
 var doodleCommentValue = document.getElementById('doodle-input-value').value
-canvasFinish.addEventListener('click', function (e) {
-
-      const myDoodle = new Image();
-      myDoodle.onload = appendimg;
-      myDoodle.src = oCanvas.toDataURL('image/png');
+finishBtn.addEventListener('click', function (e) {
+      var userDoodle = new Image();
+      userDoodle.onload = appendimg;
+      userDoodle.src = curDoodle.toDataURL('image/png');
 
       function appendimg() {
-         alert(oCanvas.toDataURL('image/jpg'));
-         document.body.appendChild(myDoodle);
+         document.body.appendChild(userDoodle);
+      }
 
 function post() {
-    alert('post function')
+    alert('Content has been posted.')
 
     var formData = new FormData();
 
-    alert('created form data')
-
-    formData.append("body", doodleCommentValue)
-    formData.append("screenshot", oCanvas.toDataURL('image/png'))
-    formData.append("topic_tag", "Topic Tag Test")
-    formData.append("search_key", "TemplateShow")
-    formData.append("app_data", "")
-    formData.append("community_id", "0")
-    formData.append("feeling_id", "1")
-    formData.append("is_autopost", "1")
-    formData.append("is_spoiler", "0")
-    formData.append("language_id", "1")
-    formData.append("is_app_jumpable", "0")
+    formData.append("comment", doodleCommentValue)
+    formData.append("doodle_img", curDoodle.toDataURL('image/png'))
+    formData.append("show_id", "1")
+    formData.append("moment_id", "1")
+    formData.append("mii_name", vino.act_getName(activeUserSlot))
+    formData.append("mii_data", vino.act_getMiiData(activeUserSlot))
+    formData.append("mii_img", vino.act_getMiiImage(activeUserSlot))
+    formData.append("pid", vino.act_getPid(activeUserSlot))
 
     var request = new XMLHttpRequest();
-    request.open("POST", "https://balls.rverse.club/v1/posts")
-    request.setRequestHeader('x-nintendo-servicetoken', vino.olv_getServiceToken().toString())
-    request.setRequestHeader('x-nintendo-parampack', vino.olv_getParameterPack().toString())
+    request.open("POST", "https://davidsosa2022.github.io/Nintendo-TVii-Web/")
     request.send(formData)
-
-    alert('sent xhr request')
 
     alert(request.statusText)
 }
 
   post()
-      }
 
    });
    
