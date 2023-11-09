@@ -188,9 +188,7 @@ canvaso = document.getElementById('doodle-canvas');
 
 window.onload = function() {
 var curDoodle = document.getElementById("doodle-canvas"); 
-
 var finishBtn = document.getElementById('finishModal');
-var doodleCommentValue = document.getElementById('doodle-input-value').value
 finishBtn.addEventListener('click', function (e) {
       var userDoodle = new Image();
       userDoodle.onload = appendimg;
@@ -202,7 +200,7 @@ finishBtn.addEventListener('click', function (e) {
 
 function post() {
     alert('Content has been posted.')
-
+    var doodleComVal = document.getElementById("doodle-input-value").value;
     var formData = new FormData();
 
     formData.append("show_id", "1")
@@ -211,7 +209,7 @@ function post() {
     formData.append("mii_data", vino.act_getMiiData(activeUserSlot))
     formData.append("mii_img", vino.act_getMiiImage(activeUserSlot))
     formData.append("pid", vino.act_getPid(activeUserSlot))
-    formData.append("comment", doodleCommentValue)
+    formData.append("comment", doodleComVal)
     formData.append("doodle_img", curDoodle.toDataURL('image/png'))
 
     var request = new XMLHttpRequest();
