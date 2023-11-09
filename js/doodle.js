@@ -196,6 +196,7 @@ finishBtn.addEventListener('click', function (e) {
 
       function appendimg() {
          document.body.appendChild(userDoodle);
+         post();
       }
 
 function post() {
@@ -203,6 +204,7 @@ function post() {
     var doodleComVal = document.getElementById("doodle-input-value").value;
     var formData = new FormData();
 
+    formData.append("doodle_img", userDoodle.src)
     formData.append("show_id", "1")
     formData.append("moment_id", "1")
     formData.append("mii_name", vino.act_getName(activeUserSlot))
@@ -210,7 +212,6 @@ function post() {
     formData.append("mii_img", vino.act_getMiiImage(activeUserSlot))
     formData.append("pid", vino.act_getPid(activeUserSlot))
     formData.append("comment", doodleComVal)
-    formData.append("doodle_img", curDoodle.toDataURL('image/png'))
 
     var request = new XMLHttpRequest();
     request.open("POST", "https://davidsosa2022.github.io/Nintendo-TVii-Web/")
@@ -218,8 +219,6 @@ function post() {
 
     alert(request.statusText)
 }
-
-  post()
 
    });
    
