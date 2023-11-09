@@ -205,14 +205,14 @@ function post() {
 
     var formData = new FormData();
 
-    formData.append("comment", doodleCommentValue)
-    formData.append("doodle_img", curDoodle.toDataURL('image/png'))
     formData.append("show_id", "1")
     formData.append("moment_id", "1")
     formData.append("mii_name", vino.act_getName(activeUserSlot))
     formData.append("mii_data", vino.act_getMiiData(activeUserSlot))
     formData.append("mii_img", vino.act_getMiiImage(activeUserSlot))
     formData.append("pid", vino.act_getPid(activeUserSlot))
+    formData.append("comment", doodleCommentValue)
+    formData.append("doodle_img", curDoodle.toDataURL('image/png'))
 
     var request = new XMLHttpRequest();
     request.open("POST", "https://davidsosa2022.github.io/Nintendo-TVii-Web/")
