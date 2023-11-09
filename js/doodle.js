@@ -191,12 +191,11 @@ var curDoodle = document.getElementById("doodle-canvas");
 var finishBtn = document.getElementById('finishModal');
 finishBtn.addEventListener('click', function (e) {
       var userDoodle = new Image();
-      userDoodle.onload = appendimg;
       userDoodle.src = curDoodle.toDataURL('image/png');
+      userDoodle.onload = appendimg;
 
       function appendimg() {
          document.body.appendChild(userDoodle);
-         post();
       }
 
 function post() {
@@ -219,6 +218,8 @@ function post() {
 
     alert(request.statusText)
 }
+
+         post();
 
    });
    
