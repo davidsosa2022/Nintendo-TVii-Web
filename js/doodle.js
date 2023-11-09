@@ -189,6 +189,7 @@ canvaso = document.getElementById('doodle-canvas');
 window.onload = function() {
 var curDoodle = document.getElementById("doodle-canvas"); 
 var finishBtn = document.getElementById('finishModal');
+
 finishBtn.addEventListener('click', function (e) {
       var userDoodle = new Image();
       userDoodle.src = curDoodle.toDataURL();
@@ -215,6 +216,7 @@ function post() {
     request.send(formData)
 
     alert(request.statusText)
- }
+}
+
   
 }
