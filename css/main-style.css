@@ -1534,7 +1534,7 @@ border-top: 1px solid #aaaaaa;
 }
 
 .sports-metadata.football .team-stadium-span {
-  position: absolute;
+  position: fixed;
   display: block;
   top: 150px;
   left: 0px;
@@ -1547,12 +1547,12 @@ border-top: 1px solid #aaaaaa;
 }
 
 .sports-metadata.football .team-stadium-span.t1 {
-left: -40px;
+left: 25px;
 -webkit-transform: rotate(-90deg);
 }
 
 .sports-metadata.football .team-stadium-span.t2 {
-left: 290px;
+left: 360px;
 -webkit-transform: rotate(90deg);
 }
 
