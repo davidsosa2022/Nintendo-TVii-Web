@@ -1,158 +1,33 @@
-<!DOCTYPE html>
-
-    <script>
-        vino.soundStop();
-
-        vino.soundPlayEx('SE_APP_START_SUB', 1);
-    </script>
-
 <html>
+<head>
+  <title>Vino - New User</title>
+   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <link rel="stylesheet" href="../css/main-style.css">
+</head>
+    <body>
 
-    <head>
-
-        <title>New User Setup</title>
-
-       <style>
-.top {
-    position: fixed;
-    top: 40%;
-    left: 15%;
-    text-align: center; 
-    color: grey;
-    font-family: Nintendo_RodinNTLG-M;
-    font-size: 20px;
-}
-
-.nnid {
-    position: fixed;
-    top: 52%;
-    left: 24%;
-    text-align: center; 
-    color: grey;
-    font-family: Nintendo_RodinNTLG-M;
-    font-size: 18px;
-}
-
-body {
-    background:  url("../img/setupbg.png");
-}
-
-#set-mii-info {
-		position: absolute;
-		top: 55px;
-		left: 36px;
-		padding: 3px;
-		border-radius: 4px;
-		background-color: rgba(81,81,81,0.5);
-		border: 1px solid grey rgba(89,89,89,0.3);
-		height: 48px;
-		box-shadow: 1px 1px 1px #a9a9a9;
-	}
-	
-#set-mii-info #set-mii-image {
-		width: 48px;
-		height: 48px;
-		background-color: white;
-		border-radius: 4px;
-		display: block;
-	}
-	
-.next {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-#vino-logo {
-    position: fixed;
-    top: 110px;
-    left: 240px;
-}
-
-input[type=text], select {
-  width: 60%;
-  padding: 12px 20px;
-  margin: 42px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 18px;
-  box-sizing: border-box;
-  font-family: Nintendo_RodinNTLG-M;
-  transform: translate(40px);
- -webkit-transform: translate(40px);
-}
-
-input[type=submit] {
-  width: 50%;
-    background:-webkit-gradient(linear, left top, left bottom, from(#CDCDCD), to(#E6E6E6)); 
-  color: white;
-  padding: 12px 20px;
-  font-family: Nintendo_RodinNTLG-M;
-  font-size: 18px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-transition: all .1s ease-in-out; 
-}
-
-input[type=submit]:active {
-   transform: scale(1.1); 
-}
-
-#exit {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-}
-     </style>
-
-    </head>
-
-    
-
-
-
-    <body onload="vino.soundPlayEx('SE_APP_START_SUB', 1);">
-
-            <img id="vino-logo" src="../img/vino_logo_setup.png">
+  <div id="menu-buttons">
+    <div id="exit">
+      <a href="javascript:void(0);" navi_target onclick="tvii.exit();" data-sound="SE_COMMON_FINISH" class="exitBtn">
+      </a></div>
+  </div>
 
         <div class="top">
-            Nintendo TVii makes watching TV simple and fun by bringing
-            <br>
-            together everything you need on the GamePad. <a href="learn.html">Learn more.</a>
-        <div class="nnid">
-            To begin, enter your Nintendo Network ID here:
-
-    <div id="set-mii-info">
-     <a navi_target onclick="vino.soundPlayEx('SE_FACE', 1);">
-        <img id="set-mii-image"/>
-      <span id="set-mii-name">
-    </span>
-    </div>
-
-  <form action="pages/setup.php">
-    <input type="text" id="nnid" name="nnid" placeholder="Nintendo Network ID..">
-<br>
-    <input type="submit" value="Submit" navi_target>
-  </form>
+<img id="vino-logo" src="../img/vino_logo_setup.png"><br>
+            <span>Nintendo TVii makes watching TV simple and fun by bringing together everything you need on the GamePad. <a href="learn.html">Learn more.</a></span>
+ <div class="nnid">
+            <span>To begin, enter your Nintendo Network ID here:</span>
+<form action="/setup">
+<input type="text" id="nnid" name="nnid" placeholder="Nintendo Network ID..">
+<input navi_target type="submit" value="Submit">
+</form>
 </div>
 
-             <a navi_target>
-            <img id="exit" src="../img/Exit.png" onclick="vino.soundPlayEx('SE_COMMON_FINISH', 1),vino.exit()"></a>
-
-          </div>
-        </div>
-
-         <script>
-       const activeUserSlot = vino.act_getCurrentSlotNo();
-     img = document.getElementById("set-mii-image");
-    img.src=vino.act_getMiiImage(activeUserSlot);
-      </script>
+  </div>
 
     </body>
-
 </html>
 
 

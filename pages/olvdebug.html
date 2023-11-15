@@ -92,7 +92,7 @@
 document.getElementById('textValue').addEventListener('change', postText);
 function postText() {
 var userWrittenText = document.getElementById('textValue').value
-vino.olv_postText(userWrittenText, 'Breaking Bad', 800, true, 'searchkey1', '', '', '', '');
+vino.olv_postText(userWrittenText, 'Malcolm in the Middle', 800, true, 'vino_search_key', '', '', '', '');
 }
 
 function postMemo() {
@@ -102,7 +102,7 @@ function postMemo() {
         if (vino.memo_isFinish()) {
             var painting = vino.memo_getImageTgaRaw();
             document.getElementById('canvasDraw').src = vino.memo_getImagePng();
-            vino.olv_postImage(painting, 'South Park', 800, true, 'searchkey1', 'searchkey2', 'searchkey3', 'searchkey4', 'searchkey5');
+            vino.olv_postImage(painting, 'The Garfield Show', 800, true, 'vino_search_key', '', '', '', '');
             clearInterval(check);
         }
     }, 50);
