@@ -8,6 +8,8 @@ var remoteButton = document.getElementById("remote");
 var exitModalButton = document.getElementById("exitModal");
 var finishModalButton = document.getElementById("finishModal");
 var doodleButton = document.getElementById("doodle");
+var chatScrollPosition = 0;
+
 if (doodleModal) {
 doodleModal.style.display = "none";
 exitModalButton.style.display = "none";
@@ -42,6 +44,8 @@ document.getElementById("play-user-recent-answers").addEventListener('scroll', f
 if (liveCommentsModal) {
 function showDoodleModal() {
   isDoodle = true;
+  chatScrollPosition = window.scrollY || document.documentElement.scrollTop;
+
   liveCommentsModal.style.display = "none";
   doodleButton.style.display = "none";
   backButton.style.display = "none";
@@ -63,6 +67,7 @@ function hideDoodleModal() {
   backButton.style.display = "block";
   remoteButton.style.display = "block";
   liveCommentsModal.style.display = "block";
+  window.scrollTo(0, chatScrollPosition);
  }
 
  bButtonCheck = setInterval(function() {

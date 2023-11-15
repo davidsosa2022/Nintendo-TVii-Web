@@ -1,5 +1,9 @@
 var context;
 
+    // shouldnt this be on vino.js, yeah soon...
+    var momentIdVal = document.getElementById("moment-value").value;
+    var showIdVal = document.getElementById("show-value").value;
+
 function changeColor(color) {
    vino.lyt_startTouchEffect();
    vino.soundPlay('SE_A_DECIDE');
@@ -17,7 +21,7 @@ function changeColor(color) {
 var listItems = document.querySelectorAll("#sidebar-colors-scroll li a");
 
 // Add a class to a specific element and remove it from its siblings
-function addClassToElement(sib) {
+function addClassColor(sib) {
   // Remove the class from all siblings
   for (var i = 0; i < listItems.length; i++) {
     var li = listItems[i];
@@ -34,7 +38,55 @@ function addClassToElement(sib) {
 for (var i = 0; i < listItems.length; i++) {
   var li = listItems[i];
   li.addEventListener("click", function() {
-    addClassToElement(this);
+   addClassColor(this);
+  });
+}
+
+var feelingMii = document.querySelectorAll("#feeling-selector-popup li");
+
+// Add a class to a specific element and remove it from its siblings
+function addClassFeeling(sib) {
+  // Remove the class from all siblings
+  for (var i = 0; i < feelingMii.length; i++) {
+    var li = feelingMii[i];
+    if (li !== sib) {
+      li.classList.remove("selected");
+    }
+  }
+
+  // Add the class to the specific element
+  sib.classList.add("selected");
+}
+
+// Adding click event listeners to each li element
+for (var i = 0; i < feelingMii.length; i++) {
+  var li = feelingMii[i];
+  li.addEventListener("click", function() {
+   addClassFeeling(this);
+  });
+}
+
+var feelingMiiInput = document.querySelectorAll("#feeling-selector-toggle li");
+
+// Add a class to a specific element and remove it from its siblings
+function addClassFeelingChat(sib) {
+  // Remove the class from all siblings
+  for (var i = 0; i < feelingMiiInput.length; i++) {
+    var li = feelingMiiInput[i];
+    if (li !== sib) {
+      li.classList.remove("selected");
+    }
+  }
+
+  // Add the class to the specific element
+  sib.classList.add("selected");
+}
+
+// Adding click event listeners to each li element
+for (var i = 0; i < feelingMiiInput.length; i++) {
+  var li = feelingMiiInput[i];
+  li.addEventListener("click", function() {
+   addClassFeelingChat(this);
   });
 }
 
@@ -60,14 +112,44 @@ canvaso = document.getElementById('doodle-canvas');
    canvas.height = canvaso.height; 
    container.appendChild(canvas); 
    context = canvas.getContext('2d'); 
-   context.strokeStyle = "#FFFFFF";// Default line color. 
+   context.strokeStyle = "#000000";// Default line color. 
    context.lineWidth = 3.0;// Default stroke weight. 
 
    document.getElementById('sidebar-delete').addEventListener('click', cleanDraw);
-   document.getElementById('pencil-thick-select-popup').addEventListener('click', isPenSelectShow);
+   document.getElementById('pencil-thick-select-popup').addEventListener('click',  popupDoodleCheck());
    document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
+   document.getElementById('user-chat-input').addEventListener('change', postChatComment);
    document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
    document.getElementById("sidebar-pencil").addEventListener('click', penSelect);
+   document.getElementById("sidebar-feeling").addEventListener('click', feelingSelect);
+   document.getElementById("user-mii-empathy-toggle-selector").addEventListener('click', feelingSelectChat);
+
+   function postChatComment() {
+      tvii.showLoad(true);
+      var myCommentValue = document.getElementById("user-chat-input").value;
+      var checkedFeelingChat = document.getElementsByName('feeling_id_chat');
+      var feeling_value_chat_input;
+      for (i = 0; i < checkedFeelingChat.length; i++) {
+          if (checkedFeelingChat[i].checked) {
+              feeling_value_chat_input = checkedFeelingChat[i].value;
+          }
+      }
+      var chatForm = new FormData();
+
+      chatForm.append("show_id", showIdVal)
+      chatForm.append("moment_id", momentIdVal)
+      chatForm.append("feeling_id", feeling_value_chat_input)
+      chatForm.append("pid", vino.act_getPid(activeUserSlot))
+      chatForm.append("comment", myCommentValue)
+  
+      var request = new XMLHttpRequest();
+      request.open("POST", vino.olv_getHostName() + "/v1/posts")
+      request.send(chatForm)
+      request.onload = function() {
+         tvii.showLoad(false)
+       };
+      setTimeout(function() {tvii.showLoad(false)}, 1000);
+      }
 
    function changeInputColor() {
       document.getElementById('colorHexInput').classList.add('selected');
@@ -77,25 +159,68 @@ canvaso = document.getElementById('doodle-canvas');
          document.getElementById('colorHexInput').classList.remove('selected');
       }, 800);
       }
-   function colorScroll() {vino.soundPlay('SE_LIST_SCROLL'); isPenSelectShow();}
 
+   function colorScroll() {vino.soundPlay('SE_LIST_SCROLL');  popupDoodleCheck(); vino.navi_reset()}
 
    function penSelect() {
-         vino.lyt_startTouchEffect(); vino.soundPlay('SE_WAVE_TOGGLE_CHECK');
+         vino.lyt_startTouchEffect(); vino.soundPlay('SE_WAVE_BALLOON_OPEN');
          document.getElementById('pencil-thick-select-popup').classList.toggle("show");
+
+         if (document.getElementById('sidebar-feeling').classList.contains('selected')){
+            document.getElementById('sidebar-feeling').classList.remove('selected');
+         }
+
+         if (document.getElementById('feeling-selector-popup').classList.contains('show')){
+            document.getElementById('feeling-selector-popup').classList.remove('show');
+         }
       }
 
-      function isPenSelectShow() {
+      function feelingSelect() {
+         vino.lyt_startTouchEffect();
+         vino.soundPlay('SE_WAVE_BALLOON_OPEN');
+         document.getElementById('feeling-selector-popup').classList.toggle("show");
+         document.getElementById('sidebar-feeling').classList.toggle("selected");
+
          if (document.getElementById('pencil-thick-select-popup').classList.contains('show')){
             document.getElementById('pencil-thick-select-popup').classList.remove('show');
+            vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
+         }
+      }
+
+      function feelingSelectChat() {
+         vino.lyt_startTouchEffect(); vino.soundPlay('SE_WAVE_BALLOON_OPEN');
+         document.getElementById('feeling-selector-toggle').classList.toggle("show");
+      }
+
+      function popupDoodleCheck() {
+         if (document.getElementById('pencil-thick-select-popup').classList.contains('show')){
+            document.getElementById('pencil-thick-select-popup').classList.remove('show');
+            vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
+         }
+
+         if (document.getElementById('sidebar-feeling').classList.contains('selected')){
+            document.getElementById('sidebar-feeling').classList.remove('selected');
+         }
+
+         if (document.getElementById('feeling-selector-popup').classList.contains('show')){
+            document.getElementById('feeling-selector-popup').classList.remove('show');
+            vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
       }
 
       window.addEventListener('mousemove', function (event) {
          if (event.target == document.getElementById('doodle-temp-canvas')) {
-         isPenSelectShow()
+         popupDoodleCheck()
           }
      });
+
+     
+      window.addEventListener('scroll', function () {     
+         if (document.getElementById('feeling-selector-toggle').classList.contains('show')){
+            document.getElementById('feeling-selector-toggle').classList.remove('show');
+            vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
+         }
+      });
    
    //This selects the image for doodling
    const moment = new Image();
@@ -190,36 +315,35 @@ window.onload = function() {
 var curDoodle = document.getElementById("doodle-canvas"); 
 var finishBtn = document.getElementById('finishModal');
 finishBtn.addEventListener('click', function (e) {
-      var userDoodle = new Image();
-      userDoodle.src = curDoodle.toDataURL('image/png');
-      userDoodle.onload = appendimg;
+   tvii.showLoad(true);
+   var checkedFeeling = document.getElementsByName('feeling_id');
+   var feeling_value;
+   for (i = 0; i < checkedFeeling.length; i++) {
+       if (checkedFeeling[i].checked) {
+           feeling_value = checkedFeeling[i].value;
+       }
+   }
 
-      function appendimg() {
-         document.body.appendChild(userDoodle);
-      }
-
-function post() {
-    alert('Content has been posted.')
+function postDoodleImg() {
     var doodleComVal = document.getElementById("doodle-input-value").value;
-    var formData = new FormData();
 
-    formData.append("show_id", "1")
-    formData.append("moment_id", "1")
-    formData.append("mii_name", vino.act_getName(activeUserSlot))
-    formData.append("mii_data", vino.act_getMiiData(activeUserSlot))
-    formData.append("mii_img", vino.act_getMiiImage(activeUserSlot))
-    formData.append("pid", vino.act_getPid(activeUserSlot))
-    formData.append("comment", doodleComVal)
-    formData.append("doodle_img", userDoodle.src)
+    var doodleForm = new FormData();
+
+    doodleForm.append("show_id", showIdVal)
+    doodleForm.append("moment_id", momentIdVal)
+    doodleForm.append("feeling_id", feeling_value)
+    doodleForm.append("pid", vino.act_getPid(activeUserSlot))
+    doodleForm.append("comment", doodleComVal)
+    doodleForm.append("doodle_img", curDoodle.toDataURL('image/png'))
 
     var request = new XMLHttpRequest();
-    request.open("POST", "https://davidsosa2022.github.io/Nintendo-TVii-Web/")
-    request.send(formData)
-
-    alert(request.statusText)
+    request.open("POST", vino.olv_getHostName() + "/v1/posts")
+    request.send(doodleForm)
+    setTimeout(function() {tvii.showLoad(false)}, 4000);
+    hideDoodleModal();
 }
 
-         post();
+postDoodleImg();
 
    });
    

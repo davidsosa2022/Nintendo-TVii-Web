@@ -263,6 +263,8 @@ if (typeof vino === 'undefined') {
   };
 }
 
+// actual app JS stars here..., ill remove the emulation on prod, lo
+
 if (!sessionStorage.getItem("pcCheck")) {
 
 if (vino.pc_getMiiverseControlLevel() === "2") {
@@ -286,16 +288,20 @@ if (vino.pc_getMiiverseControlLevel() === "2") {
      sessionStorage.setItem("pcCheck", "complete");
  }
 
-if (typeof wiiu === 'undefined') {window.wiiu = {},window.wiiu.gamepad = {update: function() {}};}
+ //get the Mii image, along with current slot no.
+const activeUserSlot = vino.act_getCurrentSlotNo();
+//set layout auto loading icon
+vino.lyt_setIsEnableClientLoadingIcon(false);
+vino.lyt_setIsEnableWhiteMask(true);
 
-// actual app JS stars here..., ill remove the emulation on prod, lo
-var d = document;
-var homePageModal = d.getElementById("wrapper-home");
-var settingsPageModal = d.getElementById("wrapper-settings");
-var tvShowsPageModal = d.getElementById("wrapper-tv-shows");
-var tvRemoteModal = d.getElementById("tv-remote");
-var tvRemoteFavShortcut = d.getElementById("tv-remote-favs");
-var exitModalButton = d.getElementById("exitModal");
+ //Update all user data.
+ if (!sessionStorage.getItem("initalUserDataUpdate")) {
+ function UpdateAllUserData() {
+ //XHR Post code for user data, all mii imgs, etc.
+}
+UpdateAllUserData()
+sessionStorage.setItem("initalUserDataUpdate", "complete");
+}
 
 // because your own js global is mega cool!
 window.tvii = {
@@ -367,15 +373,19 @@ window.tvii = {
     }    
 };
 
-//get the Mii image, along with current slot no.
-const activeUserSlot = vino.act_getCurrentSlotNo();
+if (typeof wiiu === 'undefined') {window.wiiu = {},window.wiiu.gamepad = {update: function() {}};}
+
+var d = document;
+var homePageModal = d.getElementById("wrapper-home");
+var settingsPageModal = d.getElementById("wrapper-settings");
+var tvShowsPageModal = d.getElementById("wrapper-tv-shows");
+var tvRemoteModal = d.getElementById("tv-remote");
+var tvRemoteFavShortcut = d.getElementById("tv-remote-favs");
+var exitModalButton = d.getElementById("exitModal");
+
 tvii.showLoad(true);
 //enable the IR features and codeset
 tvii.enableCSet(1);
-//set layout auto loading icon
-vino.lyt_setIsEnableClientLoadingIcon(false);
-vino.lyt_setIsEnableWhiteMask(true);
-vino.navi_setBaseVisibilityOnKeyEvent(true);
 
 function lerp( a, b, alpha ) {
   return a + alpha * ( b - a )
