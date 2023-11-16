@@ -33,6 +33,7 @@
         <div id="vino-values">
           <input id="moment-value" name="moment_id" type="hidden" value="1">
           <input id="show-value" name="show_id" type="hidden" value="1">
+          <input id="show-topic-tag" name="show_topic" type="hidden" value="NFL: RAVENS v. BENGALS">
           <input id="history-latest-value" name="latest_history" type="hidden" value='{"type":"show_page", "show_id":1}'>
         </div>
 
@@ -113,7 +114,7 @@
 
   <div class="live-comment-input">
     <a href="javascript:void(0)" class="user-mii-empathy-toggle" id="user-mii-empathy-toggle-selector">
-      <img class="mii" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
+      <img class="mii" src="">
     </a>
     
     <ul id="feeling-selector-toggle" class="feeling-selector-input">
@@ -130,15 +131,15 @@
 
   <div class="live-moment-label">
     <img class="live-comment-moment-img" src="../img/doodleplaceholder.png">
-    <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+    <input data-comment-id="1231" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
     <p>The Gauleys keep fighting between the Brians, one Brian just got a hit, ouch!, seeing who will win this championship label!</p>
     <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 67 Yeahs</p>
   </div>
 
   <div class="live-comment" id="1">
   <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-  <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-  <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+  <input data-comment-id="2324" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+  <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
   <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
   <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 6 Yeahs</p>
   <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -147,7 +148,7 @@
     <div class="live-reply">
        <div class="reply-image"></div>
        <img data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/10ecdoewepj7h_normal_face.png" class="image-mii">
-       <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+       <input data-comment-id="25325" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
        <p class="username-mii" data-sound="SE_WAVE_MII_FACE">NoNameGave</p>
        <p class="date" data-sound="SE_WAVE_MII_FACE">2 minutes ago • 0 Yeahs</p>
        <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -157,8 +158,8 @@
 
   <div class="live-comment" id="2">
     <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/25lfmbbipkk9j_frustrated_face.png">
-    <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+    <input data-comment-id="13123" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+    <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
     <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Braden</p>
     <p class="date" data-sound="SE_WAVE_MII_FACE">A few moments ago • 0 Yeahs</p>
     <p class="content">This is so fake.</p>
@@ -166,8 +167,8 @@
 
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/3bhq5v2tznmdk_surprised_face.png">
-      <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input data-comment-id="13123" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">CymbalMonkey</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">1 minutes ago • 212 Yeahs</p>
       <p class="content">the realest nintendo tvii has ever been tbh, but it is impressive by any means</p>
@@ -175,8 +176,8 @@
       
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/30xmo1m1u7gyz_like_face.png">
-        <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input data-comment-id="13123" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Khentendo</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 11 Yeahs</p>
         <p class="content">Oh my god, TVii!, its here!!!!.</p>
@@ -185,7 +186,7 @@
           <div class="live-reply">
              <div class="reply-image"></div>
              <img data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png" class="image-mii">
-             <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+             <input data-comment-id="13123" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
              <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Savid Dosa</p>
              <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 9999 Yeahs</p>
              <p class="content">will he accept you as you are tho...? have you tested talking with the doctor about this?</p>
@@ -193,7 +194,7 @@
           <div class="live-reply">
              <div class="reply-image"></div>
              <img data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png" class="image-mii">
-             <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+             <input data-comment-id="13123" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
              <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Savid Dosa</p>
              <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
              <p class="content">ok</p>
@@ -203,8 +204,8 @@
         
         <div class="live-comment" id="2">
     <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/3avg1zb72bccp_happy_face.png">
-    <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+    <input data-comment-id="13123" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+    <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
     <p class="username-mii" data-sound="SE_WAVE_MII_FACE">「Imora」</p>
     <p class="date" data-sound="SE_WAVE_MII_FACE">2 hours ago • 2 Yeahs</p>
     <p class="content">This is an tvii, i thought it was juxt, damn, its just tvii.</p>
@@ -212,8 +213,8 @@
   
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/2lzq6jgsjvtbx_normal_face.png">
-      <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input data-comment-id="234224" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">Term</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -221,8 +222,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input data-comment-id="345345" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -230,8 +231,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input data-comment-id="3634" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -239,8 +240,8 @@
           
           <div class="live-comment" id="2">
             <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-            <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input data-comment-id="123424" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
             <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
     <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -248,8 +249,8 @@
   
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-      <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input data-comment-id="17573" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -257,8 +258,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input data-comment-id="866424" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -266,8 +267,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input data-comment-id="62523242" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -275,8 +276,8 @@
           
           <div class="live-comment" id="2">
             <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-            <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input data-comment-id="735434" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
             <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
     <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -284,8 +285,8 @@
   
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-      <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input data-comment-id="235235" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -293,8 +294,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input data-comment-id="164253" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -302,8 +303,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input data-comment-id="733453" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -311,8 +312,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input data-comment-id="1623253" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
@@ -320,8 +321,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input data-comment-id="14234234" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic casting a warm glow over the tranquil ocean waves.</p>
@@ -333,14 +334,14 @@
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
             <p class="content">lo</p>
             <img class="content-img" src="../img/doodle.png">
-            <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           </div>
           
           <div class="live-comment" id="2">
             <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-            <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-            <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+            <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+            <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
             <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
             <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
                 <p class="content">mario did a poopee lol, but he doesnt know</p>
@@ -348,8 +349,8 @@
                   
                   <div class="live-comment" id="2">
                     <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-                    <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-                    <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+                    <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+                    <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
                     <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
                     <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
     <p class="content">what the actual spaghetti man, what the actual lord e lord papa mamma mia its a me LOL</p>
@@ -361,13 +362,13 @@
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">if i make fun of your crazy feeties, or give sugar cookies to miss diabetes, thats not only a technical foul, but possibly an homicide</p>
       <img class="content-img" src="../img/doodle.png">
-      <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <div class="replies">
         <div class="live-reply">
            <div class="reply-image"></div>
            <img data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/10ecdoewepj7h_normal_face.png" class="image-mii">
-           <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+           <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
            <p class="username-mii" data-sound="SE_WAVE_MII_FACE">NoNameGave</p>
            <p class="date" data-sound="SE_WAVE_MII_FACE">2 minutes ago • 7 Yeahs</p>
            <p class="content">this drawing smells</p>
@@ -377,8 +378,8 @@
 
     <div class="live-comment" id="2">
       <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-      <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-      <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+      <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+      <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
       <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
       <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
       <p class="content">lol</p>
@@ -386,8 +387,8 @@
   
       <div class="live-comment" id="2">
         <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-        <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-        <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+        <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+        <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
         <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
         <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
         <p class="content">t</p>
@@ -395,8 +396,8 @@
         
         <div class="live-comment" id="2">
           <img class="image-mii" data-sound="SE_WORD_MII" src="http://mii-images.account.nintendo.net/l7nesmcevej9_normal_face.png">
-          <input navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
-          <input onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
+          <input data-comment-id="1252343" onclick="addYeah(this)" navi_target onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="button" data-sound="SE_WAVE_OK" class="yeah-button">
+          <input onchange="postComment(this)" onmousemove="tvii.addHover(true, this)" onmouseout="tvii.addHover(false, this)" type="text" minlength="1" maxlength="100" data-sound="SE_WAVE_OK_SUB" class="reply-button">
           <p class="username-mii" data-sound="SE_WAVE_MII_FACE">David Joaq</p>
           <p class="date" data-sound="SE_WAVE_MII_FACE">5 minutes ago • 2 Yeahs</p>
           <p class="content">A majestic sunset paints the sky in hues of orange and pink, casting a warm glow over the tranquil ocean waves.</p>
