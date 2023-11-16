@@ -3,12 +3,50 @@ var context;
     // shouldnt this be on vino.js, yeah soon...
     var momentIdVal = document.getElementById("moment-value").value;
     var showIdVal = document.getElementById("show-value").value;
+    var programTopicTag = document.getElementById("show-topic-tag").value;
+
+    alert("Please do not try to comment or reply with any offensive or inappropiate language on TV Tag.\nFeelings set in comments, Doodles, replies and Yeahs are not crossposted to Miiverse, For more info about crossposting see the manual in the Settings page.");
 
 function changeColor(color) {
    vino.lyt_startTouchEffect();
    vino.soundPlay('SE_A_DECIDE');
    context.strokeStyle = color;
  }
+
+ function addYeah(button) {
+   tvii.showLoad(true);
+   var postId = button.getAttribute("data-comment-id");
+
+   var request = new XMLHttpRequest();
+   request.open("POST", vino.olv_getHostName() + "/v1/" + postId + "/empathies")
+   request.send()
+   button.classList.add("hover");
+   button.removeAttribute("navi_target");
+   button.setAttribute("disabled", "");
+   tvii.showLoad(false);
+ }
+
+ function postComment(postInput) {
+   tvii.showLoad(true);
+   
+   // Get the previous sibling (yeah button)
+   var yeahButton = postInput.previousElementSibling;
+   var postReplyingTo = yeahButton.getAttribute("data-comment-id");
+   var myComment = postInput.value;
+   var commentForm = new FormData();
+
+   commentForm.append("reply_for", postReplyingTo);
+   commentForm.append("comment", myComment);
+   commentForm.append("pid", vino.act_getPid(activeUserSlot));
+
+   var request = new XMLHttpRequest();
+   request.open("POST", vino.olv_getHostName() + "/v1/replies");
+   request.send(commentForm);
+
+   postInput.value = "";
+   tvii.showLoad(false);
+}
+
 
  function selectPenSize(x) {
    document.getElementById("pencil-t-big").classList.remove("selected");
@@ -67,6 +105,7 @@ for (var i = 0; i < feelingMii.length; i++) {
 }
 
 var feelingMiiInput = document.querySelectorAll("#feeling-selector-toggle li");
+var userMiiEmpathyToggle = document.getElementById("user-mii-empathy-toggle-selector");
 
 // Add a class to a specific element and remove it from its siblings
 function addClassFeelingChat(sib) {
@@ -78,18 +117,49 @@ function addClassFeelingChat(sib) {
     }
   }
 
-  // Add the class to the specific element
   sib.classList.add("selected");
+
+  var feelingValue = sib.querySelector('input[name="feeling_id_chat"]').value;
+
+  changeImageSource(feelingValue);
+}
+
+function changeImageSource(feelingValue) {
+  var userMiiImg = userMiiEmpathyToggle.querySelector('.mii');
+
+  switch (feelingValue) {
+   case "0":
+   userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 1);
+   break;
+   case "1":
+   userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 2);
+   break;
+   case "2":
+   userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 3);
+    break;
+    case "3":
+   userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 4);
+   break;
+   case "4":
+    userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 5);
+   break;
+   case "5":
+    userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 6);
+   break;
+   default:
+   userMiiImg.src = vino.act_getMiiImageEx(activeUserSlot, 1);
+  }
 }
 
 // Adding click event listeners to each li element
 for (var i = 0; i < feelingMiiInput.length; i++) {
   var li = feelingMiiInput[i];
   li.addEventListener("click", function() {
-   addClassFeelingChat(this);
+    addClassFeelingChat(this);
   });
 }
 
+document.querySelector("#user-mii-empathy-toggle-selector .mii").src = vino.act_getMiiImageEx(activeUserSlot, 1);
 
 // Check for the canvas tag onload. 
 if(window.addEventListener) { 
@@ -115,8 +185,10 @@ canvaso = document.getElementById('doodle-canvas');
    context.strokeStyle = "#000000";// Default line color. 
    context.lineWidth = 3.0;// Default stroke weight. 
 
+   document.getElementById('doodle-input-value').addEventListener('click', popupDoodleCheck);
+   document.getElementById('user-chat-input').addEventListener('click', popupDoodleCheck);
    document.getElementById('sidebar-delete').addEventListener('click', cleanDraw);
-   document.getElementById('pencil-thick-select-popup').addEventListener('click',  popupDoodleCheck());
+   document.getElementById('pencil-thick-select-popup').addEventListener('click',  popupDoodleCheck);
    document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
    document.getElementById('user-chat-input').addEventListener('change', postChatComment);
    document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
@@ -134,6 +206,7 @@ canvaso = document.getElementById('doodle-canvas');
               feeling_value_chat_input = checkedFeelingChat[i].value;
           }
       }
+      if (vino.ng_checkText(myCommentValue)) {
       var chatForm = new FormData();
 
       chatForm.append("show_id", showIdVal)
@@ -143,12 +216,12 @@ canvaso = document.getElementById('doodle-canvas');
       chatForm.append("comment", myCommentValue)
   
       var request = new XMLHttpRequest();
-      request.open("POST", vino.olv_getHostName() + "/v1/posts")
+      request.open("POST", vino.olv_getHostName() + "/v1/comments")
       request.send(chatForm)
-      request.onload = function() {
-         tvii.showLoad(false)
-       };
-      setTimeout(function() {tvii.showLoad(false)}, 1000);
+      vino.olv_postText(myCommentValue, programTopicTag, 800, false, 'vino_search_key', '', '', '', '')
+      tvii.showLoad(false);
+      document.getElementById("user-chat-input").value = "";
+   } else {alert('This comment contains inappropriate words\nPlease post a different message.'), tvii.showLoad(false);}
       }
 
    function changeInputColor() {
@@ -204,6 +277,11 @@ canvaso = document.getElementById('doodle-canvas');
 
          if (document.getElementById('feeling-selector-popup').classList.contains('show')){
             document.getElementById('feeling-selector-popup').classList.remove('show');
+            vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
+         }
+
+         if (document.getElementById('feeling-selector-toggle').classList.contains('show')){
+            document.getElementById('feeling-selector-toggle').classList.remove('show');
             vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
       }
@@ -326,7 +404,7 @@ finishBtn.addEventListener('click', function (e) {
 
 function postDoodleImg() {
     var doodleComVal = document.getElementById("doodle-input-value").value;
-
+    if (vino.ng_checkText(doodleComVal)) {
     var doodleForm = new FormData();
 
     doodleForm.append("show_id", showIdVal)
@@ -337,10 +415,12 @@ function postDoodleImg() {
     doodleForm.append("doodle_img", curDoodle.toDataURL('image/png'))
 
     var request = new XMLHttpRequest();
-    request.open("POST", vino.olv_getHostName() + "/v1/posts")
+    request.open("POST", vino.olv_getHostName() + "/v1/comments")
     request.send(doodleForm)
-    setTimeout(function() {tvii.showLoad(false)}, 4000);
+    tvii.showLoad(false);
+    document.getElementById("doodle-input-value").value = "";
     hideDoodleModal();
+   } else {alert('This comment contains inappropriate words\nPlease post a different message.'), tvii.showLoad(false);}
 }
 
 postDoodleImg();
