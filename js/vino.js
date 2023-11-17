@@ -258,6 +258,14 @@ if (typeof vino === 'undefined') {
       pc_isControlledNetworkCommunication: function() {
           console.log('No Network Communication Settings');
           return false;
+      },
+      ng_checkText: function(message) {
+          console.log(message + ' does not contain any blacklisted words.');
+          return true;
+      },
+      ng_checkWord: function(message) {
+          console.log(message + ' is not a blacklisted word.');
+          return true;
       }
 
   };

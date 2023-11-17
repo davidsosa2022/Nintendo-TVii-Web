@@ -1,11 +1,11 @@
 var context;
 
     // shouldnt this be on vino.js, yeah soon...
-    var momentIdVal = document.getElementById("moment-value").value;
-    var showIdVal = document.getElementById("show-value").value;
-    var programTopicTag = document.getElementById("show-topic-tag").value;
+    var momentIdVal = document.querySelector('#moment-value').value;
+    var showIdVal = document.querySelector('#show-value').value;
+    var programTopicTag = document.querySelector('#show-topic-tag').value;
 
-    alert("Please do not try to comment or reply with any offensive or inappropiate language on TV Tag.\nFeelings set in comments, Doodles, replies and Yeahs are not crossposted to Miiverse, For more info about crossposting see the manual in the Settings page.");
+    alert("Please do not try to comment or reply with any offensive or inappropiate language on TV Tag.\nFeelings set in posts, replies, Doodles and Yeahs are not crossposted to Miiverse, For more info about crossposting see the manual in the Settings page.");
 
 function changeColor(color) {
    vino.lyt_startTouchEffect();
@@ -49,10 +49,10 @@ function changeColor(color) {
 
 
  function selectPenSize(x) {
-   document.getElementById("pencil-t-big").classList.remove("selected");
-   document.getElementById("pencil-t-medium").classList.remove("selected");
-   document.getElementById("pencil-t-normal").classList.remove("selected");
-   document.getElementById("pencil-t-tiny").classList.remove("selected");
+   document.querySelector('#pencil-t-big').classList.remove("selected");
+   document.querySelector('#pencil-t-medium').classList.remove("selected");
+   document.querySelector('#pencil-t-normal').classList.remove("selected");
+   document.querySelector('#pencil-t-tiny').classList.remove("selected");
    x.classList.add("selected");
 }
 
@@ -105,7 +105,7 @@ for (var i = 0; i < feelingMii.length; i++) {
 }
 
 var feelingMiiInput = document.querySelectorAll("#feeling-selector-toggle li");
-var userMiiEmpathyToggle = document.getElementById("user-mii-empathy-toggle-selector");
+var userMiiEmpathyToggle = document.querySelector('#user-mii-empathy-toggle-selector');
 
 // Add a class to a specific element and remove it from its siblings
 function addClassFeelingChat(sib) {
@@ -164,14 +164,14 @@ document.querySelector("#user-mii-empathy-toggle-selector .mii").src = vino.act_
 // Check for the canvas tag onload. 
 if(window.addEventListener) { 
  window.addEventListener('load', function () {
-   document.getElementById("pencil-t-normal").classList.add("selected");
+   document.querySelector('#pencil-t-normal').classList.add("selected");
 var canvas, canvaso, contexto; 
  // Default tool. (chalk, line, rectangle) 
    var tool; 
    var tool_default = 'chalk'; 
  
 function init () { 
-canvaso = document.getElementById('doodle-canvas'); 
+canvaso = document.querySelector('#doodle-canvas'); 
 // Create 2d canvas. 
    contexto = canvaso.getContext('2d'); 
  // Build the temporary canvas. 
@@ -185,20 +185,20 @@ canvaso = document.getElementById('doodle-canvas');
    context.strokeStyle = "#000000";// Default line color. 
    context.lineWidth = 3.0;// Default stroke weight. 
 
-   document.getElementById('doodle-input-value').addEventListener('click', popupDoodleCheck);
-   document.getElementById('user-chat-input').addEventListener('click', popupDoodleCheck);
-   document.getElementById('sidebar-delete').addEventListener('click', cleanDraw);
-   document.getElementById('pencil-thick-select-popup').addEventListener('click',  popupDoodleCheck);
-   document.getElementById('colorHexInput').addEventListener('change', changeInputColor);
-   document.getElementById('user-chat-input').addEventListener('change', postChatComment);
-   document.getElementById("sidebar-colors-scroll").addEventListener('scroll', colorScroll);
-   document.getElementById("sidebar-pencil").addEventListener('click', penSelect);
-   document.getElementById("sidebar-feeling").addEventListener('click', feelingSelect);
-   document.getElementById("user-mii-empathy-toggle-selector").addEventListener('click', feelingSelectChat);
+   document.querySelector('#doodle-input-value').addEventListener('click', popupDoodleCheck);
+   document.querySelector('#user-chat-input').addEventListener('click', popupDoodleCheck);
+   document.querySelector('#sidebar-delete').addEventListener('click', cleanDraw);
+   document.querySelector('#pencil-thick-select-popup').addEventListener('click',  popupDoodleCheck);
+   document.querySelector('#colorHexInput').addEventListener('change', changeInputColor);
+   document.querySelector('#user-chat-input').addEventListener('change', postChatComment);
+   document.querySelector("#sidebar-colors-scroll").addEventListener('scroll', colorScroll);
+   document.querySelector("#sidebar-pencil").addEventListener('click', penSelect);
+   document.querySelector("#sidebar-feeling").addEventListener('click', feelingSelect);
+   document.querySelector("#user-mii-empathy-toggle-selector").addEventListener('click', feelingSelectChat);
 
    function postChatComment() {
       tvii.showLoad(true);
-      var myCommentValue = document.getElementById("user-chat-input").value;
+      var myCommentValue = document.querySelector("#user-chat-input").value;
       var checkedFeelingChat = document.getElementsByName('feeling_id_chat');
       var feeling_value_chat_input;
       for (i = 0; i < checkedFeelingChat.length; i++) {
@@ -207,6 +207,7 @@ canvaso = document.getElementById('doodle-canvas');
           }
       }
       if (vino.ng_checkText(myCommentValue)) {
+      vino.olv_postText(myCommentValue, programTopicTag, 0, false, 'vino_search_key', '', '', '', '')
       var chatForm = new FormData();
 
       chatForm.append("show_id", showIdVal)
@@ -218,18 +219,20 @@ canvaso = document.getElementById('doodle-canvas');
       var request = new XMLHttpRequest();
       request.open("POST", vino.olv_getHostName() + "/v1/comments")
       request.send(chatForm)
-      vino.olv_postText(myCommentValue, programTopicTag, 800, false, 'vino_search_key', '', '', '', '')
+      alert(vino.olv_getPostingResult())
+      //Miiverse Posting
+
       tvii.showLoad(false);
-      document.getElementById("user-chat-input").value = "";
+      document.querySelector("#user-chat-input").value = "";
    } else {alert('This comment contains inappropriate words\nPlease post a different message.'), tvii.showLoad(false);}
       }
 
    function changeInputColor() {
-      document.getElementById('colorHexInput').classList.add('selected');
-      var inputColor = document.getElementById('colorHexInput').value
+      document.querySelector('#colorHexInput').classList.add('selected');
+      var inputColor = document.querySelector('#colorHexInput').value
       changeColor(inputColor);
       setTimeout(function() { 
-         document.getElementById('colorHexInput').classList.remove('selected');
+         document.querySelector('#colorHexInput').classList.remove('selected');
       }, 800);
       }
 
@@ -237,65 +240,65 @@ canvaso = document.getElementById('doodle-canvas');
 
    function penSelect() {
          vino.lyt_startTouchEffect(); vino.soundPlay('SE_WAVE_BALLOON_OPEN');
-         document.getElementById('pencil-thick-select-popup').classList.toggle("show");
+         document.querySelector('#pencil-thick-select-popup').classList.toggle("show");
 
-         if (document.getElementById('sidebar-feeling').classList.contains('selected')){
-            document.getElementById('sidebar-feeling').classList.remove('selected');
+         if (document.querySelector('#sidebar-feeling').classList.contains('selected')){
+            document.querySelector('#sidebar-feeling').classList.remove('selected');
          }
 
-         if (document.getElementById('feeling-selector-popup').classList.contains('show')){
-            document.getElementById('feeling-selector-popup').classList.remove('show');
+         if (document.querySelector('#feeling-selector-popup').classList.contains('show')){
+            document.querySelector('#feeling-selector-popup').classList.remove('show');
          }
       }
 
       function feelingSelect() {
          vino.lyt_startTouchEffect();
          vino.soundPlay('SE_WAVE_BALLOON_OPEN');
-         document.getElementById('feeling-selector-popup').classList.toggle("show");
-         document.getElementById('sidebar-feeling').classList.toggle("selected");
+         document.querySelector('#feeling-selector-popup').classList.toggle("show");
+         document.querySelector('#sidebar-feeling').classList.toggle("selected");
 
-         if (document.getElementById('pencil-thick-select-popup').classList.contains('show')){
-            document.getElementById('pencil-thick-select-popup').classList.remove('show');
+         if (document.querySelector('#pencil-thick-select-popup').classList.contains('show')){
+            document.querySelector('#pencil-thick-select-popup').classList.remove('show');
             vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
       }
 
       function feelingSelectChat() {
          vino.lyt_startTouchEffect(); vino.soundPlay('SE_WAVE_BALLOON_OPEN');
-         document.getElementById('feeling-selector-toggle').classList.toggle("show");
+         document.querySelector('#feeling-selector-toggle').classList.toggle("show");
       }
 
       function popupDoodleCheck() {
-         if (document.getElementById('pencil-thick-select-popup').classList.contains('show')){
-            document.getElementById('pencil-thick-select-popup').classList.remove('show');
+         if (document.querySelector('#pencil-thick-select-popup').classList.contains('show')){
+            document.querySelector('#pencil-thick-select-popup').classList.remove('show');
             vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
 
-         if (document.getElementById('sidebar-feeling').classList.contains('selected')){
-            document.getElementById('sidebar-feeling').classList.remove('selected');
+         if (document.querySelector('#sidebar-feeling').classList.contains('selected')){
+            document.querySelector('#sidebar-feeling').classList.remove('selected');
          }
 
-         if (document.getElementById('feeling-selector-popup').classList.contains('show')){
-            document.getElementById('feeling-selector-popup').classList.remove('show');
+         if (document.querySelector('#feeling-selector-popup').classList.contains('show')){
+            document.querySelector('#feeling-selector-popup').classList.remove('show');
             vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
 
-         if (document.getElementById('feeling-selector-toggle').classList.contains('show')){
-            document.getElementById('feeling-selector-toggle').classList.remove('show');
+         if (document.querySelector('#feeling-selector-toggle').classList.contains('show')){
+            document.querySelector('#feeling-selector-toggle').classList.remove('show');
             vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
       }
 
       window.addEventListener('mousemove', function (event) {
-         if (event.target == document.getElementById('doodle-temp-canvas')) {
+         if (event.target == document.querySelector('#doodle-temp-canvas')) {
          popupDoodleCheck()
           }
      });
 
      
       window.addEventListener('scroll', function () {     
-         if (document.getElementById('feeling-selector-toggle').classList.contains('show')){
-            document.getElementById('feeling-selector-toggle').classList.remove('show');
+         if (document.querySelector('#feeling-selector-toggle').classList.contains('show')){
+            document.querySelector('#feeling-selector-toggle').classList.remove('show');
             vino.soundPlay('SE_WAVE_BALLOON_CLOSE');
          }
       });
@@ -309,18 +312,18 @@ canvaso = document.getElementById('doodle-canvas');
 
    function cleanDraw() {
       vino.lyt_startTouchEffect();
-      document.getElementById('sidebar-delete').classList.add('selected');
+      document.querySelector('#sidebar-delete').classList.add('selected');
       vino.soundPlay('SE_DELETE_SMALL');
       setTimeout(function() { 
          canvaso.width = canvaso.width;
          contexto.drawImage(moment, 0, 0, 723, 407);
-         document.getElementById('sidebar-delete').classList.remove('selected');
+         document.querySelector('#sidebar-delete').classList.remove('selected');
       }, 800);
 
    } 
 
 // Create a select field with our tools. 
- var tool_select = document.getElementById('selector'); 
+ var tool_select = document.querySelector('#selector'); 
  tool_select.addEventListener('change', ev_tool_change, false); 
  
  // Activate the default tool (chalk). 
@@ -390,8 +393,8 @@ canvaso = document.getElementById('doodle-canvas');
    //posts the doodle
 
 window.onload = function() {
-var curDoodle = document.getElementById("doodle-canvas"); 
-var finishBtn = document.getElementById('finishModal');
+var curDoodle = document.querySelector('#doodle-canvas'); 
+var finishBtn = document.querySelector('#finishModal');
 finishBtn.addEventListener('click', function (e) {
    tvii.showLoad(true);
    var checkedFeeling = document.getElementsByName('feeling_id');
@@ -403,7 +406,7 @@ finishBtn.addEventListener('click', function (e) {
    }
 
 function postDoodleImg() {
-    var doodleComVal = document.getElementById("doodle-input-value").value;
+    var doodleComVal = document.querySelector('#doodle-input-value').value;
     if (vino.ng_checkText(doodleComVal)) {
     var doodleForm = new FormData();
 
@@ -418,7 +421,7 @@ function postDoodleImg() {
     request.open("POST", vino.olv_getHostName() + "/v1/comments")
     request.send(doodleForm)
     tvii.showLoad(false);
-    document.getElementById("doodle-input-value").value = "";
+    document.querySelector('#doodle-input-value').value = "";
     hideDoodleModal();
    } else {alert('This comment contains inappropriate words\nPlease post a different message.'), tvii.showLoad(false);}
 }
