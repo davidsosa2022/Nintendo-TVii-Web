@@ -528,7 +528,7 @@ ul.sidebar {
 }
 
 .live-comment:last-child {
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 .live-comment .image-mii {
@@ -889,7 +889,7 @@ ul.sidebar {
 }
 
  #doodle-canvas { 
- position:absolute; 
+ position:absolute;
  border:none; 
  color:#FFF; 
  overflow:hidden; 
@@ -900,8 +900,6 @@ ul.sidebar {
  
 #doodle-temp-canvas {
    position: absolute;
-   width:723px;
-   height: 407px;
    top: 0px;
    left: 0px; 
    overflow:hidden; 
@@ -1491,11 +1489,9 @@ border-top: 1px solid #aaaaaa;
   width: 360px;
   margin-left: 0px; 
   margin-right: 10px;
-  margin-top: 40px;
+  margin-top: 5px;
   margin-bottom: 100px;
   left: 475px;
-  font-size: 0;
-  padding: 0px;
 }
 
 .tv-tag-moments .moment {
@@ -1834,7 +1830,6 @@ left: 85px;
 .sports-metadata.football .team-football.first-stats.t1.ot {
   top: 380px;
   left: 404px;
-  font-size: 16px;
 }
 
 .sports-metadata.football .team-football.first-stats.t1.t {
@@ -1866,7 +1861,6 @@ left: 85px;
 .sports-metadata.football .team-football.first-stats.t2.ot {
   top: 440px;
   left: 404px;
-  font-size: 16px;
 }
 
 .sports-metadata.football .team-football.first-stats.t2.t {
